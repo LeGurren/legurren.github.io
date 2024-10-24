@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Games Market</title>
+    <style>
+        /* Пример стилей для карточек */
+        .games {
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 20px;
+        }
+        .game-card, .offer-card {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            text-align: center;
+            width: 150px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .offer-card {
+            margin-top: 20px;
+            background-color: #f5f5f5;
+        }
+        .offer-card .price {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <div class="games">
+        <div class="game-card">Brawl Stars</div>
+        <div class="game-card">PUBG</div>
+        <div class="game-card">Roblox</div>
+        <div class="game-card">Steam</div>
+        <div class="game-card">Clash Royale</div>
+    </div>
+
+    <div class="offers">
+        <div class="offer-card">
+            <h3>170 Гемов</h3>
+            <p class="price">1250 ₽ -10%</p>
+        </div>
+        <div class="offer-card">
+            <h3>Бравл Пасс</h3>
+            <p class="price">1050 ₽ -10%</p>
+        </div>
+    </div>
+</body>
+</html>
