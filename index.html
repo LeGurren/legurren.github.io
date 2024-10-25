@@ -16,56 +16,24 @@
             max-width: 600px;
             margin: 0 auto;
         }
-        .balance-section {
+        .game-section {
             background-color: white;
             padding: 20px;
             border-radius: 10px;
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
             margin-bottom: 20px;
+        }
+        .game-section h2 {
+            font-size: 24px;
+            color: #333;
             text-align: center;
         }
-        .balance-section h2 {
-            margin: 0;
-            font-size: 24px;
-            color: #333;
-        }
-        .balance-section p {
-            font-size: 18px;
-            color: #555;
-        }
-        .balance-buttons {
-            display: flex;
-            justify-content: space-around;
-            margin-top: 10px;
-        }
-        .balance-buttons button {
-            padding: 10px 20px;
-            background-color: #3498db;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-        .balance-buttons button:hover {
-            background-color: #2980b9;
-        }
-
-        .shop-section {
-            background-color: white;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-        }
-        .shop-section h2 {
-            font-size: 24px;
-            color: #333;
-        }
-        .products {
+        .games {
             display: flex;
             flex-wrap: wrap;
             justify-content: space-around;
         }
-        .product-card {
+        .game-card {
             background-color: #f9f9f9;
             border-radius: 10px;
             padding: 15px;
@@ -74,35 +42,58 @@
             text-align: center;
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
-        .product-card img {
+        .game-card img {
             width: 80px;
             margin-bottom: 10px;
         }
-        .product-card h3 {
+        .game-card h3 {
             font-size: 18px;
             margin: 0;
             color: #333;
         }
-        .product-card p {
-            font-size: 16px;
-            color: #555;
-        }
-        .product-card button {
+        .game-card button {
             padding: 10px;
-            background-color: #2ecc71;
+            background-color: #3498db;
             color: white;
             border: none;
             border-radius: 5px;
             cursor: pointer;
             width: 100%;
         }
-        .product-card button:hover {
-            background-color: #27ae60;
+        .game-card button:hover {
+            background-color: #2980b9;
         }
     </style>
 </head>
 <body>
     <div class="container">
+        <!-- Секция выбора игры -->
+        <div class="game-section">
+            <h2>Выберите игру</h2>
+            <div class="games">
+                <div class="game-card">
+                    <img src="pubg.png" alt="PUBG">
+                    <h3>PUBG Mobile</h3>
+                    <button onclick="selectGame('PUBG')">Выбрать</button>
+                </div>
+                <div class="game-card">
+                    <img src="standoff2.png" alt="Standoff 2">
+                    <h3>Standoff 2</h3>
+                    <button onclick="selectGame('Standoff 2')">Выбрать</button>
+                </div>
+                <div class="game-card">
+                    <img src="freefire.png" alt="Free Fire">
+                    <h3>Free Fire</h3>
+                    <button onclick="selectGame('Free Fire')">Выбрать</button>
+                </div>
+                <div class="game-card">
+                    <img src="mobilelegends.png" alt="Mobile Legends">
+                    <h3>Mobile Legends</h3>
+                    <button onclick="selectGame('Mobile Legends')">Выбрать</button>
+                </div>
+            </div>
+        </div>
+
         <!-- Профиль с балансом -->
         <div class="balance-section">
             <h2>Ваш баланс: <span id="balance">0.00 руб</span></h2>
@@ -169,6 +160,12 @@
                 alert("Недостаточно средств на балансе!");
             }
         }
+
+        function selectGame(game) {
+            alert(`Вы выбрали игру: ${game}`);
+            // Здесь можно сделать дальнейшую логику для выбора игры
+        }
     </script>
 </body>
 </html>
+
