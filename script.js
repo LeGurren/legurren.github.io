@@ -1,21 +1,16 @@
-// Открытие модального окна для оформления заказа
-function openModal(gameName, price) {
-    var modal = document.getElementById("modal");
-    var gameInfo = document.getElementById("game-info");
-    gameInfo.innerHTML = "Игра: " + gameName + "<br>Цена: " + price;
-    modal.style.display = "block";
-}
+// Telegram WebApp integration
+window.addEventListener('load', function () {
+    // Telegram Web App Widgets
+    const loginButton = document.getElementById('loginBtn');
 
-// Закрытие модального окна
-function closeModal() {
-    var modal = document.getElementById("modal");
-    modal.style.display = "none";
-}
+    // Telegram логин через виджет
+    loginButton.addEventListener('click', function() {
+        window.TelegramLoginWidget = new Telegram.WebApp();
+        Telegram.WebApp.init();
 
-// Закрытие модального окна при нажатии на любое место вне окна
-window.onclick = function(event) {
-    var modal = document.getElementById("modal");
-    if (event.target == modal) {
-        modal.style.display = "none";
-    }
-}
+        Telegram.WebApp.onEvent('auth', (data) => {
+            console.log('Logged in as:', data.username);
+            loginButton.textContent = `Добро пожаловать, ${data.first_name}`;
+        });
+    });
+});
