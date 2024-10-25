@@ -3,61 +3,43 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SharkGems - Покупка гемов</title>
+    <title>Games Market</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- Заголовок сайта -->
+    <!-- Шапка с логотипом и кнопкой входа -->
     <header>
-        <h1>SharkGems</h1>
-        <p>Покупка гемов в любимых играх по выгодной цене</p>
+        <div class="logo">
+            <img src="image/logo.png" alt="Games Market">
+        </div>
+        <div class="login">
+            <button id="loginBtn">Войти через Telegram</button>
+        </div>
     </header>
 
-    <!-- Раздел с играми -->
-    <section id="games">
-        <h2>Популярные игры</h2>
-        <div class="game-container">
-            <!-- Карточка игры -->
-            <div class="game-card">
-                <img src="image/clash_of_clans.jpg" alt="Clash of Clans">
-                <h3>Clash of Clans</h3>
-                <p>80 гемов - 125 ₽</p>
-                <button class="buy-button" onclick="openModal('Clash of Clans', '125 ₽')">Купить</button>
+    <!-- Секция с играми -->
+    <section id="games-section">
+        <h1>Популярные игры</h1>
+        <div class="games-grid">
+            <div class="game">
+                <img src="image/clashofclans.webp" alt="Clash of Clans">
+                <h2>Clash of Clans</h2>
+                <button>Купить гемы</button>
             </div>
-            <div class="game-card">
-                <img src="image/brawl_stars.jpg" alt="Brawl Stars">
-                <h3>Brawl Stars</h3>
-                <p>30 гемов - 300 ₽</p>
-                <button class="buy-button" onclick="openModal('Brawl Stars', '300 ₽')">Купить</button>
+            <div class="game">
+                <img src="image/brawlstars.webp" alt="Brawl Stars">
+                <h2>Brawl Stars</h2>
+                <button>Купить гемы</button>
             </div>
-            <!-- Добавьте больше игр по аналогии -->
+            <!-- Добавить больше игр по мере необходимости -->
         </div>
     </section>
 
-    <!-- Модальное окно для оформления заказа -->
-    <div id="modal" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeModal()">&times;</span>
-            <h2>Оформление заказа</h2>
-            <p id="game-info"></p>
-            <h3>Способ оплаты</h3>
-            <form id="payment-form">
-                <label>
-                    <input type="radio" name="payment" value="СБП (Wata)">
-                    СБП (Wata)
-                </label><br>
-                <label>
-                    <input type="radio" name="payment" value="Картой (Kassa)">
-                    Картой (Kassa)
-                </label><br><br>
-                <button type="submit">Оплатить</button>
-            </form>
-        </div>
-    </div>
-
+    <!-- Скрипт для входа через Telegram -->
     <script src="script.js"></script>
 </body>
 </html>
+
 
 
 
