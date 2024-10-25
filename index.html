@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SharkGems</title>
+    <title>Games Market</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -58,7 +58,16 @@
             border: none;
             border-radius: 5px;
             cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             width: 100%;
+            font-size: 16px;
+        }
+        .game-card button img {
+            width: 24px;
+            height: 24px;
+            margin-right: 10px;
         }
         .game-card button:hover {
             background-color: #2980b9;
@@ -72,95 +81,38 @@
             <h2>Выберите игру</h2>
             <div class="games">
                 <div class="game-card">
-                    <img src="pubg.png" alt="PUBG">
+                    <img src="image/pubg-icon.webp" alt="PUBG">
                     <h3>PUBG Mobile</h3>
-                    <button onclick="selectGame('PUBG')">Выбрать</button>
+                    <button onclick="selectGame('PUBG')">
+                        <img src="image/pubg-icon.webp" alt="PUBG"> Выбрать
+                    </button>
                 </div>
                 <div class="game-card">
-                    <img src="standoff2.png" alt="Standoff 2">
+                    <img src="image/standoff2-icon.webp" alt="Standoff 2">
                     <h3>Standoff 2</h3>
-                    <button onclick="selectGame('Standoff 2')">Выбрать</button>
+                    <button onclick="selectGame('Standoff 2')">
+                        <img src="image/standoff2-icon.webp" alt="Standoff 2"> Выбрать
+                    </button>
                 </div>
                 <div class="game-card">
-                    <img src="freefire.png" alt="Free Fire">
+                    <img src="image/freefire-icon.webp" alt="Free Fire">
                     <h3>Free Fire</h3>
-                    <button onclick="selectGame('Free Fire')">Выбрать</button>
+                    <button onclick="selectGame('Free Fire')">
+                        <img src="image/freefire-icon.webp" alt="Free Fire"> Выбрать
+                    </button>
                 </div>
                 <div class="game-card">
-                    <img src="mobilelegends.png" alt="Mobile Legends">
+                    <img src="image/mobilelegends-icon.webp" alt="Mobile Legends">
                     <h3>Mobile Legends</h3>
-                    <button onclick="selectGame('Mobile Legends')">Выбрать</button>
-                </div>
-            </div>
-        </div>
-
-        <!-- Профиль с балансом -->
-        <div class="balance-section">
-            <h2>Ваш баланс: <span id="balance">0.00 руб</span></h2>
-            <p>@leguren</p>
-            <div class="balance-buttons">
-                <button id="top-up-btn">Пополнить</button>
-                <button id="get-free-btn">Получить баланс бесплатно</button>
-            </div>
-        </div>
-
-        <!-- Магазин гемов -->
-        <div class="shop-section">
-            <h2>Магазин гемов</h2>
-            <div class="products">
-                <div class="product-card">
-                    <img src="gem30.png" alt="30 гемов">
-                    <h3>x30 Гемов</h3>
-                    <p>300 руб</p>
-                    <button onclick="buy(300)">Купить</button>
-                </div>
-                <div class="product-card">
-                    <img src="gem80.png" alt="80 гемов">
-                    <h3>x80 Гемов</h3>
-                    <p>570 руб</p>
-                    <button onclick="buy(570)">Купить</button>
-                </div>
-                <div class="product-card">
-                    <img src="gem170.png" alt="170 гемов">
-                    <h3>x170 Гемов</h3>
-                    <p>1250 руб</p>
-                    <button onclick="buy(1250)">Купить</button>
-                </div>
-                <div class="product-card">
-                    <img src="gem360.png" alt="360 гемов">
-                    <h3>x360 Гемов</h3>
-                    <p>2250 руб</p>
-                    <button onclick="buy(2250)">Купить</button>
+                    <button onclick="selectGame('Mobile Legends')">
+                        <img src="image/mobilelegends-icon.webp" alt="Mobile Legends"> Выбрать
+                    </button>
                 </div>
             </div>
         </div>
     </div>
 
     <script>
-        let balance = 0;
-
-        document.getElementById('top-up-btn').addEventListener('click', () => {
-            let amount = prompt("Введите сумму для пополнения баланса:");
-            if (amount) {
-                balance += parseFloat(amount);
-                document.getElementById('balance').textContent = `${balance.toFixed(2)} руб`;
-            }
-        });
-
-        document.getElementById('get-free-btn').addEventListener('click', () => {
-            alert("Получение бесплатного баланса в разработке.");
-        });
-
-        function buy(price) {
-            if (balance >= price) {
-                balance -= price;
-                document.getElementById('balance').textContent = `${balance.toFixed(2)} руб`;
-                alert("Вы успешно купили товар!");
-            } else {
-                alert("Недостаточно средств на балансе!");
-            }
-        }
-
         function selectGame(game) {
             alert(`Вы выбрали игру: ${game}`);
             // Здесь можно сделать дальнейшую логику для выбора игры
@@ -168,4 +120,5 @@
     </script>
 </body>
 </html>
+
 
