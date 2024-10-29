@@ -5,6 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Games Market</title>
     <link rel="stylesheet" href="style.css">
+    <script async src="https://telegram.org/js/telegram-widget.js?7" 
+            data-telegram-login="@legurenstore_bot" 
+            data-size="large" 
+            data-radius="10"
+            data-auth-url="https://your-backend-url.com/auth"
+            data-request-access="write"></script>
 </head>
 <body>
     <!-- Шапка с логотипом и кнопкой входа -->
@@ -12,12 +18,11 @@
         <div class="logo">
             <img src="image/logo.png" alt="Games Market">
         </div>
-        <div class="login">
-            <button id="loginBtn">Войти через Telegram</button>
+        <div class="login" id="login-container">
+            <!-- Кнопка входа через Telegram будет добавлена здесь -->
         </div>
     </header>
 
-    <!-- Секция с играми -->
     <section id="games-section">
         <h1>Популярные игры</h1>
         <div class="games-grid">
@@ -31,14 +36,11 @@
                 <h2>Brawl Stars</h2>
                 <button>Купить гемы</button>
             </div>
-            <!-- Добавить больше игр по мере необходимости -->
         </div>
     </section>
-
-    <!-- Скрипт для входа через Telegram -->
-    <script src="script.js"></script>
 </body>
 </html>
+
 
 
 
