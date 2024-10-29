@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SharkGems - Покупка гемов</title>
+    <title>GamesMarket</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -11,41 +11,56 @@
     <header class="header">
         <div class="container">
             <div class="logo">
-                <img src="images/logo.png" alt="SharkGems Logo">
-                <h1>SharkGems</h1>
+                <img src="images/logo.png" alt="GamesMarket Logo">
+                <h1>GamesMarket</h1>
             </div>
             <button id="loginBtn" class="login-button">Войти через Telegram</button>
         </div>
     </header>
 
-    <!-- Главная секция с играми -->
+    <!-- Секция с играми -->
     <section class="games-section">
         <div class="container">
-            <h2>Популярные игры</h2>
-            <div class="games-grid">
-                <!-- Пример карточки игры -->
-                <div class="game-card">
-                    <img src="images/clashofclans.jpg" alt="Clash of Clans">
-                    <h3>Clash of Clans</h3>
-                    <p>Цена: 300 руб</p>
-                    <button class="buy-button">Купить</button>
-                </div>
-                <div class="game-card">
-                    <img src="images/brawlstars.jpg" alt="Brawl Stars">
-                    <h3>Brawl Stars</h3>
-                    <p>Цена: 250 руб</p>
-                    <button class="buy-button">Купить</button>
-                </div>
-                <!-- Добавьте больше карточек по аналогии -->
+            <h2>Игры</h2>
+            <div class="games-horizontal-scroll">
+                <a href="#brawlstars" class="game-tile">
+                    <img src="images/brawlstars.png" alt="Brawl Stars">
+                    <span>Brawl Stars</span>
+                </a>
+                <a href="#pubg" class="game-tile">
+                    <img src="images/pubg.png" alt="PUBG Mobile">
+                    <span>PUBG Mobile</span>
+                </a>
+                <a href="#roblox" class="game-tile">
+                    <img src="images/roblox.png" alt="Roblox">
+                    <span>Roblox</span>
+                </a>
+                <a href="#steam" class="game-tile">
+                    <img src="images/steam.png" alt="Steam">
+                    <span>Steam</span>
+                </a>
+                <a href="#clashroyale" class="game-tile">
+                    <img src="images/clashroyale.png" alt="Clash Royale">
+                    <span>Clash Royale</span>
+                </a>
             </div>
         </div>
     </section>
 
-    <!-- Подвал -->
+    <!-- Секция с товарами, которая будет отображаться после выбора игры -->
+    <section id="products" class="products-section hidden">
+        <div class="container">
+            <h2>Товары</h2>
+            <div class="products-grid" id="products-grid">
+                <!-- Карточки товаров будут добавляться сюда с помощью JavaScript -->
+            </div>
+        </div>
+    </section>
+
     <footer class="footer">
         <div class="container">
-            <p>SharkGems © 2024. Все права защищены.</p>
-            <p>Контакты: support@sharkgems.com</p>
+            <p>GamesMarket © 2024. Все права защищены.</p>
+            <p>Контакты: support@gamesmarket.com</p>
         </div>
     </footer>
 
