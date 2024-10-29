@@ -3,51 +3,52 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Games Market</title>
+    <title>SharkGems - Покупка гемов</title>
     <link rel="stylesheet" href="style.css">
-    <script async src="https://telegram.org/js/telegram-widget.js?7" 
-            data-telegram-login="@legurenstore_bot" 
-            data-size="large" 
-            data-radius="10"
-            data-auth-url="https://your-backend-url.com/auth"
-            data-request-access="write"></script>
 </head>
 <body>
-    <!-- Шапка с логотипом и кнопкой входа -->
-    <header>
-        <div class="logo">
-            <img src="image/logo.png" alt="Games Market">
-        </div>
-        <div class="login" id="login-container">
-            <!-- Кнопка входа через Telegram будет добавлена здесь -->
+    <!-- Шапка сайта -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <img src="images/logo.png" alt="SharkGems Logo">
+                <h1>SharkGems</h1>
+            </div>
+            <button id="loginBtn" class="login-button">Войти через Telegram</button>
         </div>
     </header>
 
-<section id="games-section">
-    <h1>Популярные игры</h1>
-    <div class="games-grid">
-        <div class="game">
-            <img src="image/clashofclans.webp" alt="Clash of Clans">
-            <h2>Clash of Clans</h2>
-            <button onclick="buyGems('Clash of Clans')">Купить гемы</button>
+    <!-- Главная секция с играми -->
+    <section class="games-section">
+        <div class="container">
+            <h2>Популярные игры</h2>
+            <div class="games-grid">
+                <!-- Пример карточки игры -->
+                <div class="game-card">
+                    <img src="images/clashofclans.jpg" alt="Clash of Clans">
+                    <h3>Clash of Clans</h3>
+                    <p>Цена: 300 руб</p>
+                    <button class="buy-button">Купить</button>
+                </div>
+                <div class="game-card">
+                    <img src="images/brawlstars.jpg" alt="Brawl Stars">
+                    <h3>Brawl Stars</h3>
+                    <p>Цена: 250 руб</p>
+                    <button class="buy-button">Купить</button>
+                </div>
+                <!-- Добавьте больше карточек по аналогии -->
+            </div>
         </div>
-        <div class="game">
-            <img src="image/brawlstars.webp" alt="Brawl Stars">
-            <h2>Brawl Stars</h2>
-            <button onclick="buyGems('Brawl Stars')">Купить гемы</button>
+    </section>
+
+    <!-- Подвал -->
+    <footer class="footer">
+        <div class="container">
+            <p>SharkGems © 2024. Все права защищены.</p>
+            <p>Контакты: support@sharkgems.com</p>
         </div>
-        <!-- Добавьте больше игр по необходимости -->
-    </div>
-</section>
+    </footer>
 
-<script>
-    function buyGems(gameName) {
-        alert(`Вы собираетесь купить гемы для игры: ${gameName}`);
-        // Добавьте логику обработки покупки, например, отправка запроса на бекенд
-    }
-</script>
-
-
-
-
-
+    <script src="script.js"></script>
+</body>
+</html>
