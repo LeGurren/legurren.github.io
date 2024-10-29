@@ -15,20 +15,6 @@ header {
     color: white;
 }
 
-.logo img {
-    height: 50px;
-}
-
-.login button {
-    background-color: #fff;
-    color: #007bff;
-    padding: 10px 20px;
-    border: none;
-    cursor: pointer;
-    font-size: 16px;
-    border-radius: 5px;
-}
-
 #games-section {
     padding: 50px;
     text-align: center;
