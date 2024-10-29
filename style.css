@@ -1,52 +1,86 @@
-/* Общие стили */
+/* Основные стили */
 body {
     font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
     margin: 0;
     padding: 0;
-    background-color: #f9f9f9;
 }
 
-header {
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.header {
+    background-color: #007bff;
+    color: white;
+    padding: 20px 0;
+    text-align: center;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #007bff;
-    padding: 20px;
-    color: white;
 }
 
-#games-section {
-    padding: 50px;
+.logo img {
+    width: 50px;
+    margin-right: 10px;
+}
+
+.login-button {
+    background-color: #fff;
+    color: #007bff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.games-section {
     text-align: center;
+    padding: 40px 0;
 }
 
 .games-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 20px;
-    justify-items: center;
+    margin-top: 20px;
 }
 
-.game {
-    background-color: #fff;
+.game-card {
+    background: white;
     padding: 20px;
     border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: transform 0.3s;
 }
 
-.game img {
-    width: 150px;
-    height: 150px;
-    object-fit: cover;
+.game-card img {
+    max-width: 100%;
+    height: auto;
     border-radius: 10px;
 }
 
-button {
-    margin-top: 10px;
-    padding: 10px 20px;
-    background-color: #007bff;
+.buy-button {
+    background-color: #28a745;
     color: white;
     border: none;
+    padding: 10px;
     border-radius: 5px;
     cursor: pointer;
+    margin-top: 10px;
+}
+
+.buy-button:hover {
+    background-color: #218838;
+}
+
+.footer {
+    background-color: #333;
+    color: white;
+    padding: 20px 0;
+    text-align: center;
 }
