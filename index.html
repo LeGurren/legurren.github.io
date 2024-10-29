@@ -23,23 +23,29 @@
         </div>
     </header>
 
-    <section id="games-section">
-        <h1>Популярные игры</h1>
-        <div class="games-grid">
-            <div class="game">
-                <img src="image/clashofclans.webp" alt="Clash of Clans">
-                <h2>Clash of Clans</h2>
-                <button>Купить гемы</button>
-            </div>
-            <div class="game">
-                <img src="image/brawlstars.webp" alt="Brawl Stars">
-                <h2>Brawl Stars</h2>
-                <button>Купить гемы</button>
-            </div>
+<section id="games-section">
+    <h1>Популярные игры</h1>
+    <div class="games-grid">
+        <div class="game">
+            <img src="image/clashofclans.webp" alt="Clash of Clans">
+            <h2>Clash of Clans</h2>
+            <button onclick="buyGems('Clash of Clans')">Купить гемы</button>
         </div>
-    </section>
-</body>
-</html>
+        <div class="game">
+            <img src="image/brawlstars.webp" alt="Brawl Stars">
+            <h2>Brawl Stars</h2>
+            <button onclick="buyGems('Brawl Stars')">Купить гемы</button>
+        </div>
+        <!-- Добавьте больше игр по необходимости -->
+    </div>
+</section>
+
+<script>
+    function buyGems(gameName) {
+        alert(`Вы собираетесь купить гемы для игры: ${gameName}`);
+        // Добавьте логику обработки покупки, например, отправка запроса на бекенд
+    }
+</script>
 
 
 
