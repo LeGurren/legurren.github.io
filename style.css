@@ -1,69 +1,40 @@
-/* Основные стили */
-body {
+/* Дневная тема */
+body.light-theme {
     font-family: Arial, sans-serif;
     background-color: #f4f4f9;
+    color: #000;
     margin: 0;
     padding: 0;
 }
 
-/* Контейнер страницы */
-.container {
-    width: 90%;
-    max-width: 1200px;
-    margin: 20px auto;
-    padding: 20px;
-    border: 1px solid #ddd;
-    background-color: white;
-}
-
-/* Шапка сайта */
-.header {
+.header.light-theme {
     background-color: #007bff;
-    height: 60px; /* Уменьшенная высота */
+    color: #fff;
+    height: 60px;
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 0 20px;
-    color: white;
-    border-radius: 10px; /* Скругление краев */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Добавление тени */
-    width: 100%;
-    max-width: 1200px; /* Ограничение ширины */
-    margin: 0 auto; /* Центрирование шапки */
 }
 
-.logo {
-    display: flex;
-    align-items: center;
+.products-section.light-theme .product-card {
+    background-color: white;
+    color: #000;
 }
 
-.logo img {
-    height: 40px;
-    margin-right: 15px;
-}
-
+/* Общие стили для обеих тем */
 .header-title {
     font-size: 1.5em;
-    margin-right: 20px; /* Отступ от логотипа */
-}
-
-.header-right {
-    display: flex;
-    align-items: center;
+    font-weight: bold;
+    flex-grow: 1;
+    text-align: center;
 }
 
 .search-bar {
     padding: 8px;
-    margin-right: 15px;
+    margin-right: 10px;
     border: 1px solid #ddd;
     border-radius: 5px;
-    outline: none;
-}
-
-.login-button {
-    background: none;
-    border: none;
-    cursor: pointer;
 }
 
 .login-button img {
@@ -71,86 +42,52 @@ body {
     width: 30px;
 }
 
-/* Секция с играми с горизонтальным скроллом */
 .games-horizontal-scroll {
     display: flex;
-    gap: 20px; /* Отступы между плитками игр */
     overflow-x: auto;
     padding: 20px 0;
-    max-width: 1200px; /* Ограничение ширины контейнера */
-    margin: 0 auto; /* Центрирование секции */
 }
 
 .game-tile {
     text-align: center;
+    margin-right: 20px;
     text-decoration: none;
-    color: black;
-    width: 200px;
-    flex: 0 0 auto; /* Поддержка горизонтального скролла */
+    color: inherit;
     transition: transform 0.2s;
+    flex-shrink: 0;
+    width: 200px;
+    height: 200px;
 }
 
 .game-tile img {
     width: 100%;
-    height: 200px;
-    object-fit: contain; /* Изменено с cover на contain */
+    height: auto;
     border-radius: 10px;
-    margin-bottom: 5px;
-}
-
-.game-tile p {
-    margin: 0;
-    padding: 5px 0;
+    margin-bottom: 10px;
 }
 
 .game-tile:hover {
     transform: scale(1.1);
 }
 
-/* Секция с товарами */
-.products-section {
-    display: none;
-    padding: 40px 0;
-}
-
-.products-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
-}
-
 .product-card {
-    background-color: white;
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     text-align: center;
 }
 
-.product-card img {
-    width: 150px;
-    height: 150px;
-    border-radius: 10px;
-    margin-bottom: 15px;
-}
-
 .buy-button {
     background-color: #28a745;
-    color: white;
+    color: #fff;
     border: none;
     padding: 10px;
     border-radius: 5px;
     cursor: pointer;
     font-size: 16px;
+    transition: background-color 0.3s;
 }
 
 .buy-button:hover {
     background-color: #218838;
-}
-
-.footer {
-    background-color: #333;
-    color: white;
-    padding: 20px 0;
-    text-align: center;
 }
