@@ -1,33 +1,40 @@
-/* Дневная тема */
-body.light-theme {
+/* Основные стили */
+body {
     font-family: Arial, sans-serif;
     background-color: #f4f4f9;
-    color: #000;
     margin: 0;
     padding: 0;
 }
 
-.header.light-theme {
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.header {
     background-color: #007bff;
-    color: #fff;
-    height: 60px;
+    height: 60px; /* Уменьшенная высота */
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 0 20px;
 }
 
-.products-section.light-theme .product-card {
-    background-color: white;
-    color: #000;
+.logo {
+    display: flex;
+    align-items: center;
 }
 
-/* Общие стили для обеих тем */
-.header-title {
-    font-size: 1.5em;
-    font-weight: bold;
-    flex-grow: 1;
-    text-align: center;
+.logo img {
+    height: 40px;
+    margin-right: 10px;
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
 }
 
 .search-bar {
@@ -35,6 +42,12 @@ body.light-theme {
     margin-right: 10px;
     border: 1px solid #ddd;
     border-radius: 5px;
+}
+
+.login-button {
+    background: none;
+    border: none;
+    cursor: pointer;
 }
 
 .login-button img {
@@ -52,16 +65,13 @@ body.light-theme {
     text-align: center;
     margin-right: 20px;
     text-decoration: none;
-    color: inherit;
+    color: black;
     transition: transform 0.2s;
-    flex-shrink: 0;
-    width: 200px;
-    height: 200px;
 }
 
 .game-tile img {
-    width: 100%;
-    height: auto;
+    width: 200px;
+    height: 200px;
     border-radius: 10px;
     margin-bottom: 10px;
 }
@@ -70,24 +80,71 @@ body.light-theme {
     transform: scale(1.1);
 }
 
+.products-section {
+    display: none;
+    padding: 40px 0;
+}
+
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
 .product-card {
+    background-color: white;
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     text-align: center;
 }
 
+.product-card img {
+    width: 150px;
+    height: 150px;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
 .buy-button {
     background-color: #28a745;
-    color: #fff;
+    color: white;
     border: none;
     padding: 10px;
     border-radius: 5px;
     cursor: pointer;
     font-size: 16px;
-    transition: background-color 0.3s;
 }
 
 .buy-button:hover {
     background-color: #218838;
+}
+
+.footer {
+    background-color: #333;
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+}
+
+/* Темная тема */
+.dark-theme {
+    background-color: #181818;
+    color: #e0e0e0;
+}
+
+.dark-theme .header {
+    background-color: #333;
+}
+
+.dark-theme .product-card {
+    background-color: #242424;
+}
+
+.dark-theme .buy-button {
+    background-color: #007bff;
+}
+
+.dark-theme .buy-button:hover {
+    background-color: #0056b3;
 }
