@@ -79,9 +79,14 @@ body {
 .game-tile img {
     width: 100%;
     height: 200px; /* Увеличенная высота плитки */
-    object-fit: cover;
+    object-fit: contain; /* Изменено с cover на contain, чтобы избежать обрезания */
     border-radius: 10px;
     margin-bottom: 5px;
+}
+
+.game-tile p {
+    margin: 0;
+    padding: 5px 0;
 }
 
 .game-tile:hover {
