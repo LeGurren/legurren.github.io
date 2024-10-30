@@ -73,6 +73,7 @@ function showProducts(gameId) {
         productsGrid.appendChild(productCard);
     });
 
+    // Показать секцию товаров
     document.querySelector('.products-section').classList.remove('hidden');
     document.querySelector('.products-section').style.display = 'block';
 }
