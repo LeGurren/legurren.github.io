@@ -35,16 +35,19 @@ document.querySelectorAll('.game-tile').forEach(tile => {
     tile.addEventListener('click', (event) => {
         event.preventDefault();
         const gameId = tile.getAttribute('href').substring(1);
+        console.log(`Game tile clicked: ${gameId}`); // Debug log
         showProducts(gameId);
     });
 });
 
 function showProducts(gameId) {
+    console.log(`Showing products for game: ${gameId}`); // Debug log
     const productsGrid = document.getElementById('products-grid');
     productsGrid.innerHTML = ''; // Очистить предыдущие товары
     const selectedProducts = products[gameId] || [];
 
     selectedProducts.forEach(product => {
+        console.log(`Adding product: ${product.name}`); // Debug log
         const productCard = document.createElement('div');
         productCard.classList.add('product-card');
 
@@ -62,6 +65,7 @@ function showProducts(gameId) {
         buyButton.textContent = 'Купить';
         buyButton.classList.add('buy-button');
         buyButton.addEventListener('click', () => {
+            console.log(`Buy button clicked for product: ${product.name}`); // Debug log
             alert(`Покупка оформлена для ${product.name}`);
         });
 
@@ -81,9 +85,12 @@ function showProducts(gameId) {
 // Смена темы в зависимости от времени суток
 window.addEventListener('load', () => {
     const currentHour = new Date().getHours();
+    console.log(`Current hour: ${currentHour}`); // Debug log
     if (currentHour >= 18 || currentHour < 6) {
         document.body.classList.add('dark-theme');
+        console.log('Dark theme applied'); // Debug log
     } else {
         document.body.classList.remove('dark-theme');
+        console.log('Light theme applied'); // Debug log
     }
 });
