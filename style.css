@@ -1,99 +1,98 @@
-// Данные для товаров для каждой игры
-const products = {
-    brawlstars: [
-        {
-            name: 'Бравл Пасс',
-            price: '1050 руб',
-            image: 'images/brawl_pass.jpg',
-            discount: '10%',
-        },
-        {
-            name: 'Улучшение БП',
-            price: '620 руб',
-            image: 'images/brawl_upgrade.jpg',
-        }
-    ],
-    pubg: [
-        {
-            name: 'PUBG UC Pack',
-            price: '500 руб',
-            image: 'images/pubg_uc.jpg',
-        }
-    ],
-    roblox: [
-        {
-            name: 'Robux Pack',
-            price: '800 руб',
-            image: 'images/robux.jpg',
-        }
-    ],
-    // Добавьте другие игры и товары по мере необходимости
-};
-
-// Обработка клика по плитке игры
-document.querySelectorAll('.game-tile').forEach(tile => {
-    tile.addEventListener('click', (event) => {
-        console.log('Game tile clicked:', tile); // Debug log
-        event.preventDefault();
-        const gameId = tile.getAttribute('href').substring(1);
-        console.log('Game ID:', gameId); // Debug log
-        showProducts(gameId);
-    });
-});
-
-function showProducts(gameId) {
-    console.log('Showing products for game ID:', gameId); // Debug log
-    const productsGrid = document.getElementById('products-grid');
-    productsGrid.innerHTML = ''; // Очистить предыдущие товары
-    const selectedProducts = products[gameId] || [];
-
-    selectedProducts.forEach(product => {
-        console.log('Creating product card for:', product); // Debug log
-        const productCard = document.createElement('div');
-        productCard.classList.add('product-card');
-
-        const productImage = document.createElement('img');
-        productImage.src = product.image;
-        productImage.alt = product.name;
-
-        const productName = document.createElement('h3');
-        productName.textContent = product.name;
-
-        const productPrice = document.createElement('p');
-        productPrice.textContent = product.price;
-
-        const buyButton = document.createElement('button');
-        buyButton.textContent = 'Купить';
-        buyButton.classList.add('buy-button');
-        buyButton.addEventListener('click', () => {
-            console.log('Buy button clicked for product:', product.name); // Debug log
-            alert(`Покупка оформлена для ${product.name}`);
-        });
-
-        productCard.appendChild(productImage);
-        productCard.appendChild(productName);
-        productCard.appendChild(productPrice);
-        productCard.appendChild(buyButton);
-
-        productsGrid.appendChild(productCard);
-    });
-
-    // Показать секцию товаров
-    const productsSection = document.querySelector('.products-section');
-    productsSection.classList.remove('hidden');
-    productsSection.style.display = 'block';
-    console.log('Products section displayed'); // Debug log
+/* Основные стили */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    margin: 0;
+    padding: 0;
 }
 
-// Смена темы в зависимости от времени суток
-window.addEventListener('load', () => {
-    const currentHour = new Date().getHours();
-    console.log('Current hour:', currentHour); // Debug log
-    if (currentHour >= 18 || currentHour < 6) {
-        document.body.classList.add('dark-theme');
-        console.log('Dark theme applied'); // Debug log
-    } else {
-        document.body.classList.remove('dark-theme');
-        console.log('Light theme applied'); // Debug log
-    }
-});
+.header {
+    background-color: #007bff;
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: #fff;
+}
+
+.header-container {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo img {
+    height: 40px;
+    margin-right: 10px;
+}
+
+.header-title {
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+}
+
+.search-bar {
+    padding: 8px;
+    margin-right: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.login-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.login-button img {
+    height: 30px;
+    width: 30px;
+}
+
+.games-horizontal-scroll {
+    display: flex;
+    overflow-x: auto;
+    padding: 20px 0;
+}
+
+.game-tile {
+    text-align: center;
+    margin-right: 20px;
+    text-decoration: none;
+    color: black;
+    transition: transform 0.2s;
+}
+
+.game-tile img {
+    width: 200px;
+    height: 200px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+.game-tile:hover {
+    transform: scale(1.1);
+}
+
+.products-section {
+    display: none;
+    padding: 40px 0;
+}
+
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.product-card {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
