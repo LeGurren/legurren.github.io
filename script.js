@@ -78,21 +78,12 @@ function showProducts(gameId) {
     document.querySelector('.products-section').style.display = 'block';
 }
 
-// Функция для автоматической смены темы в зависимости от времени суток
-document.addEventListener('DOMContentLoaded', () => {
+// Смена темы в зависимости от времени суток
+window.addEventListener('load', () => {
     const currentHour = new Date().getHours();
-    if (currentHour >= 19 || currentHour < 7) {
-        setTheme('dark-theme');
+    if (currentHour >= 18 || currentHour < 6) {
+        document.body.classList.add('dark-theme');
     } else {
-        setTheme('light-theme');
+        document.body.classList.remove('dark-theme');
     }
 });
-
-function setTheme(theme) {
-    document.body.classList.remove('light-theme', 'dark-theme');
-    document.body.classList.add(theme);
-    document.querySelector('.header').classList.remove('light-theme', 'dark-theme');
-    document.querySelector('.header').classList.add(theme);
-    document.querySelector('.products-section').classList.remove('light-theme', 'dark-theme');
-    document.querySelector('.products-section').classList.add(theme);
-}
