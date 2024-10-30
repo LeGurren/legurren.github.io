@@ -55,6 +55,33 @@ body {
     width: 30px;
 }
 
+/* Новые стили для игр с названиями под иконками */
+.games-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px; /* Отступ между элементами */
+    padding: 20px;
+}
+
+.game-item {
+    text-align: center; /* Центрируем текст */
+    width: 120px; /* Ширина элемента, может быть изменена в зависимости от размера иконки */
+}
+
+.game-icon {
+    width: 100px; /* Размер иконки игры */
+    height: 100px; /* Размер иконки игры */
+    object-fit: cover; /* Гарантирует, что изображение будет пропорционально вписываться в размеры */
+}
+
+.game-title {
+    margin-top: 10px; /* Отступ между иконкой и названием */
+    font-size: 16px; /* Размер шрифта названия */
+    color: #333; /* Цвет текста */
+}
+
+/* Горизонтальный скролл для секции игр */
 .games-horizontal-scroll {
     display: flex;
     overflow-x: auto;
