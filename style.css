@@ -9,16 +9,16 @@ body {
 .container {
     width: 90%;
     max-width: 1200px; /* Установка максимальной ширины */
-    margin: 0 auto;
+    margin: 20px auto;
     padding: 20px;
-    border: 1px solid #ddd; /* Добавление границ как у holdikgem.ru */
+    border: 1px solid #ddd; /* Добавление границ */
     background-color: white; /* Фон для выделения контейнера */
 }
 
 /* Шапка сайта */
 .header {
     background-color: #007bff;
-    height: 60px; /* Уменьшенная высота */
+    height: 60px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -62,17 +62,17 @@ body {
 /* Секция с играми с горизонтальным скроллом */
 .games-horizontal-scroll {
     display: flex;
-    overflow-x: auto; /* Добавлен горизонтальный скролл */
+    gap: 20px; /* Отступы между плитками игр */
+    overflow-x: auto;
     padding: 20px 0;
-    gap: 20px; /* Отступ между элементами */
 }
 
 .game-tile {
     text-align: center;
     text-decoration: none;
     color: black;
-    flex: 0 0 auto; /* Сохранение размеров при горизонтальном скролле */
-    width: 100px; /* Задаем ширину каждой плитки */
+    width: 150px;
+    flex: 0 0 auto; /* Поддержка горизонтального скролла */
     transition: transform 0.2s;
 }
 
@@ -81,13 +81,14 @@ body {
     height: 100px;
     object-fit: cover;
     border-radius: 10px;
-    margin-bottom: 10px;
+    margin-bottom: 5px;
 }
 
 .game-tile:hover {
     transform: scale(1.1);
 }
 
+/* Секция с товарами */
 .products-section {
     display: none;
     padding: 40px 0;
