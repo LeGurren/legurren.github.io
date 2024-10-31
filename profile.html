@@ -55,11 +55,13 @@
         // Получить данные пользователя
         const user = telegram.initDataUnsafe?.user;
 
-        // Если данные пользователя доступны, отобразить их на странице
+        // Проверка, что данные пользователя доступны
         if (user) {
             document.getElementById('user-name').textContent = `${user.first_name} ${user.last_name}`;
             document.getElementById('user-username').textContent = `@${user.username}`;
             document.getElementById('user-photo').src = user.photo_url || 'images/profile-avatar.png';
+        } else {
+            console.log("Данные пользователя недоступны. Проверьте настройки бота.");
         }
     </script>
 </body>
