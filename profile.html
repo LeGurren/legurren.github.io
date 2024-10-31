@@ -20,12 +20,21 @@
     </header>
 
     <main class="container">
-        <h1>Профиль пользователя</h1>
-        <div class="profile-info">
-            <img src="images/profile-avatar.png" alt="Аватар пользователя" class="profile-avatar">
-            <h2>Имя пользователя</h2>
-            <p>Email: user@example.com</p>
-            <button class="logout-button">Выйти</button>
+        <div class="profile-header">
+            <img id="user-photo" src="images/profile-avatar.png" alt="Аватар пользователя" class="profile-avatar">
+            <h2 id="user-name">Имя пользователя</h2>
+            <p id="user-username">@username</p>
+        </div>
+        <div class="balance-section">
+            <p>Ваш баланс:</p>
+            <h3>0.00 руб</h3>
+            <button class="balance-button">Пополнить</button>
+            <button class="free-balance-button">Получить баланс бесплатно</button>
+        </div>
+        <div class="order-section">
+            <button class="tab-button active">Заказы</button>
+            <button class="tab-button">Транзакции</button>
+            <p>Здесь пока еще ничего нет...<br>Вперед за покупками!</p>
         </div>
     </main>
 
@@ -35,5 +44,23 @@
             <p>Контакты: support@gamesmarket.com</p>
         </div>
     </footer>
+
+    <!-- Подключение Telegram Web App API -->
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <script>
+        // Инициализация Web App API и получение данных пользователя
+        const telegram = window.Telegram.WebApp;
+        telegram.expand(); // Развернуть Web App на весь экран
+
+        // Получить данные пользователя
+        const user = telegram.initDataUnsafe?.user;
+
+        // Если данные пользователя доступны, отобразить их на странице
+        if (user) {
+            document.getElementById('user-name').textContent = `${user.first_name} ${user.last_name}`;
+            document.getElementById('user-username').textContent = `@${user.username}`;
+            document.getElementById('user-photo').src = user.photo_url || 'images/profile-avatar.png';
+        }
+    </script>
 </body>
 </html>
