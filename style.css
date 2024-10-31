@@ -12,34 +12,20 @@ body {
     max-width: 1200px;
     margin: 20px auto;
     padding: 20px;
-    border: 1px solid #ddd;
     background-color: white;
 }
 
 /* Шапка сайта */
 .header {
     background-color: #007bff;
-    height: 60px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0 20px;
+    padding: 10px 20px;
     color: white;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    box-sizing: border-box;
-}
-
-.header .container {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
     width: 100%;
-    max-width: 1200px;
-}
-
-.logo {
-    display: flex;
-    align-items: center;
+    box-sizing: border-box;
 }
 
 .logo img {
@@ -66,14 +52,84 @@ body {
 }
 
 /* Секция с играми с горизонтальным скроллом */
+.games-section {
+    margin-top: 20px;
+}
+
 .games-horizontal-scroll {
     display: flex;
     gap: 20px;
     overflow-x: auto;
     padding: 20px 0;
     width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
+    box-sizing: border-box;
+}
+
+.game-tile {
+    text-align: center;
+    text-decoration: none;
+    color: black;
+    width: 150px;
+    flex: 0 0 auto;
+    transition: transform 0.2s;
+}
+
+.game-tile img {
+    width: 100%;
+    height: 150px;
+    object-fit: contain;
+    border-radius: 10px;
+    margin-bottom: 5px;
+}
+
+.game-tile p {
+    margin: 0;
+    padding: 5px 0;
+    font-size: 1em;
+}
+
+.game-tile:hover {
+    transform: scale(1.05);
+}
+
+/* Секция с товарами */
+.products-section {
+    padding: 40px 0;
+}
+
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.product-card {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.product-card img {
+    width: 150px;
+    height: 150px;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+.buy-button {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.buy-button:hover {
+    background-color: #218838;
 }
 
 /* Адаптивные стили для мобильных устройств */
