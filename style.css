@@ -27,10 +27,17 @@ body {
     color: white;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%; /* Изменено на 100% */
+    box-sizing: border-box; /* Включение внутренних отступов в ширину */
+}
+
+.header .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     width: 90%;
     max-width: 1200px;
     margin: 0 auto;
-    box-sizing: border-box; /* Включение отступов внутрь ширины */
 }
 
 .logo {
@@ -69,54 +76,8 @@ body {
     width: 30px;
 }
 
-/* Секция с играми с горизонтальным скроллом */
-.games-horizontal-scroll {
-    display: flex;
-    gap: 20px;
-    overflow-x: auto;
-    padding: 20px 0;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.game-tile {
-    text-align: center;
-    text-decoration: none;
-    color: black;
-    width: 200px;
-    flex: 0 0 auto;
-    transition: transform 0.2s;
-}
-
-.game-tile img {
-    width: 100%;
-    height: 200px;
-    object-fit: contain;
-    border-radius: 10px;
-    margin-bottom: 5px;
-}
-
-.game-tile p {
-    margin: 0;
-    padding: 5px 0;
-}
-
-.game-tile:hover {
-    transform: scale(1.1);
-}
-
 /* Адаптивный стиль для мобильных устройств */
 @media (max-width: 768px) {
-    .header {
-        flex-direction: row;
-        height: auto;
-        padding: 10px;
-    }
-
-    .logo img {
-        height: 30px;
-    }
-
     .search-bar {
         width: 100px;
     }
