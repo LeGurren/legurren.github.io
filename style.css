@@ -27,8 +27,8 @@ body {
     color: white;
     border-radius: 10px; /* Скругление краев */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Добавление тени */
-    width: 100%;
-    max-width: 1200px; /* Ограничение ширины */
+    width: 90%; /* Изменено для выравнивания с контейнером */
+    max-width: 1200px;
     margin: 0 auto; /* Центрирование шапки */
 }
 
@@ -50,6 +50,8 @@ body {
 .header-right {
     display: flex;
     align-items: center;
+    flex: 1;
+    justify-content: flex-end;
 }
 
 .search-bar {
@@ -58,6 +60,8 @@ body {
     border: 1px solid #ddd;
     border-radius: 5px;
     outline: none;
+    width: 200px; /* Уменьшено для мобильной версии */
+    max-width: 100%; /* Ограничение ширины */
 }
 
 .login-button {
@@ -93,7 +97,7 @@ body {
 .game-tile img {
     width: 100%;
     height: 200px;
-    object-fit: contain; /* Изменено с cover на contain */
+    object-fit: contain;
     border-radius: 10px;
     margin-bottom: 5px;
 }
@@ -107,71 +111,41 @@ body {
     transform: scale(1.1);
 }
 
-/* Секция с товарами */
-.products-section {
-    display: none;
-    padding: 40px 0;
-}
-
-.products-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
-}
-
-.product-card {
-    background-color: white;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    text-align: center;
-}
-
-.product-card img {
-    width: 150px;
-    height: 150px;
-    border-radius: 10px;
-    margin-bottom: 15px;
-}
-
-.buy-button {
-    background-color: #28a745;
-    color: white;
-    border: none;
-    padding: 10px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-}
-
-.buy-button:hover {
-    background-color: #218838;
-}
-
-.footer {
-    background-color: #333;
-    color: white;
-    padding: 20px 0;
-    text-align: center;
-}
-
 /* Адаптивный стиль для мобильных устройств */
 @media (max-width: 768px) {
+    .header {
+        flex-direction: column;
+        height: auto; /* Позволяет динамически регулировать высоту */
+        padding: 10px;
+    }
+
+    .header-right {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 10px;
+    }
+
+    .search-bar {
+        width: 150px; /* Еще меньшее поле поиска на мобильных */
+    }
+
     .games-horizontal-scroll {
-        gap: 10px; /* Уменьшение отступов между плитками */
+        gap: 10px;
         padding: 10px 0;
     }
 
     .game-tile {
-        width: 80px; /* Уменьшение ширины плитки */
+        width: 80px;
         flex: 0 0 auto;
     }
 
     .game-tile img {
-        height: 60px; /* Уменьшение высоты изображения */
+        height: 60px;
     }
 
     .game-tile p {
-        font-size: 0.8em; /* Уменьшение шрифта */
+        font-size: 0.8em;
     }
 }
