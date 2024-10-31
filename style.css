@@ -19,17 +19,18 @@ body {
 /* Шапка сайта */
 .header {
     background-color: #007bff;
-    height: 60px; /* Уменьшенная высота */
+    height: 60px;
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 0 20px;
     color: white;
-    border-radius: 10px; /* Скругление краев */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Добавление тени */
-    width: 90%; /* Изменено для выравнивания с контейнером */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 90%;
     max-width: 1200px;
-    margin: 0 auto; /* Центрирование шапки */
+    margin: 0 auto;
+    box-sizing: border-box; /* Включение отступов внутрь ширины */
 }
 
 .logo {
@@ -42,26 +43,19 @@ body {
     margin-right: 15px;
 }
 
-.header-title {
-    font-size: 1.5em;
-    margin-right: 20px; /* Отступ от логотипа */
-}
-
 .header-right {
     display: flex;
     align-items: center;
-    flex: 1;
-    justify-content: flex-end;
+    gap: 10px; /* Расстояние между поиском и кнопкой */
 }
 
 .search-bar {
     padding: 8px;
-    margin-right: 15px;
     border: 1px solid #ddd;
     border-radius: 5px;
     outline: none;
-    width: 200px; /* Уменьшено для мобильной версии */
-    max-width: 100%; /* Ограничение ширины */
+    width: 100%; /* Адаптивное поле поиска */
+    max-width: 200px;
 }
 
 .login-button {
@@ -78,11 +72,11 @@ body {
 /* Секция с играми с горизонтальным скроллом */
 .games-horizontal-scroll {
     display: flex;
-    gap: 20px; /* Отступы между плитками игр */
+    gap: 20px;
     overflow-x: auto;
     padding: 20px 0;
-    max-width: 1200px; /* Ограничение ширины контейнера */
-    margin: 0 auto; /* Центрирование секции */
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 .game-tile {
@@ -90,7 +84,7 @@ body {
     text-decoration: none;
     color: black;
     width: 200px;
-    flex: 0 0 auto; /* Поддержка горизонтального скролла */
+    flex: 0 0 auto;
     transition: transform 0.2s;
 }
 
@@ -114,38 +108,16 @@ body {
 /* Адаптивный стиль для мобильных устройств */
 @media (max-width: 768px) {
     .header {
-        flex-direction: column;
-        height: auto; /* Позволяет динамически регулировать высоту */
+        flex-direction: row;
+        height: auto;
         padding: 10px;
     }
 
-    .header-right {
-        width: 100%;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin-top: 10px;
+    .logo img {
+        height: 30px;
     }
 
     .search-bar {
-        width: 150px; /* Еще меньшее поле поиска на мобильных */
-    }
-
-    .games-horizontal-scroll {
-        gap: 10px;
-        padding: 10px 0;
-    }
-
-    .game-tile {
-        width: 80px;
-        flex: 0 0 auto;
-    }
-
-    .game-tile img {
-        height: 60px;
-    }
-
-    .game-tile p {
-        font-size: 0.8em;
+        width: 100px;
     }
 }
