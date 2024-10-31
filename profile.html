@@ -52,16 +52,16 @@
         const telegram = window.Telegram.WebApp;
         telegram.expand(); // Развернуть Web App на весь экран
 
-        // Получить данные пользователя
+        // Получить данные пользователя из initDataUnsafe
         const user = telegram.initDataUnsafe?.user;
 
         // Проверка, что данные пользователя доступны
         if (user) {
-            document.getElementById('user-name').textContent = `${user.first_name} ${user.last_name}`;
+            document.getElementById('user-name').textContent = `${user.first_name || ''} ${user.last_name || ''}`.trim();
             document.getElementById('user-username').textContent = `@${user.username}`;
             document.getElementById('user-photo').src = user.photo_url || 'images/profile-avatar.png';
         } else {
-            console.log("Данные пользователя недоступны. Проверьте настройки бота.");
+            console.log("Данные пользователя недоступны. Проверьте, что Web App открыт через Telegram.");
         }
     </script>
 </body>
