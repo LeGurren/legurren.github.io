@@ -154,3 +154,24 @@ body {
     padding: 20px 0;
     text-align: center;
 }
+
+/* Адаптивный стиль для мобильных устройств */
+@media (max-width: 768px) {
+    .games-horizontal-scroll {
+        gap: 10px; /* Уменьшение отступов между плитками */
+        padding: 10px 0;
+    }
+
+    .game-tile {
+        width: 80px; /* Уменьшение ширины плитки */
+        flex: 0 0 auto;
+    }
+
+    .game-tile img {
+        height: 60px; /* Уменьшение высоты изображения */
+    }
+
+    .game-tile p {
+        font-size: 0.8em; /* Уменьшение шрифта */
+    }
+}
