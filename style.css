@@ -27,8 +27,8 @@ body {
     color: white;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    width: 100%; /* Изменено на 100% */
-    box-sizing: border-box; /* Включение внутренних отступов в ширину */
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .header .container {
@@ -53,7 +53,7 @@ body {
 .header-right {
     display: flex;
     align-items: center;
-    gap: 10px; /* Расстояние между поиском и кнопкой */
+    gap: 10px;
 }
 
 .search-bar {
@@ -61,7 +61,7 @@ body {
     border: 1px solid #ddd;
     border-radius: 5px;
     outline: none;
-    width: 100%; /* Адаптивное поле поиска */
+    width: 100%;
     max-width: 200px;
 }
 
@@ -76,9 +76,69 @@ body {
     width: 30px;
 }
 
+/* Секция с играми с горизонтальным скроллом */
+.games-horizontal-scroll {
+    display: flex;
+    gap: 20px;
+    overflow-x: auto;
+    padding: 20px 0;
+    width: 100%;
+    box-sizing: border-box;
+    margin: 0 auto;
+    max-width: 1200px;
+}
+
+.game-tile {
+    text-align: center;
+    text-decoration: none;
+    color: black;
+    width: 200px;
+    flex: 0 0 auto;
+    transition: transform 0.2s;
+}
+
+.game-tile img {
+    width: 100%;
+    height: 200px;
+    object-fit: contain;
+    border-radius: 10px;
+    margin-bottom: 5px;
+}
+
+.game-tile p {
+    margin: 0;
+    padding: 5px 0;
+}
+
+.game-tile:hover {
+    transform: scale(1.1);
+}
+
 /* Адаптивный стиль для мобильных устройств */
 @media (max-width: 768px) {
     .search-bar {
         width: 100px;
+    }
+
+    .games-horizontal-scroll {
+        gap: 10px;
+        padding: 10px 0;
+        overflow-x: auto;
+        display: flex;
+        flex-direction: row; /* Устанавливает горизонтальный скролл на мобильных */
+        width: 100%;
+    }
+
+    .game-tile {
+        width: 80px;
+        flex: 0 0 auto;
+    }
+
+    .game-tile img {
+        height: 60px;
+    }
+
+    .game-tile p {
+        font-size: 0.8em;
     }
 }
