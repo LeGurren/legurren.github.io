@@ -26,7 +26,6 @@ body {
     padding: 0 20px;
     color: white;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    width: 100%;
     box-sizing: border-box;
 }
 
@@ -34,9 +33,13 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    width: 90%;
+    width: 100%;
     max-width: 1200px;
-    margin: 0 auto;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
 }
 
 .logo img {
@@ -54,8 +57,7 @@ body {
     border: 1px solid #ddd;
     border-radius: 5px;
     outline: none;
-    width: 100%;
-    max-width: 200px;
+    width: 200px;
 }
 
 .login-button img {
@@ -70,62 +72,8 @@ body {
     overflow-x: auto;
     padding: 20px 0;
     width: 100%;
-    box-sizing: border-box;
-    margin: 0 auto;
     max-width: 1200px;
-}
-
-.game-tile {
-    text-align: center;
-    text-decoration: none;
-    color: black;
-    width: 200px;
-    flex: 0 0 auto;
-    transition: transform 0.2s;
-}
-
-.game-tile img {
-    width: 100%;
-    height: 200px;
-    object-fit: contain;
-    border-radius: 10px;
-    margin-bottom: 5px;
-}
-
-.game-tile p {
-    margin: 0;
-    padding: 5px 0;
-}
-
-.game-tile:hover {
-    transform: scale(1.1);
-}
-
-/* Профиль */
-.profile-info {
-    text-align: center;
-    margin-top: 30px;
-}
-
-.profile-avatar {
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    margin-bottom: 15px;
-}
-
-.logout-button {
-    background-color: #d9534f;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-}
-
-.logout-button:hover {
-    background-color: #c9302c;
+    margin: 0 auto;
 }
 
 /* Адаптивные стили для мобильных устройств */
@@ -137,15 +85,11 @@ body {
     .games-horizontal-scroll {
         gap: 10px;
         padding: 10px 0;
-        overflow-x: auto;
-        display: flex;
         flex-direction: row;
-        width: 100%;
     }
 
     .game-tile {
         width: 80px;
-        flex: 0 0 auto;
     }
 
     .game-tile img {
