@@ -30,6 +30,26 @@ const products = {
     // Добавьте другие игры и товары по мере необходимости
 };
 
+// Инициализация Telegram Web App API
+window.Telegram.WebApp.ready();
+const telegram = window.Telegram.WebApp;
+
+// Получение и отображение данных пользователя
+function displayUserInfo() {
+    const user = telegram.initDataUnsafe?.user;
+
+    if (user) {
+        document.getElementById('user-name').textContent = `${user.first_name || ''} ${user.last_name || ''}`.trim();
+        document.getElementById('user-username').textContent = `@${user.username}`;
+        document.getElementById('user-photo').src = user.photo_url || 'images/profile-avatar.png';
+    } else {
+        console.log("Данные пользователя недоступны. Убедитесь, что Web App открыт через Telegram.");
+    }
+}
+
+// Вызов displayUserInfo для отображения данных пользователя
+displayUserInfo();
+
 // Обработка клика по плитке игры
 document.querySelectorAll('.game-tile').forEach(tile => {
     tile.addEventListener('click', (event) => {
