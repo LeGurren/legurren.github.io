@@ -2,67 +2,32 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Профиль - Gems Market</title>
+    <title>Профиль - Games Market</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header class="header">
-        <div class="logo">
-            <a href="index.html"><img src="images_old/logo.png" alt="GamesMarket Logo"></a>
-        </div>
-        <div class="header-right">
-            <input type="text" placeholder="Поиск..." class="search-bar">
-            <a href="profile.html" class="login-button" title="Профиль">
-                <img src="user-icon.png" alt="Профиль">
-            </a>
-        </div>
+        <!-- Шапка профиля -->
     </header>
-
     <main class="container">
         <div class="profile-header">
             <img id="user-photo" src="images/profile-avatar.png" alt="Аватар пользователя" class="profile-avatar">
             <h2 id="user-name">Имя пользователя</h2>
             <p id="user-username">@username</p>
         </div>
-        <div class="balance-section">
-            <p>Ваш баланс:</p>
-            <h3>0.00 руб</h3>
-            <button class="balance-button">Пополнить</button>
-            <button class="free-balance-button">Получить баланс бесплатно</button>
-        </div>
-        <div class="order-section">
-            <button class="tab-button active">Заказы</button>
-            <button class="tab-button">Транзакции</button>
-            <p>Здесь пока еще ничего нет...<br>Вперед за покупками!</p>
-        </div>
+        <!-- Дополнительные элементы профиля -->
     </main>
 
-    <footer class="footer">
-        <div class="container">
-            <p>GamesMarket © 2024. Все права защищены.</p>
-            <p>Контакты: support@gamesmarket.com</p>
-        </div>
-    </footer>
-
-    <!-- Подключение Telegram Web App API -->
-    <script src="https://telegram.org/js/telegram-web-app.js"></script>
     <script>
-        // Инициализация Web App API и получение данных пользователя
-        const telegram = window.Telegram.WebApp;
-        telegram.expand(); // Развернуть Web App на весь экран
+        // Получение данных пользователя из URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const username = urlParams.get('username');
+        const firstName = urlParams.get('first_name');
+        const lastName = urlParams.get('last_name');
 
-        // Получить данные пользователя из initDataUnsafe
-        const user = telegram.initDataUnsafe?.user;
-
-        // Проверка, что данные пользователя доступны
-        if (user) {
-            document.getElementById('user-name').textContent = `${user.first_name || ''} ${user.last_name || ''}`.trim();
-            document.getElementById('user-username').textContent = `@${user.username}`;
-            document.getElementById('user-photo').src = user.photo_url || 'images/profile-avatar.png';
-        } else {
-            console.log("Данные пользователя недоступны. Проверьте, что Web App открыт через Telegram.");
-        }
+        // Отображение данных на странице
+        document.getElementById('user-name').textContent = `${firstName || ''} ${lastName || ''}`.trim();
+        document.getElementById('user-username').textContent = `@${username}`;
     </script>
 </body>
 </html>
