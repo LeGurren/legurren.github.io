@@ -1,17 +1,22 @@
 // Получение данных пользователя из URL
 const urlParams = new URLSearchParams(window.location.search);
-const username = urlParams.get('username') || 'username';
-const firstName = urlParams.get('first_name') || 'Имя';
-const lastName = urlParams.get('last_name') || 'пользователя';
+const username = urlParams.get('username');
+const firstName = urlParams.get('first_name');
+const lastName = urlParams.get('last_name');
+
+// Проверка, что параметры загружены корректно
+console.log("Username:", username);
+console.log("First Name:", firstName);
+console.log("Last Name:", lastName);
 
 // Отображение данных на странице
-document.getElementById('user-name').textContent = `${firstName} ${lastName}`.trim();
-document.getElementById('user-username').textContent = `@${username}`;
+document.getElementById('user-name').textContent = `${firstName || ''} ${lastName || ''}`.trim();
+document.getElementById('user-username').textContent = username ? `@${username}` : '@username';
 
-// Проверка и загрузка фото пользователя, если он доступен
+// Если пользовательское фото доступно, оно будет отображаться, иначе - стандартное
 const userPhoto = document.getElementById('user-photo');
 userPhoto.onerror = () => {
-    userPhoto.src = 'images_old/profile-avatar.png'; // Если фото не загружается, отображать стандартный аватар
+    userPhoto.src = 'images_old/profile-avatar.png'; // Показ стандартного аватара при ошибке загрузки
 };
 
 // Product data for each game
