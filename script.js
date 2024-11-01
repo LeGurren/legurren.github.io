@@ -22,22 +22,39 @@ function extractUserData() {
                     username = jsonData.user.username;
                     firstName = jsonData.user.first_name;
                     lastName = jsonData.user.last_name || "";
+
+                    // Вывод отладочной информации на страницу
+                    document.getElementById("debug-info").innerHTML += `
+                        <p style="color: green;">Данные загружены из tgWebAppData:</p>
+                        <p>Username: ${username}</p>
+                        <p>First Name: ${firstName}</p>
+                        <p>Last Name: ${lastName}</p>
+                    `;
                 }
             } catch (error) {
-                console.error("Ошибка при разборе tgWebAppData:", error);
+                document.getElementById("debug-info").innerHTML += `
+                    <p style="color: red;">Ошибка при разборе tgWebAppData: ${error.message}</p>
+                `;
             }
+        } else {
+            document.getElementById("debug-info").innerHTML += `
+                <p style="color: red;">tgWebAppData отсутствует в хеше.</p>
+            `;
         }
     } else {
         // Если параметры найдены в URL, извлекаем их
         username = urlParams.get('username');
         firstName = urlParams.get('first_name');
         lastName = urlParams.get('last_name');
-    }
 
-    // Проверка загруженных данных
-    console.log("Username:", username);
-    console.log("First Name:", firstName);
-    console.log("Last Name:", lastName);
+        // Вывод отладочной информации на страницу
+        document.getElementById("debug-info").innerHTML += `
+            <p style="color: green;">Данные загружены из URL:</p>
+            <p>Username: ${username}</p>
+            <p>First Name: ${firstName}</p>
+            <p>Last Name: ${lastName}</p>
+        `;
+    }
 
     displayUserData();
 }
