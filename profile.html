@@ -15,6 +15,14 @@
             <h2 id="user-name">Имя пользователя</h2>
             <p id="user-username">@username</p>
         </div>
+
+        <!-- Видимый отладочный вывод данных -->
+        <div class="debug-info">
+            <h3>Отладочная информация</h3>
+            <p id="debug-username">Username: (параметр не получен)</p>
+            <p id="debug-first-name">First Name: (параметр не получен)</p>
+            <p id="debug-last-name">Last Name: (параметр не получен)</p>
+        </div>
         <!-- Дополнительные элементы профиля -->
     </main>
 
@@ -25,15 +33,14 @@
         const firstName = urlParams.get('first_name');
         const lastName = urlParams.get('last_name');
 
-        // Отладочный вывод параметров
-        console.log("Полученные параметры из URL:");
-        console.log("Username:", username);
-        console.log("First Name:", firstName);
-        console.log("Last Name:", lastName);
-
-        // Обновление элементов на странице
+        // Отображение данных на странице профиля
         document.getElementById('user-name').textContent = `${firstName || ''} ${lastName || ''}`.trim() || "Имя пользователя";
         document.getElementById('user-username').textContent = username ? `@${username}` : "@username";
+
+        // Отладочный вывод данных
+        document.getElementById('debug-username').textContent = `Username: ${username || "(параметр не получен)"}`;
+        document.getElementById('debug-first-name').textContent = `First Name: ${firstName || "(параметр не получен)"}`;
+        document.getElementById('debug-last-name').textContent = `Last Name: ${lastName || "(параметр не получен)"}`;
     </script>
 </body>
 </html>
