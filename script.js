@@ -1,17 +1,17 @@
-// Get user data from URL parameters
+// Получение данных пользователя из URL
 const urlParams = new URLSearchParams(window.location.search);
 const username = urlParams.get('username') || 'username';
 const firstName = urlParams.get('first_name') || 'Имя';
 const lastName = urlParams.get('last_name') || 'пользователя';
 
-// Display user profile information
+// Отображение данных на странице
 document.getElementById('user-name').textContent = `${firstName} ${lastName}`.trim();
 document.getElementById('user-username').textContent = `@${username}`;
 
-// Check if user photo is available, else set a default
+// Проверка и загрузка фото пользователя, если он доступен
 const userPhoto = document.getElementById('user-photo');
 userPhoto.onerror = () => {
-    userPhoto.src = 'images/profile-avatar.png';
+    userPhoto.src = 'images/profile-avatar.png'; // Если фото не загружается, отображать стандартный аватар
 };
 
 // Product data for each game
