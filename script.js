@@ -1,28 +1,30 @@
 // Переменные для данных пользователя
-let username, firstName, lastName;
+let username = null;
+let firstName = null;
+let lastName = null;
 
 // Функция для извлечения данных пользователя из URL и хеша
 function extractUserData() {
     let urlParams = new URLSearchParams(window.location.search);
-    
+
     // Если параметры не найдены в поисковой строке, ищем в хеше
     if (!urlParams.has("username")) {
         const hashParams = new URLSearchParams(window.location.hash.substring(1));
-        
-        // Извлечение данных пользователя из хеша
-        const tgData = hashParams.get("tgWebAppData");
-        if (tgData) {
+        const tgDataParam = hashParams.get("tgWebAppData");
+
+        if (tgDataParam) {
             try {
-                const decodedData = decodeURIComponent(tgData);
+                // Попытка декодировать и распарсить tgWebAppData
+                const decodedData = decodeURIComponent(tgDataParam);
                 const jsonData = JSON.parse(decodedData);
-                
+
                 if (jsonData.user) {
                     username = jsonData.user.username;
                     firstName = jsonData.user.first_name;
-                    lastName = jsonData.user.last_name;
+                    lastName = jsonData.user.last_name || "";
                 }
-            } catch (e) {
-                console.error("Ошибка при разборе tgWebAppData:", e);
+            } catch (error) {
+                console.error("Ошибка при разборе tgWebAppData:", error);
             }
         }
     } else {
