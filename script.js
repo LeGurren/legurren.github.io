@@ -1,4 +1,20 @@
-// Данные для товаров для каждой игры
+// Get user data from URL parameters
+const urlParams = new URLSearchParams(window.location.search);
+const username = urlParams.get('username') || 'username';
+const firstName = urlParams.get('first_name') || 'Имя';
+const lastName = urlParams.get('last_name') || 'пользователя';
+
+// Display user profile information
+document.getElementById('user-name').textContent = `${firstName} ${lastName}`.trim();
+document.getElementById('user-username').textContent = `@${username}`;
+
+// Check if user photo is available, else set a default
+const userPhoto = document.getElementById('user-photo');
+userPhoto.onerror = () => {
+    userPhoto.src = 'images/profile-avatar.png';
+};
+
+// Product data for each game
 const products = {
     brawlstars: [
         {
@@ -27,47 +43,23 @@ const products = {
             image: 'images/robux.jpg',
         }
     ],
-    // Добавьте другие игры и товары по мере необходимости
 };
 
-// Инициализация Telegram Web App API
-window.Telegram.WebApp.ready();
-const telegram = window.Telegram.WebApp;
-
-// Получение и отображение данных пользователя
-function displayUserInfo() {
-    const user = telegram.initDataUnsafe?.user;
-
-    if (user) {
-        document.getElementById('user-name').textContent = `${user.first_name || ''} ${user.last_name || ''}`.trim();
-        document.getElementById('user-username').textContent = `@${user.username}`;
-        document.getElementById('user-photo').src = user.photo_url || 'images/profile-avatar.png';
-    } else {
-        console.log("Данные пользователя недоступны. Убедитесь, что Web App открыт через Telegram.");
-    }
-}
-
-// Вызов displayUserInfo для отображения данных пользователя
-displayUserInfo();
-
-// Обработка клика по плитке игры
+// Handle game tile click to show products
 document.querySelectorAll('.game-tile').forEach(tile => {
     tile.addEventListener('click', (event) => {
         event.preventDefault();
         const gameId = tile.getAttribute('href').substring(1);
-        console.log(`Game tile clicked: ${gameId}`); // Debug log
         showProducts(gameId);
     });
 });
 
 function showProducts(gameId) {
-    console.log(`Showing products for game: ${gameId}`); // Debug log
     const productsGrid = document.getElementById('products-grid');
-    productsGrid.innerHTML = ''; // Очистить предыдущие товары
+    productsGrid.innerHTML = '';
     const selectedProducts = products[gameId] || [];
 
     selectedProducts.forEach(product => {
-        console.log(`Adding product: ${product.name}`); // Debug log
         const productCard = document.createElement('div');
         productCard.classList.add('product-card');
 
@@ -85,7 +77,6 @@ function showProducts(gameId) {
         buyButton.textContent = 'Купить';
         buyButton.classList.add('buy-button');
         buyButton.addEventListener('click', () => {
-            console.log(`Buy button clicked for product: ${product.name}`); // Debug log
             alert(`Покупка оформлена для ${product.name}`);
         });
 
@@ -97,20 +88,17 @@ function showProducts(gameId) {
         productsGrid.appendChild(productCard);
     });
 
-    // Показать секцию товаров
+    // Show the products section
     document.querySelector('.products-section').classList.remove('hidden');
     document.querySelector('.products-section').style.display = 'block';
 }
 
-// Смена темы в зависимости от времени суток
+// Change theme based on time of day
 window.addEventListener('load', () => {
     const currentHour = new Date().getHours();
-    console.log(`Current hour: ${currentHour}`); // Debug log
     if (currentHour >= 18 || currentHour < 6) {
         document.body.classList.add('dark-theme');
-        console.log('Dark theme applied'); // Debug log
     } else {
         document.body.classList.remove('dark-theme');
-        console.log('Light theme applied'); // Debug log
     }
 });
