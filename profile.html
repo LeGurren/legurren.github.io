@@ -18,6 +18,22 @@
         <!-- Дополнительные элементы профиля -->
     </main>
 
-    <script src="script.js"></script>
+    <script>
+        // Получение данных пользователя из URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const username = urlParams.get('username');
+        const firstName = urlParams.get('first_name');
+        const lastName = urlParams.get('last_name');
+
+        // Отладочный вывод параметров
+        console.log("Полученные параметры из URL:");
+        console.log("Username:", username);
+        console.log("First Name:", firstName);
+        console.log("Last Name:", lastName);
+
+        // Обновление элементов на странице
+        document.getElementById('user-name').textContent = `${firstName || ''} ${lastName || ''}`.trim() || "Имя пользователя";
+        document.getElementById('user-username').textContent = username ? `@${username}` : "@username";
+    </script>
 </body>
 </html>
