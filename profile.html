@@ -17,7 +17,6 @@
         </div>
         <!-- Дополнительные элементы профиля -->
         <div id="debug-info" style="margin-top: 20px; color: red;">
-            <!-- Это место для отладки, оно покажет, получены ли параметры -->
             Полный URL страницы: <span id="full-url"></span><br>
             Username: <span id="debug-username">(параметр не получен)</span><br>
             First Name: <span id="debug-first-name">(параметр не получен)</span><br>
@@ -26,27 +25,23 @@
     </main>
 
     <script>
-        // Получение полного URL для отладки
+        // Отображение полного URL для отладки
         document.getElementById('full-url').textContent = window.location.href;
 
-        // Получение данных пользователя из URL
+        // Получение параметров из URL
         const urlParams = new URLSearchParams(window.location.search);
         const username = urlParams.get('username');
         const firstName = urlParams.get('first_name');
         const lastName = urlParams.get('last_name');
 
-        // Отображение отладочной информации
-        document.getElementById('debug-username').textContent = username ? username : "(параметр не получен)";
-        document.getElementById('debug-first-name').textContent = firstName ? firstName : "(параметр не получен)";
-        document.getElementById('debug-last-name').textContent = lastName ? lastName : "(параметр не получен)";
+        // Отображение параметров
+        document.getElementById('debug-username').textContent = username || "(параметр не получен)";
+        document.getElementById('debug-first-name').textContent = firstName || "(параметр не получен)";
+        document.getElementById('debug-last-name').textContent = lastName || "(параметр не получен)";
 
-        // Проверка и отображение данных на странице
-        if (firstName || lastName) {
-            document.getElementById('user-name').textContent = `${firstName || ''} ${lastName || ''}`.trim();
-        }
-        if (username) {
-            document.getElementById('user-username').textContent = `@${username}`;
-        }
+        // Отображение данных на странице
+        document.getElementById('user-name').textContent = `${firstName || ''} ${lastName || ''}`.trim();
+        document.getElementById('user-username').textContent = `@${username || 'username'}`;
     </script>
 </body>
 </html>
