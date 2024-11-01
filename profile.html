@@ -28,20 +28,29 @@
         // Отображение полного URL для отладки
         document.getElementById('full-url').textContent = window.location.href;
 
-        // Получение параметров из URL
-        const urlParams = new URLSearchParams(window.location.search);
-        const username = urlParams.get('username');
-        const firstName = urlParams.get('first_name');
-        const lastName = urlParams.get('last_name');
+        // Функция для получения данных из Telegram Web App
+        function loadTelegramData() {
+            if (window.Telegram && Telegram.WebApp.initDataUnsafe) {
+                const initData = Telegram.WebApp.initDataUnsafe.user || {};
+                const username = initData.username || "(параметр не получен)";
+                const firstName = initData.first_name || "(параметр не получен)";
+                const lastName = initData.last_name || "(параметр не получен)";
 
-        // Отображение параметров
-        document.getElementById('debug-username').textContent = username || "(параметр не получен)";
-        document.getElementById('debug-first-name').textContent = firstName || "(параметр не получен)";
-        document.getElementById('debug-last-name').textContent = lastName || "(параметр не получен)";
+                // Отображение параметров
+                document.getElementById('debug-username').textContent = username;
+                document.getElementById('debug-first-name').textContent = firstName;
+                document.getElementById('debug-last-name').textContent = lastName;
 
-        // Отображение данных на странице
-        document.getElementById('user-name').textContent = `${firstName || ''} ${lastName || ''}`.trim();
-        document.getElementById('user-username').textContent = `@${username || 'username'}`;
+                // Отображение данных на странице
+                document.getElementById('user-name').textContent = `${firstName} ${lastName}`.trim();
+                document.getElementById('user-username').textContent = `@${username}`;
+            } else {
+                console.error("Telegram WebApp не инициализирован или данные пользователя не найдены.");
+            }
+        }
+
+        // Загружаем данные при загрузке страницы
+        document.addEventListener('DOMContentLoaded', loadTelegramData);
     </script>
 </body>
 </html>
