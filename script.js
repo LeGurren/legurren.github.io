@@ -1,21 +1,38 @@
-// Проверка и загрузка данных из Telegram Web App SDK
+// Переменные для данных пользователя
 let username, firstName, lastName;
 
-// Функция для извлечения данных пользователя из URL
+// Функция для извлечения данных пользователя из URL и хеша
 function extractUserData() {
-    // Если параметры идут после `?`, используем URLSearchParams для поиска в строке запроса
     let urlParams = new URLSearchParams(window.location.search);
-    if (!urlParams.has("username")) {
-        // Если параметры идут после `#`, используем `window.location.hash`
-        urlParams = new URLSearchParams(window.location.hash.substring(1));
-    }
     
-    username = urlParams.get('username');
-    firstName = urlParams.get('first_name');
-    lastName = urlParams.get('last_name');
+    // Если параметры не найдены в поисковой строке, ищем в хеше
+    if (!urlParams.has("username")) {
+        const hashParams = new URLSearchParams(window.location.hash.substring(1));
+        
+        // Извлечение данных пользователя из хеша
+        const tgData = hashParams.get("tgWebAppData");
+        if (tgData) {
+            try {
+                const decodedData = decodeURIComponent(tgData);
+                const jsonData = JSON.parse(decodedData);
+                
+                if (jsonData.user) {
+                    username = jsonData.user.username;
+                    firstName = jsonData.user.first_name;
+                    lastName = jsonData.user.last_name;
+                }
+            } catch (e) {
+                console.error("Ошибка при разборе tgWebAppData:", e);
+            }
+        }
+    } else {
+        // Если параметры найдены в URL, извлекаем их
+        username = urlParams.get('username');
+        firstName = urlParams.get('first_name');
+        lastName = urlParams.get('last_name');
+    }
 
-    // Логирование для проверки
-    console.log("Loaded from URL:");
+    // Проверка загруженных данных
     console.log("Username:", username);
     console.log("First Name:", firstName);
     console.log("Last Name:", lastName);
@@ -28,43 +45,21 @@ function displayUserData() {
     document.getElementById('user-name').textContent = `${firstName || ''} ${lastName || ''}`.trim();
     document.getElementById('user-username').textContent = username ? `@${username}` : '@username';
 
-    // Если пользовательское фото доступно, оно будет отображаться, иначе - стандартное
+    // Показ стандартного аватара, если загрузка фото пользователя не удалась
     const userPhoto = document.getElementById('user-photo');
     userPhoto.onerror = () => {
-        userPhoto.src = 'images_old/profile-avatar.png'; // Показ стандартного аватара при ошибке загрузки
+        userPhoto.src = 'images_old/profile-avatar.png';
     };
 }
 
-// Проверка, что Telegram SDK доступен
-if (typeof Telegram !== 'undefined' && typeof Telegram.WebApp !== 'undefined') {
-    Telegram.WebApp.onEvent('init', () => {
-        const initData = Telegram.WebApp.initDataUnsafe;
-        
-        if (initData.user) {
-            username = initData.user.username;
-            firstName = initData.user.first_name;
-            lastName = initData.user.last_name;
+// Вызов функции для извлечения данных пользователя
+extractUserData();
 
-            console.log("Loaded from Telegram SDK:");
-            console.log("Username:", username);
-            console.log("First Name:", firstName);
-            console.log("Last Name:", lastName);
-
-            displayUserData();
-        } else {
-            console.log("Данные пользователя не получены через Telegram SDK.");
-            extractUserData();
-        }
-    });
-} else {
-    extractUserData();
-}
-
-// Отображение полного URL страницы для отладки
+// Отображение полного URL для отладки
 document.getElementById('full-url').textContent = window.location.href;
 
 // Остальной код (работа с товарами и темами)
-const products = { /* your product data */ };
+const products = { /* данные товаров */ };
 
 document.querySelectorAll('.game-tile').forEach(tile => {
     tile.addEventListener('click', (event) => {
@@ -112,6 +107,7 @@ function showProducts(gameId) {
     document.querySelector('.products-section').style.display = 'block';
 }
 
+// Смена темы в зависимости от времени суток
 window.addEventListener('load', () => {
     const currentHour = new Date().getHours();
     if (currentHour >= 18 || currentHour < 6) {
