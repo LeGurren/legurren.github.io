@@ -11,7 +11,7 @@ document.getElementById('user-username').textContent = `@${username}`;
 // Проверка и загрузка фото пользователя, если он доступен
 const userPhoto = document.getElementById('user-photo');
 userPhoto.onerror = () => {
-    userPhoto.src = 'images/profile-avatar.png'; // Если фото не загружается, отображать стандартный аватар
+    userPhoto.src = 'images_old/profile-avatar.png'; // Если фото не загружается, отображать стандартный аватар
 };
 
 // Product data for each game
