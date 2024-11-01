@@ -1,40 +1,61 @@
-// Проверка на наличие Telegram Web App SDK и инициализация данных пользователя
+// Проверка и загрузка данных из Telegram Web App SDK
 let username, firstName, lastName;
 
+// Убедимся, что Telegram SDK доступен
 if (typeof Telegram !== 'undefined' && typeof Telegram.WebApp !== 'undefined') {
-    // Используем SDK Telegram для получения данных пользователя
-    const initData = Telegram.WebApp.initDataUnsafe;
-    if (initData.user) {
-        username = initData.user.username;
-        firstName = initData.user.first_name;
-        lastName = initData.user.last_name;
-    } else {
-        console.log("Данные пользователя не были получены из Telegram SDK.");
-    }
+    Telegram.WebApp.onEvent('init', () => {
+        const initData = Telegram.WebApp.initDataUnsafe;
+        
+        if (initData.user) {
+            username = initData.user.username;
+            firstName = initData.user.first_name;
+            lastName = initData.user.last_name;
+
+            // Логирование для проверки
+            console.log("Loaded from Telegram SDK:");
+            console.log("Username:", username);
+            console.log("First Name:", firstName);
+            console.log("Last Name:", lastName);
+        } else {
+            console.log("Данные пользователя не получены через Telegram SDK.");
+        }
+
+        // Отображение данных на странице
+        displayUserData();
+    });
 } else {
     // Получение данных пользователя из URL в случае, если SDK недоступен
     const urlParams = new URLSearchParams(window.location.search);
     username = urlParams.get('username');
     firstName = urlParams.get('first_name');
     lastName = urlParams.get('last_name');
+
+    // Логирование для проверки
+    console.log("Loaded from URL:");
+    console.log("Username:", username);
+    console.log("First Name:", firstName);
+    console.log("Last Name:", lastName);
+
+    // Отображение данных на странице
+    displayUserData();
 }
 
-// Проверка, что параметры загружены корректно
-console.log("Username:", username);
-console.log("First Name:", firstName);
-console.log("Last Name:", lastName);
+// Функция для отображения данных на странице
+function displayUserData() {
+    document.getElementById('user-name').textContent = `${firstName || ''} ${lastName || ''}`.trim();
+    document.getElementById('user-username').textContent = username ? `@${username}` : '@username';
 
-// Отображение данных на странице
-document.getElementById('user-name').textContent = `${firstName || ''} ${lastName || ''}`.trim();
-document.getElementById('user-username').textContent = username ? `@${username}` : '@username';
+    // Если пользовательское фото доступно, оно будет отображаться, иначе - стандартное
+    const userPhoto = document.getElementById('user-photo');
+    userPhoto.onerror = () => {
+        userPhoto.src = 'images_old/profile-avatar.png'; // Показ стандартного аватара при ошибке загрузки
+    };
+}
 
-// Если пользовательское фото доступно, оно будет отображаться, иначе - стандартное
-const userPhoto = document.getElementById('user-photo');
-userPhoto.onerror = () => {
-    userPhoto.src = 'images_old/profile-avatar.png'; // Показ стандартного аватара при ошибке загрузки
-};
+// Отображение полного URL страницы для отладки
+document.getElementById('full-url').textContent = window.location.href;
 
-// Product data for each game
+// Данные для товаров для каждой игры
 const products = {
     brawlstars: [
         {
@@ -65,7 +86,7 @@ const products = {
     ],
 };
 
-// Handle game tile click to show products
+// Обработка клика по плитке игры
 document.querySelectorAll('.game-tile').forEach(tile => {
     tile.addEventListener('click', (event) => {
         event.preventDefault();
@@ -76,7 +97,7 @@ document.querySelectorAll('.game-tile').forEach(tile => {
 
 function showProducts(gameId) {
     const productsGrid = document.getElementById('products-grid');
-    productsGrid.innerHTML = '';
+    productsGrid.innerHTML = ''; // Очистить предыдущие товары
     const selectedProducts = products[gameId] || [];
 
     selectedProducts.forEach(product => {
@@ -108,12 +129,12 @@ function showProducts(gameId) {
         productsGrid.appendChild(productCard);
     });
 
-    // Show the products section
+    // Показать секцию товаров
     document.querySelector('.products-section').classList.remove('hidden');
     document.querySelector('.products-section').style.display = 'block';
 }
 
-// Change theme based on time of day
+// Смена темы в зависимости от времени суток
 window.addEventListener('load', () => {
     const currentHour = new Date().getHours();
     if (currentHour >= 18 || currentHour < 6) {
