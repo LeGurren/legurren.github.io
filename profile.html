@@ -2,7 +2,6 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Профиль - Games Market</title>
     <link rel="stylesheet" href="style.css">
 </head>
@@ -19,24 +18,22 @@
         <!-- Дополнительные элементы профиля -->
     </main>
 
-    <!-- Подключение к Telegram Web App API -->
-    <script src="https://telegram.org/js/telegram-web-app.js"></script>
     <script>
-        // Инициализация Web App API и получение данных пользователя
-        const telegram = window.Telegram.WebApp;
-        telegram.expand();  // Разворачивает Web App на весь экран
-
-        // Получение данных пользователя через initDataUnsafe
-        const user = telegram.initDataUnsafe?.user;
+        // Получение данных пользователя из URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const username = urlParams.get('username') || 'username';
+        const firstName = urlParams.get('first_name') || 'Имя';
+        const lastName = urlParams.get('last_name') || 'пользователя';
 
         // Отображение данных на странице
-        if (user) {
-            document.getElementById('user-name').textContent = `${user.first_name || ''} ${user.last_name || ''}`.trim();
-            document.getElementById('user-username').textContent = `@${user.username}`;
-            document.getElementById('user-photo').src = user.photo_url || 'images/profile-avatar.png';
-        } else {
-            console.log("Данные пользователя недоступны. Убедитесь, что Web App открыт через Telegram.");
-        }
+        document.getElementById('user-name').textContent = `${firstName} ${lastName}`.trim();
+        document.getElementById('user-username').textContent = `@${username}`;
+
+        // Проверка изображения пользователя (если нет, оставить стандартное)
+        const userPhoto = document.getElementById('user-photo');
+        userPhoto.onerror = () => {
+            userPhoto.src = 'images/profile-avatar.png';  // путь к изображению-заполнителю
+        };
     </script>
 </body>
 </html>
