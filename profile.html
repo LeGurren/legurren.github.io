@@ -18,25 +18,6 @@
         <!-- Дополнительные элементы профиля -->
     </main>
 
-    <script>
-        // Получение данных пользователя из URL
-        const urlParams = new URLSearchParams(window.location.search);
-        const username = urlParams.get('username') || 'username';
-        const firstName = urlParams.get('first_name') || 'Имя';
-        const lastName = urlParams.get('last_name') || 'пользователя';
-
-        // Debug logs
-        console.log("Parsed URL parameters:", { username, firstName, lastName });
-
-        // Отображение данных на странице
-        document.getElementById('user-name').textContent = `${firstName} ${lastName}`.trim();
-        document.getElementById('user-username').textContent = `@${username}`;
-
-        // Проверка изображения пользователя (если нет, оставить стандартное)
-        const userPhoto = document.getElementById('user-photo');
-        userPhoto.onerror = () => {
-            userPhoto.src = 'images/profile-avatar.png';  // путь к изображению-заполнителю
-        };
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
