@@ -1,8 +1,23 @@
-// Получение данных пользователя из URL
-const urlParams = new URLSearchParams(window.location.search);
-const username = urlParams.get('username');
-const firstName = urlParams.get('first_name');
-const lastName = urlParams.get('last_name');
+// Проверка на наличие Telegram Web App SDK и инициализация данных пользователя
+let username, firstName, lastName;
+
+if (typeof Telegram !== 'undefined' && typeof Telegram.WebApp !== 'undefined') {
+    // Используем SDK Telegram для получения данных пользователя
+    const initData = Telegram.WebApp.initDataUnsafe;
+    if (initData.user) {
+        username = initData.user.username;
+        firstName = initData.user.first_name;
+        lastName = initData.user.last_name;
+    } else {
+        console.log("Данные пользователя не были получены из Telegram SDK.");
+    }
+} else {
+    // Получение данных пользователя из URL в случае, если SDK недоступен
+    const urlParams = new URLSearchParams(window.location.search);
+    username = urlParams.get('username');
+    firstName = urlParams.get('first_name');
+    lastName = urlParams.get('last_name');
+}
 
 // Проверка, что параметры загружены корректно
 console.log("Username:", username);
