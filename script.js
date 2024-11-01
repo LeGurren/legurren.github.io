@@ -1,31 +1,15 @@
 // Проверка и загрузка данных из Telegram Web App SDK
 let username, firstName, lastName;
 
-// Убедимся, что Telegram SDK доступен
-if (typeof Telegram !== 'undefined' && typeof Telegram.WebApp !== 'undefined') {
-    Telegram.WebApp.onEvent('init', () => {
-        const initData = Telegram.WebApp.initDataUnsafe;
-        
-        if (initData.user) {
-            username = initData.user.username;
-            firstName = initData.user.first_name;
-            lastName = initData.user.last_name;
-
-            // Логирование для проверки
-            console.log("Loaded from Telegram SDK:");
-            console.log("Username:", username);
-            console.log("First Name:", firstName);
-            console.log("Last Name:", lastName);
-        } else {
-            console.log("Данные пользователя не получены через Telegram SDK.");
-        }
-
-        // Отображение данных на странице
-        displayUserData();
-    });
-} else {
-    // Получение данных пользователя из URL в случае, если SDK недоступен
-    const urlParams = new URLSearchParams(window.location.search);
+// Функция для извлечения данных пользователя из URL
+function extractUserData() {
+    // Если параметры идут после `?`, используем URLSearchParams для поиска в строке запроса
+    let urlParams = new URLSearchParams(window.location.search);
+    if (!urlParams.has("username")) {
+        // Если параметры идут после `#`, используем `window.location.hash`
+        urlParams = new URLSearchParams(window.location.hash.substring(1));
+    }
+    
     username = urlParams.get('username');
     firstName = urlParams.get('first_name');
     lastName = urlParams.get('last_name');
@@ -36,7 +20,6 @@ if (typeof Telegram !== 'undefined' && typeof Telegram.WebApp !== 'undefined') {
     console.log("First Name:", firstName);
     console.log("Last Name:", lastName);
 
-    // Отображение данных на странице
     displayUserData();
 }
 
@@ -52,41 +35,37 @@ function displayUserData() {
     };
 }
 
+// Проверка, что Telegram SDK доступен
+if (typeof Telegram !== 'undefined' && typeof Telegram.WebApp !== 'undefined') {
+    Telegram.WebApp.onEvent('init', () => {
+        const initData = Telegram.WebApp.initDataUnsafe;
+        
+        if (initData.user) {
+            username = initData.user.username;
+            firstName = initData.user.first_name;
+            lastName = initData.user.last_name;
+
+            console.log("Loaded from Telegram SDK:");
+            console.log("Username:", username);
+            console.log("First Name:", firstName);
+            console.log("Last Name:", lastName);
+
+            displayUserData();
+        } else {
+            console.log("Данные пользователя не получены через Telegram SDK.");
+            extractUserData();
+        }
+    });
+} else {
+    extractUserData();
+}
+
 // Отображение полного URL страницы для отладки
 document.getElementById('full-url').textContent = window.location.href;
 
-// Данные для товаров для каждой игры
-const products = {
-    brawlstars: [
-        {
-            name: 'Бравл Пасс',
-            price: '1050 руб',
-            image: 'images/brawl_pass.jpg',
-            discount: '10%',
-        },
-        {
-            name: 'Улучшение БП',
-            price: '620 руб',
-            image: 'images/brawl_upgrade.jpg',
-        }
-    ],
-    pubg: [
-        {
-            name: 'PUBG UC Pack',
-            price: '500 руб',
-            image: 'images/pubg_uc.jpg',
-        }
-    ],
-    roblox: [
-        {
-            name: 'Robux Pack',
-            price: '800 руб',
-            image: 'images/robux.jpg',
-        }
-    ],
-};
+// Остальной код (работа с товарами и темами)
+const products = { /* your product data */ };
 
-// Обработка клика по плитке игры
 document.querySelectorAll('.game-tile').forEach(tile => {
     tile.addEventListener('click', (event) => {
         event.preventDefault();
@@ -97,7 +76,7 @@ document.querySelectorAll('.game-tile').forEach(tile => {
 
 function showProducts(gameId) {
     const productsGrid = document.getElementById('products-grid');
-    productsGrid.innerHTML = ''; // Очистить предыдущие товары
+    productsGrid.innerHTML = '';
     const selectedProducts = products[gameId] || [];
 
     selectedProducts.forEach(product => {
@@ -129,12 +108,10 @@ function showProducts(gameId) {
         productsGrid.appendChild(productCard);
     });
 
-    // Показать секцию товаров
     document.querySelector('.products-section').classList.remove('hidden');
     document.querySelector('.products-section').style.display = 'block';
 }
 
-// Смена темы в зависимости от времени суток
 window.addEventListener('load', () => {
     const currentHour = new Date().getHours();
     if (currentHour >= 18 || currentHour < 6) {
