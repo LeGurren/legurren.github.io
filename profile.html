@@ -11,6 +11,62 @@
     </header>
     <main class="container">
         <div class="profile-header">
+            <img id="user-photo" src="images/profile-avatar.png" alt="Аватар пользователя" class="profile-avatar">
+            <h2 id="user-name">Имя пользователя</h2>
+            <p id="user-username">@username</p>
+        </div>
+        <!-- Дополнительные элементы профиля -->
+        <div id="debug-info" style="margin-top: 20px; color: red;">
+            Полный URL страницы: <span id="full-url"></span><br>
+            Username: <span id="debug-username">(параметр не получен)</span><br>
+            First Name: <span id="debug-first-name">(параметр не получен)</span><br>
+            Last Name: <span id="debug-last-name">(параметр не получен)</span><br>
+        </div>
+    </main>
+
+    <script>
+        // Отображение полного URL для отладки
+        document.getElementById('full-url').textContent = window.location.href;
+
+        // Функция для получения данных из Telegram Web App
+        function loadTelegramData() {
+            if (window.Telegram && Telegram.WebApp.initDataUnsafe) {
+                const initData = Telegram.WebApp.initDataUnsafe.user || {};
+                const username = initData.username || "(параметр не получен)";
+                const firstName = initData.first_name || "(параметр не получен)";
+                const lastName = initData.last_name || "(параметр не получен)";
+
+                // Отображение параметров
+                document.getElementById('debug-username').textContent = username;
+                document.getElementById('debug-first-name').textContent = firstName;
+                document.getElementById('debug-last-name').textContent = lastName;
+
+                // Отображение данных на странице
+                document.getElementById('user-name').textContent = `${firstName} ${lastName}`.trim();
+                document.getElementById('user-username').textContent = `@${username}`;
+            } else {
+                console.error("Telegram WebApp не инициализирован или данные пользователя не найдены.");
+            }
+        }
+
+        // Загружаем данные при загрузке страницы
+        document.addEventListener('DOMContentLoaded', loadTelegramData);
+    </script>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Профиль - Games Market</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="header">
+        <!-- Шапка профиля -->
+    </header>
+    <main class="container">
+        <div class="profile-header">
             <img id="user-photo" src="images_old/profile-avatar.png" alt="Аватар пользователя" class="profile-avatar">
             <h2 id="user-name">Имя пользователя</h2>
             <p id="user-username">@username</p>
