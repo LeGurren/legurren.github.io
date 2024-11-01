@@ -11,37 +11,42 @@
     </header>
     <main class="container">
         <div class="profile-header">
-            <img id="user-photo" src="images_old/profile-avatar.png" alt="Аватар пользователя" class="profile-avatar">
+            <img id="user-photo" src="images/profile-avatar.png" alt="Аватар пользователя" class="profile-avatar">
             <h2 id="user-name">Имя пользователя</h2>
             <p id="user-username">@username</p>
         </div>
         <!-- Дополнительные элементы профиля -->
-
-        <!-- Секция для отладочной информации -->
         <div id="debug-info" style="margin-top: 20px; color: red;">
-            <p id="debug-url"></p>
-            <p id="debug-username">Username: (параметр не получен)</p>
-            <p id="debug-first-name">First Name: (параметр не получен)</p>
-            <p id="debug-last-name">Last Name: (параметр не получен)</p>
+            <!-- Это место для отладки, оно покажет, получены ли параметры -->
+            Полный URL страницы: <span id="full-url"></span><br>
+            Username: <span id="debug-username">(параметр не получен)</span><br>
+            First Name: <span id="debug-first-name">(параметр не получен)</span><br>
+            Last Name: <span id="debug-last-name">(параметр не получен)</span><br>
         </div>
     </main>
 
     <script>
+        // Получение полного URL для отладки
+        document.getElementById('full-url').textContent = window.location.href;
+
         // Получение данных пользователя из URL
         const urlParams = new URLSearchParams(window.location.search);
         const username = urlParams.get('username');
         const firstName = urlParams.get('first_name');
         const lastName = urlParams.get('last_name');
 
-        // Отображение данных на странице профиля
-        document.getElementById('user-name').textContent = `${firstName || ''} ${lastName || ''}`.trim() || "Имя пользователя";
-        document.getElementById('user-username').textContent = username ? `@${username}` : "@username";
+        // Отображение отладочной информации
+        document.getElementById('debug-username').textContent = username ? username : "(параметр не получен)";
+        document.getElementById('debug-first-name').textContent = firstName ? firstName : "(параметр не получен)";
+        document.getElementById('debug-last-name').textContent = lastName ? lastName : "(параметр не получен)";
 
-        // Отладочная информация на странице
-        document.getElementById('debug-url').textContent = `Полный URL страницы: ${window.location.href}`;
-        document.getElementById('debug-username').textContent = `Username: ${username || "(параметр не получен)"}`;
-        document.getElementById('debug-first-name').textContent = `First Name: ${firstName || "(параметр не получен)"}`;
-        document.getElementById('debug-last-name').textContent = `Last Name: ${lastName || "(параметр не получен)"}`;
+        // Проверка и отображение данных на странице
+        if (firstName || lastName) {
+            document.getElementById('user-name').textContent = `${firstName || ''} ${lastName || ''}`.trim();
+        }
+        if (username) {
+            document.getElementById('user-username').textContent = `@${username}`;
+        }
     </script>
 </body>
 </html>
