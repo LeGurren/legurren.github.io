@@ -11,19 +11,19 @@
     </header>
     <main class="container">
         <div class="profile-header">
-            <img id="user-photo" src="images_old/profile-avatar.png" alt="Аватар пользователя" class="profile-avatar">
+            <img id="user-photo" src="images/profile-avatar.png" alt="Аватар пользователя" class="profile-avatar">
             <h2 id="user-name">Имя пользователя</h2>
             <p id="user-username">@username</p>
         </div>
+        <!-- Дополнительные элементы профиля -->
 
-        <!-- Видимый отладочный вывод данных -->
-        <div class="debug-info">
-            <h3>Отладочная информация</h3>
+        <!-- Секция для отладочной информации -->
+        <div id="debug-info" style="margin-top: 20px; color: red;">
+            <p id="debug-url"></p>
             <p id="debug-username">Username: (параметр не получен)</p>
             <p id="debug-first-name">First Name: (параметр не получен)</p>
             <p id="debug-last-name">Last Name: (параметр не получен)</p>
         </div>
-        <!-- Дополнительные элементы профиля -->
     </main>
 
     <script>
@@ -37,7 +37,8 @@
         document.getElementById('user-name').textContent = `${firstName || ''} ${lastName || ''}`.trim() || "Имя пользователя";
         document.getElementById('user-username').textContent = username ? `@${username}` : "@username";
 
-        // Отладочный вывод данных
+        // Отладочная информация на странице
+        document.getElementById('debug-url').textContent = `Полный URL страницы: ${window.location.href}`;
         document.getElementById('debug-username').textContent = `Username: ${username || "(параметр не получен)"}`;
         document.getElementById('debug-first-name').textContent = `First Name: ${firstName || "(параметр не получен)"}`;
         document.getElementById('debug-last-name').textContent = `Last Name: ${lastName || "(параметр не получен)"}`;
