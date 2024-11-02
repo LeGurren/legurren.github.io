@@ -9,18 +9,39 @@
     <header class="header">
         <!-- Шапка профиля -->
     </header>
+    
     <main class="container">
+        <!-- Профиль пользователя -->
         <div class="profile-header">
             <img id="user-photo" src="images_old/profile-avatar.png" alt="Аватар пользователя" class="profile-avatar">
             <h2 id="user-name">Имя пользователя</h2>
             <p id="user-username">@username</p>
         </div>
-        <!-- Дополнительные элементы профиля -->
+
+        <!-- Дополнительные элементы профиля и отладочная информация -->
         <div id="debug-info" style="margin-top: 20px; color: red;">
             Полный URL страницы: <span id="full-url"></span><br>
             Username: <span id="debug-username">(параметр не получен)</span><br>
             First Name: <span id="debug-first-name">(параметр не получен)</span><br>
             Last Name: <span id="debug-last-name">(параметр не получен)</span><br>
+        </div>
+
+        <!-- Контейнер для логов отладки -->
+        <div id="log-container" style="margin-top: 20px; color: red;"></div>
+        
+        <!-- Секция с товарами -->
+        <div class="products-section hidden" style="margin-top: 20px;">
+            <h2>Товары для выбранной игры</h2>
+            <div id="products-grid" class="products-grid">
+                <!-- Карточки товаров будут динамически добавляться сюда -->
+            </div>
+        </div>
+
+        <!-- Кнопки для выбора игр (пример) -->
+        <div class="game-selection" style="margin-top: 20px;">
+            <a href="#brawlstars" class="game-tile">Brawl Stars</a>
+            <a href="#pubg" class="game-tile">PUBG</a>
+            <a href="#roblox" class="game-tile">Roblox</a>
         </div>
     </main>
 
