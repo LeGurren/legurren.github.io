@@ -1,7 +1,7 @@
 import { validate, parse, type InitDataParsed } from '@telegram-apps/init-data-node';
 import express from 'express';
 
-const token = 'YOUR_BOT_TOKEN';
+const token = '7900966430:AAGmeN079e0NqMuHpWfYP6F3cnVuXBLW9FY';
 const app = express();
 
 app.use((req, res, next) => {
