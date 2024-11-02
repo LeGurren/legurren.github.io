@@ -50,7 +50,7 @@ if (typeof Telegram !== 'undefined' && typeof Telegram.WebApp !== 'undefined') {
     lastName = urlParams.get('last_name');
 
     // Логирование для проверки данных из URL
-    addLog(`Данные из URL: Username: ${username}, First Name: ${firstName}, Last Name: ${lastName}`);
+    addLog(`Данные из URL: Username: ${username || '(параметр не получен)'}, First Name: ${firstName || '(параметр не получен)'}, Last Name: ${lastName || '(параметр не получен)'}`);
 
     // Отображение данных на странице
     displayUserData();
