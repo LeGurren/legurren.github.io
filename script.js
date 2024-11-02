@@ -16,7 +16,7 @@ function addLog(message) {
 }
 
 // Проверка и загрузка данных из Telegram Web App SDK
-let username, firstName, lastName;
+let username, firstName, lastName, userPhotoURL;
 
 // Убедимся, что Telegram SDK доступен
 if (typeof Telegram !== 'undefined' && typeof Telegram.WebApp !== 'undefined') {
@@ -27,15 +27,16 @@ if (typeof Telegram !== 'undefined' && typeof Telegram.WebApp !== 'undefined') {
         // Логирование для проверки initData
         addLog(`initDataUnsafe: ${JSON.stringify(initData)}`);
 
-        if (initData.user) {
+        if (initData && initData.user) {
             username = initData.user.username;
             firstName = initData.user.first_name;
             lastName = initData.user.last_name;
+            userPhotoURL = initData.user.photo_url;
 
             // Логирование для проверки данных пользователя
-            addLog(`Данные из Telegram SDK: Username: ${username}, First Name: ${firstName}, Last Name: ${lastName}`);
+            addLog(`Данные из Telegram SDK: Username: ${username}, First Name: ${firstName}, Last Name: ${lastName}, Photo URL: ${userPhotoURL}`);
         } else {
-            addLog("Данные пользователя не получены через Telegram SDK.");
+            addLog("Данные пользователя не получены через Telegram SDK. Переход к данным из URL.");
         }
 
         // Отображение данных на странице
@@ -43,11 +44,13 @@ if (typeof Telegram !== 'undefined' && typeof Telegram.WebApp !== 'undefined') {
     });
 } else {
     addLog("Telegram SDK недоступен. Попытка загрузить данные из URL...");
+    
     // Получение данных пользователя из URL в случае, если SDK недоступен
     const urlParams = new URLSearchParams(window.location.search);
     username = urlParams.get('username');
     firstName = urlParams.get('first_name');
     lastName = urlParams.get('last_name');
+    userPhotoURL = ''; // Пустое значение для userPhotoURL, так как его нет в URL
 
     // Логирование для проверки данных из URL
     addLog(`Данные из URL: Username: ${username || '(параметр не получен)'}, First Name: ${firstName || '(параметр не получен)'}, Last Name: ${lastName || '(параметр не получен)'}`);
@@ -58,15 +61,29 @@ if (typeof Telegram !== 'undefined' && typeof Telegram.WebApp !== 'undefined') {
 
 // Функция для отображения данных на странице
 function displayUserData() {
-    // Если данных нет, выводим '(параметр не получен)'
-    document.getElementById('user-name').textContent = `${firstName || '(параметр не получен)'} ${lastName || '(параметр не получен)'}`.trim();
-    document.getElementById('user-username').textContent = username ? `@${username}` : '@username';
+    // Устанавливаем имя пользователя
+    const userNameElement = document.getElementById('user-name');
+    userNameElement.textContent = `${firstName || ''} ${lastName || ''}`.trim();
 
-    // Если пользовательское фото доступно, оно будет отображаться, иначе - стандартное
+    // Устанавливаем username
+    const userUsernameElement = document.getElementById('user-username');
+    userUsernameElement.textContent = username ? `@${username}` : '@username';
+
+    // Устанавливаем фото пользователя или стандартное фото, если URL пуст
     const userPhoto = document.getElementById('user-photo');
+    if (userPhotoURL) {
+        userPhoto.src = userPhotoURL;
+    } else {
+        userPhoto.src = 'images_old/profile-avatar.png'; // Показ стандартного аватара
+    }
     userPhoto.onerror = () => {
         userPhoto.src = 'images_old/profile-avatar.png'; // Показ стандартного аватара при ошибке загрузки
     };
+
+    // Скрываем элемент фамилии, если lastName отсутствует
+    if (!lastName) {
+        userNameElement.textContent = firstName || 'Имя не указано';
+    }
 }
 
 // Отображение полного URL страницы для отладки
