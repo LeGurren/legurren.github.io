@@ -1,13 +1,31 @@
+// Создаем элемент для отображения логов на странице
+const logContainer = document.createElement('div');
+logContainer.id = 'log-container';
+logContainer.style.border = '1px solid red';
+logContainer.style.padding = '10px';
+logContainer.style.margin = '10px';
+logContainer.style.maxHeight = '150px';
+logContainer.style.overflowY = 'scroll';
+document.body.appendChild(logContainer);
+
+// Функция для добавления сообщения в лог
+function addLog(message) {
+    const logMessage = document.createElement('p');
+    logMessage.textContent = message;
+    logContainer.appendChild(logMessage);
+}
+
 // Проверка и загрузка данных из Telegram Web App SDK
 let username, firstName, lastName;
 
 // Убедимся, что Telegram SDK доступен
 if (typeof Telegram !== 'undefined' && typeof Telegram.WebApp !== 'undefined') {
+    addLog("Telegram SDK доступен. Попытка инициализации...");
     Telegram.WebApp.onEvent('init', () => {
         const initData = Telegram.WebApp.initDataUnsafe;
 
         // Логирование для проверки initData
-        console.log("initDataUnsafe:", initData);
+        addLog(`initDataUnsafe: ${JSON.stringify(initData)}`);
 
         if (initData.user) {
             username = initData.user.username;
@@ -15,18 +33,16 @@ if (typeof Telegram !== 'undefined' && typeof Telegram.WebApp !== 'undefined') {
             lastName = initData.user.last_name;
 
             // Логирование для проверки данных пользователя
-            console.log("Loaded from Telegram SDK:");
-            console.log("Username:", username);
-            console.log("First Name:", firstName);
-            console.log("Last Name:", lastName);
+            addLog(`Данные из Telegram SDK: Username: ${username}, First Name: ${firstName}, Last Name: ${lastName}`);
         } else {
-            console.log("Данные пользователя не получены через Telegram SDK.");
+            addLog("Данные пользователя не получены через Telegram SDK.");
         }
 
         // Отображение данных на странице
         displayUserData();
     });
 } else {
+    addLog("Telegram SDK недоступен. Попытка загрузить данные из URL...");
     // Получение данных пользователя из URL в случае, если SDK недоступен
     const urlParams = new URLSearchParams(window.location.search);
     username = urlParams.get('username');
@@ -34,10 +50,7 @@ if (typeof Telegram !== 'undefined' && typeof Telegram.WebApp !== 'undefined') {
     lastName = urlParams.get('last_name');
 
     // Логирование для проверки данных из URL
-    console.log("Loaded from URL:");
-    console.log("Username:", username);
-    console.log("First Name:", firstName);
-    console.log("Last Name:", lastName);
+    addLog(`Данные из URL: Username: ${username}, First Name: ${firstName}, Last Name: ${lastName}`);
 
     // Отображение данных на странице
     displayUserData();
