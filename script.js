@@ -1,93 +1,30 @@
-// Создаем элемент для отображения логов на странице
-const logContainer = document.createElement('div');
-logContainer.id = 'log-container';
-logContainer.style.border = '1px solid red';
-logContainer.style.padding = '10px';
-logContainer.style.margin = '10px';
-logContainer.style.maxHeight = '150px';
-logContainer.style.overflowY = 'scroll';
-document.body.appendChild(logContainer);
-
-// Функция для добавления сообщения в лог
-function addLog(message) {
-    const logMessage = document.createElement('p');
-    logMessage.textContent = message;
-    logContainer.appendChild(logMessage);
+// Функция для отображения данных пользователя на странице
+function displayUserData(data) {
+    document.getElementById('user-name').textContent = data.first_name || '';
+    document.getElementById('user-username').textContent = `@${data.username || ''}`;
+    document.getElementById('user-photo').src = data.photo_url || 'images_old/profile-avatar.png';
 }
 
-// Проверка и загрузка данных из Telegram Web App SDK
-let username, firstName, lastName, userPhotoURL;
-
-// Убедимся, что Telegram SDK доступен
-if (typeof Telegram !== 'undefined' && typeof Telegram.WebApp !== 'undefined') {
-    addLog("Telegram SDK доступен. Попытка инициализации...");
-    Telegram.WebApp.onEvent('init', () => {
-        const initData = Telegram.WebApp.initDataUnsafe;
-
-        // Логирование для проверки initData
-        addLog(`initDataUnsafe: ${JSON.stringify(initData)}`);
-
-        if (initData && initData.user) {
-            username = initData.user.username;
-            firstName = initData.user.first_name;
-            lastName = initData.user.last_name;
-            userPhotoURL = initData.user.photo_url;
-
-            // Логирование для проверки данных пользователя
-            addLog(`Данные из Telegram SDK: Username: ${username}, First Name: ${firstName}, Last Name: ${lastName}, Photo URL: ${userPhotoURL}`);
-        } else {
-            addLog("Данные пользователя не получены через Telegram SDK. Переход к данным из URL.");
-        }
-
-        // Отображение данных на странице
-        displayUserData();
-    });
-} else {
-    addLog("Telegram SDK недоступен. Попытка загрузить данные из URL...");
-    
-    // Получение данных пользователя из URL в случае, если SDK недоступен
-    const urlParams = new URLSearchParams(window.location.search);
-    username = urlParams.get('username');
-    firstName = urlParams.get('first_name');
-    lastName = urlParams.get('last_name');
-    userPhotoURL = ''; // Пустое значение для userPhotoURL, так как его нет в URL
-
-    // Логирование для проверки данных из URL
-    addLog(`Данные из URL: Username: ${username || '(параметр не получен)'}, First Name: ${firstName || '(параметр не получен)'}, Last Name: ${lastName || '(параметр не получен)'}`);
-
-    // Отображение данных на странице
-    displayUserData();
-}
-
-// Функция для отображения данных на странице
-function displayUserData() {
-    // Устанавливаем имя пользователя
-    const userNameElement = document.getElementById('user-name');
-    userNameElement.textContent = `${firstName || ''} ${lastName || ''}`.trim();
-
-    // Устанавливаем username
-    const userUsernameElement = document.getElementById('user-username');
-    userUsernameElement.textContent = username ? `@${username}` : '@username';
-
-    // Устанавливаем фото пользователя или стандартное фото, если URL пуст
-    const userPhoto = document.getElementById('user-photo');
-    if (userPhotoURL) {
-        userPhoto.src = userPhotoURL;
-    } else {
-        userPhoto.src = 'images_old/profile-avatar.png'; // Показ стандартного аватара
+// Запрос к серверу для получения данных пользователя
+fetch('http://localhost:3000/', {
+    method: 'GET',
+    headers: {
+        'Authorization': `tma ${window.Telegram.WebApp.initData || ''}`
     }
-    userPhoto.onerror = () => {
-        userPhoto.src = 'images_old/profile-avatar.png'; // Показ стандартного аватара при ошибке загрузки
-    };
-
-    // Скрываем элемент фамилии, если lastName отсутствует
-    if (!lastName) {
-        userNameElement.textContent = firstName || 'Имя не указано';
+})
+.then(response => {
+    if (!response.ok) {
+        throw new Error("Unauthorized");
     }
-}
-
-// Отображение полного URL страницы для отладки
-document.getElementById('full-url').textContent = window.location.href;
+    return response.json();
+})
+.then(data => {
+    console.log("Полученные данные пользователя:", data);
+    displayUserData(data); // Вызов функции для отображения данных
+})
+.catch(error => {
+    console.error('Ошибка авторизации:', error);
+});
 
 // Данные для товаров для каждой игры
 const products = {
