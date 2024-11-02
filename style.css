@@ -13,8 +13,6 @@ body {
     margin: 20px auto;
     padding: 20px;
     background-color: white;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
 }
 
 /* Шапка сайта */
@@ -28,6 +26,114 @@ body {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     width: 100%;
     box-sizing: border-box;
+}
+
+.logo img {
+    height: 40px;
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.search-bar {
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    outline: none;
+    width: 200px;
+}
+
+.login-button img {
+    height: 30px;
+    width: 30px;
+}
+
+/* Секция с играми с горизонтальным скроллом */
+.games-section {
+    margin-top: 20px;
+}
+
+.games-horizontal-scroll {
+    display: flex;
+    gap: 20px;
+    overflow-x: auto;
+    padding: 20px 0;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.game-tile {
+    text-align: center;
+    text-decoration: none;
+    color: black;
+    width: 150px;
+    flex: 0 0 auto;
+    transition: transform 0.2s;
+}
+
+.game-tile img {
+    width: 100%;
+    height: 150px;
+    object-fit: contain;
+    border-radius: 10px;
+    margin-bottom: 5px;
+}
+
+.game-tile p {
+    margin: 0;
+    padding: 5px 0;
+    font-size: 14px;
+    color: #333;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.game-tile:hover {
+    transform: scale(1.05);
+}
+
+/* Секция с товарами */
+.products-section {
+    padding: 40px 0;
+}
+
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.product-card {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.product-card img {
+    width: 150px;
+    height: 150px;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+.buy-button {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.buy-button:hover {
+    background-color: #218838;
 }
 
 /* Профиль пользователя */
@@ -53,143 +159,108 @@ body {
     color: #666;
 }
 
-/* Секция логов отладки */
-#log-container {
-    background-color: #fff3f3;
-    border: 1px solid #ffcccc;
-    padding: 10px;
-    margin: 20px 0;
-    max-height: 150px;
-    overflow-y: scroll;
-    border-radius: 5px;
-}
-
-/* Секция с товарами */
-.products-section {
-    padding: 20px 0;
-    display: none; /* скрыта по умолчанию, пока не выбрана игра */
-}
-
-.products-section.hidden {
-    display: none;
-}
-
-.products-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
-}
-
-.product-card {
-    background-color: white;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+/* Секция баланса */
+.balance-section {
     text-align: center;
-    transition: transform 0.3s ease;
-}
-
-.product-card:hover {
-    transform: scale(1.05);
-}
-
-.product-card img {
-    width: 150px;
-    height: 150px;
-    border-radius: 10px;
-    margin-bottom: 15px;
-}
-
-.buy-button {
-    background-color: #28a745;
-    color: white;
-    border: none;
-    padding: 10px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-    transition: background-color 0.2s ease;
-}
-
-.buy-button:hover {
-    background-color: #218838;
-}
-
-/* Кнопки для выбора игр */
-.game-selection {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
     margin-top: 20px;
+    padding: 20px;
+    background-color: #f8f9fa;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.game-tile {
-    display: inline-block;
-    padding: 10px 20px;
+.balance-section p {
+    font-size: 1em;
+    color: #333;
+}
+
+.balance-section h3 {
+    font-size: 2em;
+    color: #007bff;
+    margin: 10px 0;
+}
+
+.balance-button, .free-balance-button {
     background-color: #007bff;
     color: white;
-    text-decoration: none;
+    border: none;
+    padding: 10px 20px;
     border-radius: 5px;
-    transition: background-color 0.2s ease;
+    cursor: pointer;
+    font-size: 1em;
+    margin: 5px;
+    width: 80%;
+    max-width: 250px;
 }
 
-.game-tile:hover {
+.balance-button:hover {
     background-color: #0056b3;
 }
 
-/* Секция отладочной информации */
-#debug-info {
-    font-size: 0.9em;
-    color: red;
-    background-color: #fef2f2;
-    padding: 10px;
-    border: 1px solid #f8d7da;
-    border-radius: 5px;
+.free-balance-button {
+    background-color: #343a40;
+}
+
+.free-balance-button:hover {
+    background-color: #23272b;
+}
+
+/* Секция заказов и транзакций */
+.order-section {
+    text-align: center;
     margin-top: 20px;
+    padding: 20px;
+    background-color: #f8f9fa;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-/* Темная тема */
-body.dark-theme {
-    background-color: #2c2f33;
-    color: #e3e3e3;
+.tab-button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 1em;
+    margin: 5px;
 }
 
-.dark-theme .container,
-.dark-theme .profile-header,
-.dark-theme .product-card {
-    background-color: #3a3f44;
-    color: #e3e3e3;
+.tab-button.active {
+    background-color: #0056b3;
 }
 
-.dark-theme .header {
-    background-color: #23272a;
-}
-
-.dark-theme .buy-button {
-    background-color: #556b2f;
-}
-
-.dark-theme .buy-button:hover {
-    background-color: #6e8a3d;
+.order-section p {
+    color: #666;
+    font-size: 1em;
+    margin-top: 20px;
 }
 
 /* Адаптивные стили для мобильных устройств */
 @media (max-width: 768px) {
-    .container {
-        width: 95%;
+    .search-bar {
+        width: 100px;
     }
 
-    .game-selection {
-        flex-direction: column;
+    .games-horizontal-scroll {
+        gap: 10px;
+        padding: 10px 0;
+        flex-direction: row;
     }
 
     .game-tile {
-        width: 100%;
-        text-align: center;
+        width: 80px;
     }
 
-    .product-card img {
-        width: 100px;
-        height: 100px;
+    .game-tile img {
+        height: 60px;
+    }
+
+    .game-tile p {
+        font-size: 0.8em;
+    }
+
+    .balance-button, .free-balance-button {
+        width: 100%;
     }
 }
