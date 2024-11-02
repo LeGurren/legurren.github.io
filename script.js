@@ -5,13 +5,16 @@ let username, firstName, lastName;
 if (typeof Telegram !== 'undefined' && typeof Telegram.WebApp !== 'undefined') {
     Telegram.WebApp.onEvent('init', () => {
         const initData = Telegram.WebApp.initDataUnsafe;
-        
+
+        // Логирование для проверки initData
+        console.log("initDataUnsafe:", initData);
+
         if (initData.user) {
             username = initData.user.username;
             firstName = initData.user.first_name;
             lastName = initData.user.last_name;
 
-            // Логирование для проверки
+            // Логирование для проверки данных пользователя
             console.log("Loaded from Telegram SDK:");
             console.log("Username:", username);
             console.log("First Name:", firstName);
@@ -30,7 +33,7 @@ if (typeof Telegram !== 'undefined' && typeof Telegram.WebApp !== 'undefined') {
     firstName = urlParams.get('first_name');
     lastName = urlParams.get('last_name');
 
-    // Логирование для проверки
+    // Логирование для проверки данных из URL
     console.log("Loaded from URL:");
     console.log("Username:", username);
     console.log("First Name:", firstName);
@@ -42,7 +45,8 @@ if (typeof Telegram !== 'undefined' && typeof Telegram.WebApp !== 'undefined') {
 
 // Функция для отображения данных на странице
 function displayUserData() {
-    document.getElementById('user-name').textContent = `${firstName || ''} ${lastName || ''}`.trim();
+    // Если данных нет, выводим '(параметр не получен)'
+    document.getElementById('user-name').textContent = `${firstName || '(параметр не получен)'} ${lastName || '(параметр не получен)'}`.trim();
     document.getElementById('user-username').textContent = username ? `@${username}` : '@username';
 
     // Если пользовательское фото доступно, оно будет отображаться, иначе - стандартное
