@@ -51,18 +51,19 @@ body {
 .main-content {
     max-width: 1200px;
     margin: 0 auto;
+    padding-left: 20px;
 }
 
 /* Стили для секции игр */
 .games-section, .promo-section, .new-items-section {
-    text-align: left;
     padding: 20px 0;
 }
 
 .section-title {
     font-size: 1.5em;
     color: #333;
-    padding-left: 20px;
+    text-align: left;
+    margin-bottom: 10px;
 }
 
 .games-horizontal-scroll {
@@ -89,12 +90,11 @@ body {
 .promo-grid, .new-items-grid {
     display: flex;
     gap: 20px;
-    justify-content: flex-start;
-    padding-left: 20px;
+    padding-left: 0;
 }
 
 .promo-tile, .new-item-tile {
-    width: 100px;
+    width: 130px; /* Увеличенный размер для соответствия размеру плиток игр */
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     text-align: center;
