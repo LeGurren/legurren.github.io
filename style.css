@@ -69,6 +69,7 @@ body {
     gap: 15px;
     overflow-x: auto;
     padding: 10px;
+    white-space: nowrap;
 }
 
 .game-tile {
@@ -79,6 +80,7 @@ body {
     background-color: #fff;
     color: #333;
     text-decoration: none;
+    display: inline-block;
 }
 
 .game-tile img {
@@ -86,7 +88,8 @@ body {
     border-radius: 5px;
 }
 
-.game-tile p {
+.game-tile span {
+    display: block;
     font-size: 0.85em;
     margin-top: 5px;
 }
