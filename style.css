@@ -3,10 +3,10 @@ body {
     font-family: Arial, sans-serif;
     background-color: #f4f4f9;
     margin: 0;
-    padding-top: 80px; /* для шапки */
+    padding-top: 80px; /* для фиксированной шапки */
 }
 
-/* Стиль для шапки */
+/* Шапка */
 .header {
     background-color: #fff;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -54,25 +54,25 @@ body {
     padding: 20px;
 }
 
-/* Стили для секций */
+/* Заголовки секций */
 .section-title {
     font-size: 1.5em;
     color: #333;
     text-align: left;
     margin-bottom: 10px;
-    padding-left: 10px; /* для выравнивания заголовков по левому краю */
+    padding-left: 10px;
 }
 
-/* Стили для игр */
-.games-horizontal-scroll {
+/* Плитки игр */
+.games-grid {
     display: flex;
+    flex-wrap: wrap;
     gap: 15px;
-    overflow-x: auto;
-    padding: 10px 0;
+    justify-content: left; /* Выравнивание плиток в начале */
 }
 
 .game-tile {
-    width: 110px;
+    width: 120px;
     text-align: center;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -84,11 +84,11 @@ body {
     color: #333;
 }
 
-/* Стили для акций и новинок */
+/* Акции и новинки */
 .promo-grid, .new-items-grid {
     display: flex;
-    gap: 20px;
-    padding: 10px 0;
+    gap: 15px;
+    justify-content: left;
 }
 
 .promo-tile, .new-item-tile {
@@ -105,7 +105,7 @@ body {
     border-radius: 5px;
 }
 
-/* Стили для футера */
+/* Футер */
 .footer {
     text-align: center;
     padding: 20px 0;
