@@ -81,6 +81,7 @@ body {
     color: #333;
     text-decoration: none;
     display: inline-block;
+    padding: 10px 5px;
 }
 
 .game-tile img {
@@ -92,13 +93,14 @@ body {
     display: block;
     font-size: 0.85em;
     margin-top: 5px;
+    color: #333;
 }
 
 /* Акции и новинки */
 .promo-grid, .new-items-grid {
     display: flex;
     gap: 15px;
-    justify-content: left;
+    justify-content: flex-start;
 }
 
 .promo-tile, .new-item-tile {
@@ -107,6 +109,7 @@ body {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     text-align: center;
     background-color: #fff;
+    padding: 10px;
 }
 
 .promo-tile img, .new-item-tile img {
