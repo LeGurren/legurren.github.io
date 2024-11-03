@@ -1,3 +1,18 @@
+// URL для авторизации через Telegram
+const telegramAuthLink = 'https://oauth.telegram.org/auth?bot_id=7900966430&origin=https://legurren.github.io/&embed=1&request_access=write';
+
+// Функция для обработки клика на кнопку "Логин" в браузерной версии
+document.querySelector('.login-button').addEventListener('click', (event) => {
+    event.preventDefault();
+    if (window.Telegram.WebApp) {
+        // В веб-приложении Telegram не выполняем переход по ссылке
+        console.log("Запущено внутри Telegram Web App, авторизация не требуется.");
+    } else {
+        // Открываем ссылку для авторизации в браузере
+        window.location.href = telegramAuthLink;
+    }
+});
+
 // Функция для отображения данных пользователя на странице
 function displayUserData(data) {
     document.getElementById('user-name').textContent = data.first_name || '';
