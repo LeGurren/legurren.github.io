@@ -15,7 +15,6 @@ body {
     width: 100%;
     top: 0;
     z-index: 1000;
-    box-sizing: border-box;
 }
 
 .header-container {
@@ -26,8 +25,6 @@ body {
     margin: 0 auto;
     padding-left: 15px;
     padding-right: 15px;
-    width: 100%;
-    box-sizing: border-box;
 }
 
 .logo img {
@@ -37,8 +34,6 @@ body {
 .header-right {
     display: flex;
     align-items: center;
-    gap: 10px;
-    flex-shrink: 0;
 }
 
 .search-bar {
@@ -47,14 +42,13 @@ body {
     margin-right: 10px;
     border: 1px solid #ddd;
     flex: 1;
-    max-width: calc(100% - 60px); /* Ограничение ширины, чтобы учесть кнопку логина */
-    box-sizing: border-box;
 }
 
 .login-button img {
     width: 30px;
     height: 30px;
     border-radius: 50%;
+    margin-left: 10px;
 }
 
 /* Стили для основного контента */
@@ -64,7 +58,7 @@ body {
     margin: 0 auto;
 }
 
-/* Стили для секций */
+/* Стили для секции игр */
 .games-section,
 .promo-section,
 .new-items-section {
@@ -78,7 +72,6 @@ body {
     color: #333;
 }
 
-/* Горизонтальная прокрутка для секций */
 .games-horizontal-scroll,
 .promo-grid,
 .new-items-grid {
@@ -103,7 +96,6 @@ body {
     border-radius: 4px;
 }
 
-/* Стиль для карточек */
 .game-tile,
 .promo-tile,
 .new-item-tile {
