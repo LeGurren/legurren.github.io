@@ -1,46 +1,135 @@
-/* Убрал тени и обводку в шапке */
-.header .logo img, .header .search-bar, .header .login-button img {
-    box-shadow: none;
-    border: none;
+/* Основной стиль */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    margin: 0;
+    padding: 0;
 }
 
-/* Стили для контейнеров акций и новинок */
-.promo-tile img, .new-item-tile img {
-    width: 100px; /* Настроил на единый размер */
-    height: auto;
-    border-radius: 8px;
+/* Стиль для шапки */
+.header {
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 10px 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
 }
 
-.promo-tile, .new-item-tile {
-    width: 120px;
-    text-align: center;
-    margin: 10px;
-    border-radius: 8px;
-}
-
-/* Стиль для выравнивания логотипа и правой части шапки */
 .header-container {
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    padding: 10px;
-    background-color: white;
-    position: sticky;
-    top: 0;
-    z-index: 10;
-    box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.1);
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
 }
 
-/* Исправление для плиток игр */
-.game-tile img {
-    border-radius: 8px;
-    width: 100px;
-    height: auto;
+.logo img {
+    height: 50px;
+    border-radius: 5px;
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+}
+
+.search-bar {
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    margin-right: 10px;
+}
+
+.login-button img {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+}
+
+/* Стили для секции игр */
+.games-section {
+    margin-top: 80px;
+    text-align: center;
+    padding: 20px;
 }
 
 .games-horizontal-scroll {
     display: flex;
-    gap: 10px;
+    gap: 15px;
     overflow-x: auto;
     padding: 10px 0;
+    justify-content: center;
+}
+
+.game-tile {
+    width: 100px;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+}
+
+.game-tile img {
+    width: 80px;
+    height: auto;
+    border-radius: 8px;
+}
+
+/* Стили для секции акций и скидок */
+.promo-section, .new-items-section {
+    text-align: center;
+    margin-top: 30px;
+    padding: 20px;
+}
+
+.promo-grid, .new-items-grid {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.promo-tile, .new-item-tile {
+    width: 100px;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+}
+
+.promo-tile img, .new-item-tile img {
+    width: 80px;
+    height: auto;
+    border-radius: 8px;
+}
+
+/* Стили для секции товаров */
+.products-section {
+    margin-top: 30px;
+    padding: 20px;
+    text-align: center;
+}
+
+.products-grid {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.product-tile {
+    width: 100px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    padding: 10px;
+}
+
+.product-tile img {
+    width: 80px;
+    height: auto;
+    border-radius: 8px;
 }
