@@ -8,19 +8,21 @@ body {
 
 /* Шапка */
 .header {
-    background-color: #007bff;
+    background-color: #fff;
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 10px 20px;
-    color: white;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     width: 100%;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
     box-sizing: border-box;
 }
 
 .logo img {
-    height: 40px;
+    height: 30px; /* Уменьшено до 30px для аккуратной посадки */
 }
 
 .header-right {
@@ -34,44 +36,43 @@ body {
     border: 1px solid #ddd;
     border-radius: 5px;
     outline: none;
-    width: 200px;
+    width: 150px;
 }
 
 .login-button img {
-    height: 30px;
-    width: 30px;
+    height: 25px; /* Уменьшено до 25px для экономии места */
+    width: 25px;
 }
 
 /* Секция с играми */
 .games-section {
     margin-top: 20px;
+    padding: 10px;
 }
 
 .games-horizontal-scroll {
     display: flex;
-    gap: 20px;
+    gap: 15px;
     overflow-x: auto;
-    padding: 20px 0;
-    width: 100%;
-    box-sizing: border-box;
-    border-radius: 20px; /* Овальные углы для контейнера с играми */
+    padding: 10px 0;
+    border-radius: 20px;
 }
 
 .game-tile {
     text-align: center;
     text-decoration: none;
     color: black;
-    width: 150px;
+    width: 120px; /* Уменьшено до 120px для уменьшения размера и улучшения компоновки */
     flex: 0 0 auto;
     transition: transform 0.2s;
-    border-radius: 20px; /* Овальные углы для плиток */
+    border-radius: 15px;
 }
 
 .game-tile img {
     width: 100%;
-    height: 150px;
+    height: 120px; /* Соответствующее уменьшение для изображений */
     object-fit: contain;
-    border-radius: 20px; /* Овальные углы для изображений */
+    border-radius: 15px;
     margin-bottom: 5px;
 }
 
@@ -98,15 +99,15 @@ body {
     }
 
     .game-tile {
-        width: 165px; /* Увеличение размера плитки на 10% */
+        width: 130px;
     }
 
     .game-tile img {
-        height: 165px; /* Увеличение размера изображения на 10% */
+        height: 130px;
     }
 
-    .game-tile p {
-        font-size: 0.9em;
+    .search-bar {
+        width: 100px; /* Уменьшено, чтобы освободить место */
     }
 }
 
