@@ -96,9 +96,9 @@
         const telegramAuthLink = 'https://oauth.telegram.org/auth?bot_id=7900966430&origin=https://legurren.github.io/&embed=1&request_access=write';
 
         // Функция для обработки клика на кнопку "Логин" в браузерной версии
-        document.querySelector('.login-button').addEventListener('click', (event) => {
+        document.querySelector('#login-button').addEventListener('click', (event) => {
             event.preventDefault();
-            if (window.Telegram.WebApp) {
+            if (window.Telegram && window.Telegram.WebApp) {
                 // В веб-приложении Telegram не выполняем переход по ссылке
                 console.log("Запущено внутри Telegram Web App, авторизация не требуется.");
             } else {
