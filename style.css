@@ -9,22 +9,26 @@ body {
 /* Шапка */
 .header {
     background-color: #fff;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 10px 20px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    width: 100%;
     position: sticky;
     top: 0;
     z-index: 1000;
-    box-sizing: border-box;
+    width: 100%;
+}
+
+.header-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
 }
 
 .logo img {
-    height: 30px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3); /* Тень для логотипа */
-    border-radius: 5px; /* Круглая обводка */
+    height: 40px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    border-radius: 5px;
 }
 
 .header-right {
@@ -42,23 +46,24 @@ body {
 }
 
 .login-button img {
-    height: 25px;
-    width: 25px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3); /* Тень для кнопки логина */
+    height: 30px;
+    width: 30px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
     border-radius: 50%;
-    border: 1px solid #ddd; /* Легкая обводка */
+    border: 1px solid #ddd;
 }
 
 /* Секция с играми */
 .games-section {
     margin-top: 20px;
+    text-align: center;
     padding: 10px;
 }
 
 .games-horizontal-scroll {
     display: flex;
     gap: 15px;
-    overflow-x: auto;
+    justify-content: center;
     padding: 10px 0;
     border-radius: 20px;
 }
@@ -71,7 +76,7 @@ body {
     flex: 0 0 auto;
     transition: transform 0.2s;
     border-radius: 15px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Тень для игрового блока */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
 .game-tile img {
@@ -82,44 +87,14 @@ body {
     margin-bottom: 5px;
 }
 
-.game-tile p {
-    margin: 0;
-    padding: 5px 0;
-    font-size: 14px;
-    color: #333;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
-
 .game-tile:hover {
     transform: scale(1.05);
-}
-
-/* Адаптивные стили для мобильных устройств */
-@media (max-width: 768px) {
-    .games-horizontal-scroll {
-        gap: 10px;
-        padding: 10px 0;
-        flex-direction: row;
-    }
-
-    .game-tile {
-        width: 130px;
-    }
-
-    .game-tile img {
-        height: 130px;
-    }
-
-    .search-bar {
-        width: 100px;
-    }
 }
 
 /* Стили для товаров */
 .products-section {
     padding: 40px 0;
+    text-align: center;
 }
 
 .products-grid {
@@ -136,29 +111,17 @@ body {
     text-align: center;
 }
 
-.product-card img {
-    width: 150px;
-    height: 150px;
-    border-radius: 10px;
-    margin-bottom: 15px;
-}
+/* Темная тема для мобильных */
+@media (max-width: 768px) {
+    .game-tile {
+        width: 130px;
+    }
 
-.buy-button {
-    background-color: #28a745;
-    color: white;
-    border: none;
-    padding: 10px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-}
+    .game-tile img {
+        height: 130px;
+    }
 
-.buy-button:hover {
-    background-color: #218838;
-}
-
-/* Тема в зависимости от времени суток */
-.dark-theme {
-    background-color: #1e1e1e;
-    color: #f4f4f9;
+    .search-bar {
+        width: 100px;
+    }
 }
