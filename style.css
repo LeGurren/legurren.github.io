@@ -2,19 +2,9 @@
 body {
     font-family: Arial, sans-serif;
     background-color: #f4f4f9;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
 }
 
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 15px;
-}
-
-/* Шапка */
+/* Стиль для шапки */
 .header {
     background-color: #fff;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -34,7 +24,8 @@ body {
 }
 
 .logo img {
-    height: 40px;
+    height: 50px;
+    border-radius: 5px;
 }
 
 .header-right {
@@ -54,51 +45,35 @@ body {
     border-radius: 50%;
 }
 
-/* Стили секций */
-.main-content {
+/* Стили для секции игр */
+.games-section,
+.promo-section,
+.new-items-section {
     margin-top: 100px;
+    padding: 10px;
 }
 
-.section-title {
-    font-size: 18px;
-    font-weight: bold;
-    text-align: left;
-    margin-left: 15px;
-}
-
-.games-section, .promo-section, .new-items-section {
-    text-align: center;
-    margin-bottom: 30px;
-}
-
-.games-horizontal-scroll, .promo-horizontal-scroll, .new-items-horizontal-scroll {
+.games-horizontal-scroll,
+.promo-grid,
+.new-items-grid {
     display: flex;
     gap: 15px;
     overflow-x: auto;
     padding: 10px;
-    max-width: 100%;
 }
 
-/* Плитки */
-.game-tile, .promo-tile, .new-item-tile {
+.game-tile,
+.promo-tile,
+.new-item-tile {
     width: 120px;
     text-align: center;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     background-color: #fff;
-    padding: 10px;
-    text-decoration: none;
-    color: #333;
+    padding: 5px;
 }
 
-.game-tile img, .promo-tile img, .new-item-tile img {
-    width: 80px;
-    height: 80px;
-    object-fit: cover;
-}
-
-.game-tile span, .promo-tile span, .new-item-tile span {
-    display: block;
-    margin-top: 5px;
-    font-size: 14px;
+.section-title {
+    text-align: left;
+    padding-left: 10px;
 }
