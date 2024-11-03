@@ -64,11 +64,11 @@ body {
 }
 
 /* Плитки игр */
-.games-grid {
+.games-horizontal-scroll {
     display: flex;
-    flex-wrap: wrap;
     gap: 15px;
-    justify-content: left; /* Выравнивание плиток в начале */
+    overflow-x: auto;
+    padding: 10px;
 }
 
 .game-tile {
@@ -77,11 +77,18 @@ body {
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     background-color: #fff;
+    color: #333;
+    text-decoration: none;
 }
 
-.game-title {
+.game-tile img {
+    width: 100%;
+    border-radius: 5px;
+}
+
+.game-tile p {
     font-size: 0.85em;
-    color: #333;
+    margin-top: 5px;
 }
 
 /* Акции и новинки */
