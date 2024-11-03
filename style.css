@@ -58,7 +58,7 @@ body {
     margin: 0 auto;
 }
 
-/* Стили для секции игр */
+/* Стили для секций */
 .games-section,
 .promo-section,
 .new-items-section {
@@ -72,7 +72,10 @@ body {
     color: #333;
 }
 
-.games-horizontal-scroll {
+/* Горизонтальная прокрутка для секций */
+.games-horizontal-scroll,
+.promo-grid,
+.new-items-grid {
     display: flex;
     gap: 15px;
     overflow-x: auto;
@@ -81,15 +84,20 @@ body {
     scrollbar-color: #ccc transparent;
 }
 
-.games-horizontal-scroll::-webkit-scrollbar {
+.games-horizontal-scroll::-webkit-scrollbar,
+.promo-grid::-webkit-scrollbar,
+.new-items-grid::-webkit-scrollbar {
     height: 8px;
 }
 
-.games-horizontal-scroll::-webkit-scrollbar-thumb {
+.games-horizontal-scroll::-webkit-scrollbar-thumb,
+.promo-grid::-webkit-scrollbar-thumb,
+.new-items-grid::-webkit-scrollbar-thumb {
     background-color: #ccc;
     border-radius: 4px;
 }
 
+/* Стиль для карточек */
 .game-tile,
 .promo-tile,
 .new-item-tile {
@@ -140,13 +148,5 @@ body {
     .promo-grid,
     .new-items-grid {
         justify-content: flex-start;
-    }
-
-    .promo-grid,
-    .new-items-grid {
-        display: flex;
-        gap: 15px;
-        overflow-x: auto;
-        padding: 10px 0;
     }
 }
