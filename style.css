@@ -51,30 +51,28 @@ body {
 .main-content {
     max-width: 1200px;
     margin: 0 auto;
-    padding-left: 20px;
+    padding: 20px;
 }
 
-/* Стили для секции игр */
-.games-section, .promo-section, .new-items-section {
-    padding: 20px 0;
-}
-
+/* Стили для секций */
 .section-title {
     font-size: 1.5em;
     color: #333;
     text-align: left;
     margin-bottom: 10px;
+    padding-left: 10px; /* для выравнивания заголовков по левому краю */
 }
 
+/* Стили для игр */
 .games-horizontal-scroll {
     display: flex;
     gap: 15px;
     overflow-x: auto;
-    padding: 10px;
+    padding: 10px 0;
 }
 
 .game-tile {
-    width: 100px;
+    width: 110px;
     text-align: center;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -82,19 +80,19 @@ body {
 }
 
 .game-title {
-    font-size: 0.9em;
+    font-size: 0.85em;
     color: #333;
 }
 
-/* Стили для акций и скидок */
+/* Стили для акций и новинок */
 .promo-grid, .new-items-grid {
     display: flex;
     gap: 20px;
-    padding-left: 0;
+    padding: 10px 0;
 }
 
 .promo-tile, .new-item-tile {
-    width: 130px; /* Увеличенный размер для соответствия размеру плиток игр */
+    width: 130px;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     text-align: center;
