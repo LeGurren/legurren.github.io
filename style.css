@@ -3,18 +3,18 @@ body {
     font-family: Arial, sans-serif;
     background-color: #f4f4f9;
     margin: 0;
-    padding: 0;
+    padding-top: 80px; /* для шапки */
 }
 
 /* Стиль для шапки */
 .header {
     background-color: #fff;
-    padding: 10px 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 10px;
     position: fixed;
     width: 100%;
     top: 0;
     z-index: 1000;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .header-container {
@@ -23,11 +23,10 @@ body {
     justify-content: space-between;
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 15px;
 }
 
 .logo img {
-    height: 50px;
+    height: 40px;
 }
 
 .header-right {
@@ -48,94 +47,70 @@ body {
     border-radius: 50%;
 }
 
+/* Основной контейнер */
+.main-content {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
 /* Стили для секции игр */
-.games-section {
-    margin-top: 80px;
-    padding: 20px;
+.games-section, .promo-section, .new-items-section {
+    text-align: left;
+    padding: 20px 0;
 }
 
 .section-title {
-    text-align: left;
-    margin-left: 15px;
     font-size: 1.5em;
     color: #333;
+    padding-left: 20px;
 }
 
 .games-horizontal-scroll {
     display: flex;
     gap: 15px;
     overflow-x: auto;
-    padding: 10px 0;
-    justify-content: center;
+    padding: 10px;
 }
 
 .game-tile {
     width: 100px;
     text-align: center;
-    background-color: #fff;
     border-radius: 10px;
-    padding: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
 }
 
-.game-tile img {
-    width: 80px;
-    height: auto;
-    border-radius: 10px;
+.game-title {
+    font-size: 0.9em;
+    color: #333;
 }
 
-/* Стили для секции акций и скидок */
-.promo-section, .new-items-section {
-    margin-top: 30px;
-    padding: 20px;
-}
-
+/* Стили для акций и скидок */
 .promo-grid, .new-items-grid {
     display: flex;
-    gap: 15px;
-    justify-content: center;
-    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: flex-start;
+    padding-left: 20px;
 }
 
 .promo-tile, .new-item-tile {
     width: 100px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     text-align: center;
     background-color: #fff;
-    border-radius: 10px;
-    padding: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .promo-tile img, .new-item-tile img {
-    width: 80px;
+    width: 100%;
     height: auto;
-    border-radius: 10px;
+    border-radius: 5px;
 }
 
-/* Стили для секции товаров */
-.products-section {
-    margin-top: 30px;
-    padding: 20px;
-}
-
-.products-grid {
-    display: flex;
-    gap: 15px;
-    justify-content: center;
-    flex-wrap: wrap;
-}
-
-.product-tile {
-    width: 100px;
+/* Стили для футера */
+.footer {
     text-align: center;
-    background-color: #fff;
-    border-radius: 10px;
-    padding: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.product-tile img {
-    width: 80px;
-    height: auto;
-    border-radius: 10px;
+    padding: 20px 0;
+    background-color: #f4f4f9;
+    color: #666;
 }
