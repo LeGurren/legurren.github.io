@@ -3,7 +3,7 @@ body {
     font-family: Arial, sans-serif;
     background-color: #f4f4f9;
     margin: 0;
-    padding-top: 80px; /* для фиксированной шапки */
+    padding-top: 80px;
 }
 
 /* Шапка */
@@ -73,7 +73,7 @@ body {
 }
 
 .game-tile {
-    width: 120px;
+    width: 100px;
     text-align: center;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -102,7 +102,7 @@ body {
 }
 
 .promo-tile, .new-item-tile {
-    width: 130px;
+    width: 120px;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     text-align: center;
