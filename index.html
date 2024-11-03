@@ -22,16 +22,6 @@
         </div>
     </header>
 
-    <!-- Модальное окно для виджета Telegram -->
-    <div id="loginModal" class="modal">
-        <div class="modal-content">
-            <span class="close-button" id="closeModal">&times;</span>
-            <h2>Войдите в аккаунт</h2>
-            <p>Выберите вариант для входа в аккаунт</p>
-            <script async src="https://telegram.org/js/telegram-widget.js?15" data-telegram-login="legurenstore_bot" data-size="large" data-auth-url="https://legurren.github.io/profile.html" data-request-access="write"></script>
-        </div>
-    </div>
-
     <main class="main-content">
         <section class="games-section">
             <h2 class="section-title">Игры</h2>
@@ -40,35 +30,77 @@
                     <img src="images_old/brawlstars.png" alt="Brawl Stars">
                     <span>Brawl Stars</span>
                 </a>
-                <!-- Добавьте другие игры по аналогии -->
+                <a href="#pubg" class="game-tile">
+                    <img src="images_old/pubg.png" alt="PUBG Mobile">
+                    <span>PUBG Mobile</span>
+                </a>
+                <a href="#roblox" class="game-tile">
+                    <img src="images_old/roblox.png" alt="Roblox">
+                    <span>Roblox</span>
+                </a>
+                <a href="#steam" class="game-tile">
+                    <img src="images_old/steam.png" alt="Steam">
+                    <span>Steam</span>
+                </a>
+                <a href="#clashroyale" class="game-tile">
+                    <img src="images_old/clashroyale.png" alt="Clash Royale">
+                    <span>Clash Royale</span>
+                </a>
+                <a href="#clashofclans" class="game-tile">
+                    <img src="images_old/clashofclans.png" alt="Clash of Clans">
+                    <span>Clash of Clans</span>
+                </a>
+                <a href="#squadbusters" class="game-tile">
+                    <img src="images_old/squadbusters.png" alt="Squad Busters">
+                    <span>Squad Busters</span>
+                </a>
+                <a href="#stumbleguys" class="game-tile">
+                    <img src="images_old/stumbleguys.png" alt="Stumble Guys">
+                    <span>Stumble Guys</span>
+                </a>
             </div>
         </section>
-        <!-- Добавьте остальные секции -->
+
+        <section class="promo-section">
+            <h2 class="section-title">Акции и скидки</h2>
+            <div class="promo-grid">
+                <div class="promo-tile">
+                    <img src="images_old/offer1.png" alt="Акция 1">
+                    <p>Акция 1 - скидка 10%</p>
+                </div>
+                <div class="promo-tile">
+                    <img src="images_old/offer2.png" alt="Акция 2">
+                    <p>Акция 2 - скидка 15%</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="new-items-section">
+            <h2 class="section-title">Новинки</h2>
+            <div class="new-items-grid">
+                <div class="new-item-tile">
+                    <img src="images_old/new1.png" alt="Новинка 1">
+                    <p>Новинка 1</p>
+                </div>
+                <div class="new-item-tile">
+                    <img src="images_old/new2.png" alt="Новинка 2">
+                    <p>Новинка 2</p>
+                </div>
+            </div>
+        </section>
     </main>
 
     <script src="script.js"></script>
     <script>
-        // URL для авторизации через Telegram
-        const telegramAuthLink = 'https://oauth.telegram.org/auth?bot_id=7900966430&origin=https://legurren.github.io/&embed=1&request_access=write';
+        // URL для перенаправления на страницу авторизации через Telegram
+        const authPageUrl = 'https://legurren.github.io/auth.html';
 
-        // Открытие модального окна при нажатии на кнопку "Логин"
+        // Обработчик клика по кнопке "Логин"
         document.querySelector('#login-button').addEventListener('click', (event) => {
             event.preventDefault();
-            document.getElementById('loginModal').style.display = 'block';
+            // Перенаправляем на auth.html для отображения виджета авторизации
+            window.location.href = authPageUrl;
         });
-
-        // Закрытие модального окна
-        document.getElementById('closeModal').addEventListener('click', () => {
-            document.getElementById('loginModal').style.display = 'none';
-        });
-
-        // Закрытие модального окна при клике вне его содержимого
-        window.onclick = function(event) {
-            const modal = document.getElementById('loginModal');
-            if (event.target === modal) {
-                modal.style.display = 'none';
-            }
-        };
     </script>
 </body>
 </html>
