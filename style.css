@@ -1,88 +1,20 @@
-/* Основной стиль */
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f9;
+/* Удаление теней и обводок в шапке */
+.header .logo img, .header .search-bar, .header .login-button img {
+    box-shadow: none;
+    border: none;
 }
 
-/* Стиль для шапки */
-.header {
-    background-color: #fff;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    padding: 10px;
-    position: fixed;
+/* Настройка размеров для promo и new item плиток */
+.promo-tile img, .new-item-tile img {
     width: 100%;
-    top: 0;
-    z-index: 1000;
+    height: auto;
+    border-radius: 8px;
 }
 
-.header-container {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.logo img {
-    height: 50px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-    border-radius: 5px;
-}
-
-.header-right {
-    display: flex;
-    align-items: center;
-}
-
-.search-bar {
-    padding: 5px;
-    border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-    margin-right: 10px;
-}
-
-.login-button img {
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-}
-
-/* Стили для секции игр */
-.games-section {
-    margin-top: 100px;
+.promo-tile, .new-item-tile {
+    width: 120px; /* Подгоните под нужный размер */
     text-align: center;
-}
-
-.games-horizontal-scroll {
-    display: flex;
-    gap: 15px;
-    overflow-x: auto;
-    padding: 10px;
-}
-
-.game-tile {
-    width: 120px;
-    text-align: center;
-    border-radius: 10px;
+    margin: 10px;
+    border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-/* Стили для акций и скидок */
-.offers-section {
-    text-align: center;
-    margin-top: 30px;
-}
-
-.offers-grid {
-    display: flex;
-    gap: 15px;
-    justify-content: center;
-}
-
-.offer-card {
-    width: 120px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    text-align: center;
 }
