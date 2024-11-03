@@ -1,7 +1,17 @@
-/* Общие стили */
+/* Основной стиль */
 body {
     font-family: Arial, sans-serif;
     background-color: #f4f4f9;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
 }
 
 /* Шапка */
@@ -30,7 +40,6 @@ body {
 .header-right {
     display: flex;
     align-items: center;
-    margin-right: 10px;
 }
 
 .search-bar {
@@ -45,30 +54,34 @@ body {
     border-radius: 50%;
 }
 
-/* Контейнеры для секций */
-.games-section, .promo-section, .new-items-section {
-    text-align: left;
-    padding-top: 70px;
-    padding-left: 15px;
+/* Стили секций */
+.main-content {
+    margin-top: 100px;
 }
 
 .section-title {
     font-size: 18px;
     font-weight: bold;
-    margin-bottom: 10px;
+    text-align: left;
+    margin-left: 15px;
 }
 
-/* Горизонтальный скролл для плиток */
+.games-section, .promo-section, .new-items-section {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
 .games-horizontal-scroll, .promo-horizontal-scroll, .new-items-horizontal-scroll {
     display: flex;
     gap: 15px;
     overflow-x: auto;
     padding: 10px;
+    max-width: 100%;
 }
 
-/* Стили для плиток */
+/* Плитки */
 .game-tile, .promo-tile, .new-item-tile {
-    width: 100px;
+    width: 120px;
     text-align: center;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
