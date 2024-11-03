@@ -1,20 +1,46 @@
-/* Удаление теней и обводок в шапке */
+/* Убрал тени и обводку в шапке */
 .header .logo img, .header .search-bar, .header .login-button img {
     box-shadow: none;
     border: none;
 }
 
-/* Настройка размеров для promo и new item плиток */
+/* Стили для контейнеров акций и новинок */
 .promo-tile img, .new-item-tile img {
-    width: 100%;
+    width: 100px; /* Настроил на единый размер */
     height: auto;
     border-radius: 8px;
 }
 
 .promo-tile, .new-item-tile {
-    width: 120px; /* Подгоните под нужный размер */
+    width: 120px;
     text-align: center;
     margin: 10px;
     border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Стиль для выравнивания логотипа и правой части шапки */
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background-color: white;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Исправление для плиток игр */
+.game-tile img {
+    border-radius: 8px;
+    width: 100px;
+    height: auto;
+}
+
+.games-horizontal-scroll {
+    display: flex;
+    gap: 10px;
+    overflow-x: auto;
+    padding: 10px 0;
 }
