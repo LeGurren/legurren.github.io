@@ -1,23 +1,17 @@
-/* Общие стили */
-body, html {
-    margin: 0;
-    padding: 0;
+/* Основной стиль */
+body {
     font-family: Arial, sans-serif;
-    background-color: #f3f3f3;
+    background-color: #f4f4f9;
 }
 
-.container {
-    width: 90%;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
+/* Стиль для шапки */
 .header {
-    position: sticky;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    position: fixed;
+    width: 100%;
     top: 0;
-    background-color: white;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    padding: 10px 0;
     z-index: 1000;
 }
 
@@ -27,73 +21,68 @@ body, html {
     justify-content: space-between;
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 20px;
 }
 
 .logo img {
     height: 50px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
 }
 
 .search-bar {
-    padding: 8px 12px;
+    padding: 5px;
     border-radius: 5px;
-    border: 1px solid #ccc;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    margin-right: 10px;
 }
 
 .login-button img {
     width: 30px;
     height: 30px;
     border-radius: 50%;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
-.games-section, .promo-section, .new-items-section {
-    padding: 20px 0;
+/* Стили для секции игр */
+.games-section {
+    margin-top: 100px;
+    text-align: center;
 }
 
-.section-title {
-    font-size: 24px;
-    margin-left: 20px;
-}
-
-.games-horizontal-scroll, .promo-grid, .new-items-grid {
+.games-horizontal-scroll {
     display: flex;
     gap: 15px;
-    padding: 10px 0;
     overflow-x: auto;
-    scroll-snap-type: x mandatory;
+    padding: 10px;
 }
 
-.game-tile, .promo-tile, .new-item-tile {
-    flex: 0 0 auto;
-    width: 130px;
+.game-tile {
+    width: 120px;
     text-align: center;
-    scroll-snap-align: start;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-    border-radius: 15px;
-    background-color: white;
-    transition: transform 0.2s ease;
-}
-
-.game-tile:hover, .promo-tile:hover, .new-item-tile:hover {
-    transform: scale(1.05);
-}
-
-.game-tile img, .promo-tile img, .new-item-tile img {
-    width: 100%;
     border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.products-section {
-    padding: 20px 0;
-}
-
-.footer {
-    background-color: #f1f1f1;
+/* Стили для акций и скидок */
+.offers-section {
     text-align: center;
-    padding: 10px 0;
-    font-size: 14px;
-    color: #666;
+    margin-top: 30px;
+}
+
+.offers-grid {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+}
+
+.offer-card {
+    width: 120px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
 }
