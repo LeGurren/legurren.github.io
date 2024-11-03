@@ -24,8 +24,7 @@ body {
 }
 
 .logo img {
-    height: 50px;
-    border-radius: 5px;
+    height: 40px;
 }
 
 .header-right {
@@ -46,34 +45,65 @@ body {
 }
 
 /* Стили для секции игр */
-.games-section,
-.promo-section,
-.new-items-section {
-    margin-top: 100px;
-    padding: 10px;
+.games-section {
+    margin-top: 80px;
+    text-align: left;
+    padding-left: 15px;
 }
 
-.games-horizontal-scroll,
-.promo-grid,
-.new-items-grid {
+.games-horizontal-scroll {
     display: flex;
     gap: 15px;
     overflow-x: auto;
     padding: 10px;
 }
 
-.game-tile,
-.promo-tile,
-.new-item-tile {
-    width: 120px;
+.game-tile {
+    width: 100px;
     text-align: center;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     background-color: #fff;
-    padding: 5px;
+    padding: 10px;
+    text-decoration: none;
 }
 
-.section-title {
+.game-tile img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+}
+
+.game-tile span {
+    display: block;
+    margin-top: 5px;
+    font-size: 14px;
+    color: #333;
+}
+
+/* Стили для акций и скидок */
+.promo-section, .new-items-section {
     text-align: left;
-    padding-left: 10px;
+    padding-left: 15px;
+}
+
+.promo-grid, .new-items-grid {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+}
+
+.promo-tile, .new-item-tile {
+    width: 100px;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    padding: 10px;
+}
+
+.promo-tile img, .new-item-tile img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
 }
