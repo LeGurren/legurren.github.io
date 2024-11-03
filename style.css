@@ -2,6 +2,8 @@
 body {
     font-family: Arial, sans-serif;
     background-color: #f4f4f9;
+    margin: 0;
+    padding: 0;
 }
 
 /* Стиль для шапки */
@@ -21,6 +23,8 @@ body {
     justify-content: space-between;
     max-width: 1200px;
     margin: 0 auto;
+    padding-left: 15px;
+    padding-right: 15px;
 }
 
 .logo img {
@@ -36,29 +40,59 @@ body {
     padding: 5px;
     border-radius: 5px;
     margin-right: 10px;
+    border: 1px solid #ddd;
+    flex: 1;
 }
 
 .login-button img {
     width: 30px;
     height: 30px;
     border-radius: 50%;
+    margin-left: 10px;
+}
+
+/* Стили для основного контента */
+.main-content {
+    padding-top: 100px;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 /* Стили для секции игр */
-.games-section {
-    margin-top: 80px;
-    text-align: left;
+.games-section,
+.promo-section,
+.new-items-section {
+    margin-top: 30px;
     padding-left: 15px;
+}
+
+.section-title {
+    font-size: 18px;
+    margin-bottom: 15px;
+    color: #333;
 }
 
 .games-horizontal-scroll {
     display: flex;
     gap: 15px;
     overflow-x: auto;
-    padding: 10px;
+    padding: 10px 0;
+    scrollbar-width: thin;
+    scrollbar-color: #ccc transparent;
 }
 
-.game-tile {
+.games-horizontal-scroll::-webkit-scrollbar {
+    height: 8px;
+}
+
+.games-horizontal-scroll::-webkit-scrollbar-thumb {
+    background-color: #ccc;
+    border-radius: 4px;
+}
+
+.game-tile,
+.promo-tile,
+.new-item-tile {
     width: 100px;
     text-align: center;
     border-radius: 10px;
@@ -66,44 +100,53 @@ body {
     background-color: #fff;
     padding: 10px;
     text-decoration: none;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-.game-tile img {
+.game-tile img,
+.promo-tile img,
+.new-item-tile img {
     width: 80px;
     height: 80px;
     object-fit: cover;
+    border-radius: 5px;
 }
 
-.game-tile span {
-    display: block;
+.game-tile span,
+.promo-tile p,
+.new-item-tile p {
     margin-top: 5px;
     font-size: 14px;
     color: #333;
 }
 
-/* Стили для акций и скидок */
-.promo-section, .new-items-section {
-    text-align: left;
-    padding-left: 15px;
-}
+/* Адаптивный стиль для web app */
+@media (max-width: 768px) {
+    .header-container {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
 
-.promo-grid, .new-items-grid {
-    display: flex;
-    gap: 15px;
-    justify-content: center;
-}
+    .main-content {
+        padding-top: 80px;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
 
-.promo-tile, .new-item-tile {
-    width: 100px;
-    text-align: center;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    background-color: #fff;
-    padding: 10px;
-}
+    .games-horizontal-scroll,
+    .promo-grid,
+    .new-items-grid {
+        justify-content: flex-start;
+    }
 
-.promo-tile img, .new-item-tile img {
-    width: 80px;
-    height: 80px;
-    object-fit: cover;
+    .promo-grid,
+    .new-items-grid {
+        display: flex;
+        gap: 15px;
+        overflow-x: auto;
+        padding: 10px 0;
+    }
 }
