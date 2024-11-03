@@ -9,12 +9,12 @@ body {
 /* Стиль для шапки */
 .header {
     background-color: #fff;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     padding: 10px 0;
     position: fixed;
     width: 100%;
     top: 0;
     z-index: 1000;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .header-container {
@@ -28,7 +28,6 @@ body {
 
 .logo img {
     height: 50px;
-    border-radius: 5px;
 }
 
 .header-right {
@@ -52,8 +51,14 @@ body {
 /* Стили для секции игр */
 .games-section {
     margin-top: 80px;
-    text-align: center;
     padding: 20px;
+}
+
+.section-title {
+    text-align: left;
+    margin-left: 15px;
+    font-size: 1.5em;
+    color: #333;
 }
 
 .games-horizontal-scroll {
@@ -67,20 +72,20 @@ body {
 .game-tile {
     width: 100px;
     text-align: center;
+    background-color: #fff;
     border-radius: 10px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     padding: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .game-tile img {
     width: 80px;
     height: auto;
-    border-radius: 8px;
+    border-radius: 10px;
 }
 
 /* Стили для секции акций и скидок */
 .promo-section, .new-items-section {
-    text-align: center;
     margin-top: 30px;
     padding: 20px;
 }
@@ -95,22 +100,22 @@ body {
 .promo-tile, .new-item-tile {
     width: 100px;
     text-align: center;
+    background-color: #fff;
     border-radius: 10px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     padding: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .promo-tile img, .new-item-tile img {
     width: 80px;
     height: auto;
-    border-radius: 8px;
+    border-radius: 10px;
 }
 
 /* Стили для секции товаров */
 .products-section {
     margin-top: 30px;
     padding: 20px;
-    text-align: center;
 }
 
 .products-grid {
@@ -122,14 +127,15 @@ body {
 
 .product-tile {
     width: 100px;
-    border-radius: 10px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     text-align: center;
+    background-color: #fff;
+    border-radius: 10px;
     padding: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .product-tile img {
     width: 80px;
     height: auto;
-    border-radius: 8px;
+    border-radius: 10px;
 }
