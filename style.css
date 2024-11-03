@@ -1,10 +1,10 @@
-/* Основной стиль */
+/* Общие стили */
 body {
     font-family: Arial, sans-serif;
     background-color: #f4f4f9;
 }
 
-/* Стиль для шапки */
+/* Шапка */
 .header {
     background-color: #fff;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -30,6 +30,7 @@ body {
 .header-right {
     display: flex;
     align-items: center;
+    margin-right: 10px;
 }
 
 .search-bar {
@@ -44,21 +45,29 @@ body {
     border-radius: 50%;
 }
 
-/* Стили для секции игр */
-.games-section {
-    margin-top: 80px;
+/* Контейнеры для секций */
+.games-section, .promo-section, .new-items-section {
     text-align: left;
+    padding-top: 70px;
     padding-left: 15px;
 }
 
-.games-horizontal-scroll {
+.section-title {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+/* Горизонтальный скролл для плиток */
+.games-horizontal-scroll, .promo-horizontal-scroll, .new-items-horizontal-scroll {
     display: flex;
     gap: 15px;
     overflow-x: auto;
     padding: 10px;
 }
 
-.game-tile {
+/* Стили для плиток */
+.game-tile, .promo-tile, .new-item-tile {
     width: 100px;
     text-align: center;
     border-radius: 10px;
@@ -66,44 +75,17 @@ body {
     background-color: #fff;
     padding: 10px;
     text-decoration: none;
-}
-
-.game-tile img {
-    width: 80px;
-    height: 80px;
-    object-fit: cover;
-}
-
-.game-tile span {
-    display: block;
-    margin-top: 5px;
-    font-size: 14px;
     color: #333;
 }
 
-/* Стили для акций и скидок */
-.promo-section, .new-items-section {
-    text-align: left;
-    padding-left: 15px;
-}
-
-.promo-grid, .new-items-grid {
-    display: flex;
-    gap: 15px;
-    justify-content: center;
-}
-
-.promo-tile, .new-item-tile {
-    width: 100px;
-    text-align: center;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    background-color: #fff;
-    padding: 10px;
-}
-
-.promo-tile img, .new-item-tile img {
+.game-tile img, .promo-tile img, .new-item-tile img {
     width: 80px;
     height: 80px;
     object-fit: cover;
+}
+
+.game-tile span, .promo-tile span, .new-item-tile span {
+    display: block;
+    margin-top: 5px;
+    font-size: 14px;
 }
