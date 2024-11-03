@@ -2,14 +2,19 @@
 const telegramAuthLink = 'https://oauth.telegram.org/auth?bot_id=7900966430&origin=https://legurren.github.io/&embed=1&request_access=write';
 
 // Функция для обработки клика на кнопку "Логин" в браузерной версии
-document.querySelector('.login-button').addEventListener('click', (event) => {
-    event.preventDefault();
-    if (window.Telegram.WebApp) {
-        // В веб-приложении Telegram не выполняем переход по ссылке
-        console.log("Запущено внутри Telegram Web App, авторизация не требуется.");
-    } else {
-        // Открываем ссылку для авторизации в браузере
-        window.location.href = telegramAuthLink;
+document.addEventListener('DOMContentLoaded', () => {
+    const loginButton = document.querySelector('.login-button');
+    if (loginButton) {
+        loginButton.addEventListener('click', (event) => {
+            event.preventDefault();
+            if (window.Telegram && window.Telegram.WebApp) {
+                // Веб-приложение Telegram не требует отдельной авторизации
+                console.log("Запущено внутри Telegram Web App, авторизация не требуется.");
+            } else {
+                // Перенаправляем на ссылку для авторизации в браузере
+                window.location.href = telegramAuthLink;
+            }
+        });
     }
 });
 
@@ -24,7 +29,7 @@ function displayUserData(data) {
 fetch('http://localhost:3000/', {
     method: 'GET',
     headers: {
-        'Authorization': `tma ${window.Telegram.WebApp.initData || ''}`
+        'Authorization': `tma ${window.Telegram.WebApp ? window.Telegram.WebApp.initData : ''}`
     }
 })
 .then(response => {
