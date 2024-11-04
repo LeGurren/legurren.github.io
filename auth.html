@@ -3,19 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Авторизация через Telegram</title>
+    <title>Авторизация - Games Market</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h2>Войдите в аккаунт через Telegram</h2>
-    <p>Выберите вариант для входа в аккаунт:</p>
-    <div id="telegram-login-widget"></div>
+    <!-- Центральный контейнер для информации -->
+    <div class="auth-container">
+        <div class="auth-content">
+            <h2>Войдите через Telegram</h2>
+            <p>Для продолжения, пожалуйста, авторизуйтесь через Telegram.</p>
+            <!-- Виджет авторизации Telegram -->
+            <div id="telegram-login-button">
+                <script async src="https://telegram.org/js/telegram-widget.js?15" 
+                        data-telegram-login="legurenstore_bot" 
+                        data-size="large" 
+                        data-auth-url="https://legurren.github.io/profile.html" 
+                        data-request-access="write">
+                </script>
+            </div>
+        </div>
+    </div>
 
-    <!-- Виджет авторизации Telegram -->
-    <script async src="https://telegram.org/js/telegram-widget.js?15"
-        data-telegram-login="legurenstore_bot"
-        data-size="large"
-        data-auth-url="https://legurren.github.io/profile.html"
-        data-request-access="write">
-    </script>
 </body>
 </html>
