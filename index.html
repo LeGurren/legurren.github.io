@@ -94,6 +94,7 @@
     <script>
         // URL для перенаправления на страницу авторизации через Telegram
         const authPageUrl = 'https://legurren.github.io/auth.html';
+        const profilePageUrl = 'https://legurren.github.io/profile.html';
 
         document.addEventListener('DOMContentLoaded', () => {
             const loginButton = document.querySelector('#login-button');
@@ -107,10 +108,11 @@
                 loginButton.title = `@${user.username || 'Профиль'}`;
                 loginButton.addEventListener('click', (event) => {
                     event.preventDefault();
-                    alert(`Добро пожаловать, ${user.first_name || 'Пользователь'}!`);
+                    // Перенаправляем авторизованного пользователя на страницу профиля
+                    window.location.href = profilePageUrl;
                 });
             } else {
-                // Если не авторизован, перенаправляем на auth.html
+                // Если пользователь не авторизован, перенаправляем на auth.html
                 loginButton.addEventListener('click', (event) => {
                     event.preventDefault();
                     window.location.href = authPageUrl;
