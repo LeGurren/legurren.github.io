@@ -6,31 +6,55 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <!-- Шапка сайта -->
     <header class="header">
-        <!-- Шапка профиля -->
+        <div class="header-container">
+            <div class="logo">
+                <a href="index.html"><img src="images_old/logo.png" alt="GamesMarket Logo"></a>
+            </div>
+        </div>
     </header>
     
-    <main class="container">
-        <!-- Профиль пользователя -->
+    <!-- Основной контент профиля -->
+    <main class="main-content profile-container">
         <div class="profile-header">
             <img id="user-photo" src="images_old/profile-avatar.png" alt="Аватар пользователя" class="profile-avatar">
             <h2 id="user-name">Имя пользователя</h2>
             <p id="user-username">@username</p>
         </div>
 
-        <!-- Дополнительные элементы профиля и отладочная информация -->
-        <div id="debug-info" style="margin-top: 20px; color: red;">
-            Полный URL страницы: <span id="full-url"></span><br>
-            Username: <span id="debug-username">(параметр не получен)</span><br>
-            First Name: <span id="debug-first-name">(параметр не получен)</span><br>
-            Last Name: <span id="debug-last-name">(параметр не получен)</span><br>
+        <div class="profile-balance">
+            <p>Ваш баланс:</p>
+            <h3>0.00 руб</h3>
+            <button class="balance-button">Пополнить</button>
+            <button class="balance-button secondary">Получить баланс бесплатно</button>
         </div>
 
-        <!-- Контейнер для логов отладки -->
-        <div id="log-container" style="margin-top: 20px; color: red;"></div>
+        <div class="profile-tabs">
+            <button class="tab-button active">Заказы</button>
+            <button class="tab-button">Транзакции</button>
+        </div>
+
+        <div class="profile-content">
+            <p>Здесь пока еще ничего нет... Вперед за покупками!</p>
+        </div>
     </main>
 
     <!-- Подключение client.js -->
     <script src="client.js"></script>
+    <script>
+        // Загрузка данных пользователя из localStorage и отображение на странице
+        document.addEventListener('DOMContentLoaded', () => {
+            const user = JSON.parse(localStorage.getItem('telegramUser'));
+            if (user) {
+                document.getElementById('user-name').textContent = user.first_name || 'Имя пользователя';
+                document.getElementById('user-username').textContent = `@${user.username || 'username'}`;
+                document.getElementById('user-photo').src = user.photo_url || 'images_old/profile-avatar.png';
+            } else {
+                // Если пользователь не авторизован, перенаправляем на главную страницу
+                window.location.href = 'index.html';
+            }
+        });
+    </script>
 </body>
 </html>
