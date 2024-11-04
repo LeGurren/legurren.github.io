@@ -2,15 +2,15 @@
 const authPageUrl = 'https://legurren.github.io/auth.html';
 const profilePageUrl = 'https://legurren.github.io/profile.html';
 
+// Функция для проверки авторизации пользователя
+function checkAuthorization() {
+    return JSON.parse(localStorage.getItem('telegramUser'));
+}
+
 // Функция для обработки клика на кнопку "Логин" в браузерной версии
 document.addEventListener('DOMContentLoaded', () => {
     const loginButton = document.querySelector('.login-button');
-
-    // Функция для проверки авторизации
-    function checkAuthorization() {
-        return JSON.parse(localStorage.getItem('telegramUser'));
-    }
-
+    
     if (loginButton) {
         loginButton.addEventListener('click', (event) => {
             event.preventDefault();
@@ -49,29 +49,34 @@ function displayUserData(data) {
     }
 }
 
-// Запрос к серверу для получения данных пользователя
-fetch('http://localhost:3000/', {
-    method: 'GET',
-    headers: {
-        'Authorization': `tma ${window.Telegram.WebApp ? window.Telegram.WebApp.initData : ''}`
-    }
-})
-.then(response => {
-    if (!response.ok) {
-        throw new Error("Unauthorized");
-    }
-    return response.json();
-})
-.then(data => {
-    console.log("Полученные данные пользователя:", data);
-    // Сохранение данных в localStorage для дальнейшего использования
-    localStorage.setItem('telegramUser', JSON.stringify(data));
-    displayUserData(data); // Вызов функции для отображения данных
-})
-.catch(error => {
-    console.error('Ошибка авторизации:', error);
-    localStorage.removeItem('telegramUser'); // Удаление данных из localStorage, если авторизация не удалась
-});
+// Запрос к серверу для получения данных пользователя и их сохранение
+function fetchUserData() {
+    fetch('http://localhost:3000/', {
+        method: 'GET',
+        headers: {
+            'Authorization': `tma ${window.Telegram.WebApp ? window.Telegram.WebApp.initData : ''}`
+        }
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error("Unauthorized");
+        }
+        return response.json();
+    })
+    .then(data => {
+        console.log("Полученные данные пользователя:", data);
+        // Сохранение данных в localStorage для дальнейшего использования
+        localStorage.setItem('telegramUser', JSON.stringify(data));
+        displayUserData(data); // Вызов функции для отображения данных
+    })
+    .catch(error => {
+        console.error('Ошибка авторизации:', error);
+        localStorage.removeItem('telegramUser'); // Удаление данных из localStorage, если авторизация не удалась
+    });
+}
+
+// Вызов функции для получения данных пользователя при загрузке страницы
+fetchUserData();
 
 // Данные для товаров для каждой игры
 const products = {
