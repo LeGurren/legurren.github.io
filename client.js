@@ -8,8 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Функция для проверки авторизации
     function checkAuthorization() {
-        const user = JSON.parse(localStorage.getItem('telegramUser'));
-        return user;
+        return JSON.parse(localStorage.getItem('telegramUser'));
     }
 
     if (loginButton) {
