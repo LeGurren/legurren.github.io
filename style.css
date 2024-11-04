@@ -58,7 +58,7 @@ body {
     margin: 0 auto;
 }
 
-/* Стили для секции игр */
+/* Стили для секций игр, акций и новинок */
 .games-section,
 .promo-section,
 .new-items-section {
@@ -127,6 +127,37 @@ body {
     margin-top: 5px;
     font-size: 14px;
     color: #333;
+}
+
+/* Стили для страницы auth.html */
+.auth-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f4f4f9;
+}
+
+.auth-content {
+    text-align: center;
+    background-color: #fff;
+    padding: 20px 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    width: 90%;
+}
+
+.auth-content h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.auth-content p {
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 20px;
 }
 
 /* Адаптивный стиль для web app */
