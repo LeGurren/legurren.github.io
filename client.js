@@ -1,15 +1,24 @@
+// URL для авторизации через Telegram
+const authPageUrl = 'https://legurren.github.io/auth.html';
+const profilePageUrl = 'https://legurren.github.io/profile.html';
+
 // Функция для обработки клика на кнопку "Логин" в браузерной версии
 document.addEventListener('DOMContentLoaded', () => {
     const loginButton = document.querySelector('.login-button');
+    const user = JSON.parse(localStorage.getItem('telegramUser'));
+
     if (loginButton) {
         loginButton.addEventListener('click', (event) => {
             event.preventDefault();
-            if (window.Telegram && window.Telegram.WebApp) {
+            if (user) {
+                // Если пользователь уже авторизован, перенаправляем на profile.html
+                window.location.href = profilePageUrl;
+            } else if (window.Telegram && window.Telegram.WebApp) {
                 // Веб-приложение Telegram не требует отдельной авторизации
                 console.log("Запущено внутри Telegram Web App, авторизация не требуется.");
             } else {
                 // Перенаправляем на страницу авторизации в браузере
-                window.location.href = 'auth.html';
+                window.location.href = authPageUrl;
             }
         });
     }
@@ -37,6 +46,8 @@ fetch('http://localhost:3000/', {
 })
 .then(data => {
     console.log("Полученные данные пользователя:", data);
+    // Сохранение данных в localStorage для дальнейшего использования
+    localStorage.setItem('telegramUser', JSON.stringify(data));
     displayUserData(data); // Вызов функции для отображения данных
 })
 .catch(error => {
