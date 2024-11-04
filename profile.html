@@ -1,60 +1,78 @@
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-    <meta charset="UTF-8">
-    <title>Профиль - Games Market</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <!-- Шапка сайта -->
-    <header class="header">
-        <div class="header-container">
-            <div class="logo">
-                <a href="index.html"><img src="images_old/logo.png" alt="GamesMarket Logo"></a>
-            </div>
-        </div>
-    </header>
-    
-    <!-- Основной контент профиля -->
-    <main class="main-content profile-container">
-        <div class="profile-header">
-            <img id="user-photo" src="images_old/profile-avatar.png" alt="Аватар пользователя" class="profile-avatar">
-            <h2 id="user-name">Имя пользователя</h2>
-            <p id="user-username">@username</p>
-        </div>
+/* Стиль для контейнера профиля */
+.profile-container {
+    max-width: 600px;
+    margin: 100px auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
 
-        <div class="profile-balance">
-            <p>Ваш баланс:</p>
-            <h3>0.00 руб</h3>
-            <button class="balance-button">Пополнить</button>
-            <button class="balance-button secondary">Получить баланс бесплатно</button>
-        </div>
+/* Стиль для аватара */
+.profile-avatar {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 10px;
+}
 
-        <div class="profile-tabs">
-            <button class="tab-button active">Заказы</button>
-            <button class="tab-button">Транзакции</button>
-        </div>
+/* Стиль для баланса */
+.profile-balance {
+    margin-top: 20px;
+}
 
-        <div class="profile-content">
-            <p>Здесь пока еще ничего нет... Вперед за покупками!</p>
-        </div>
-    </main>
+.profile-balance p {
+    font-size: 16px;
+    color: #666;
+}
 
-    <!-- Подключение client.js -->
-    <script src="client.js"></script>
-    <script>
-        // Загрузка данных пользователя из localStorage и отображение на странице
-        document.addEventListener('DOMContentLoaded', () => {
-            const user = JSON.parse(localStorage.getItem('telegramUser'));
-            if (user) {
-                document.getElementById('user-name').textContent = user.first_name || 'Имя пользователя';
-                document.getElementById('user-username').textContent = `@${user.username || 'username'}`;
-                document.getElementById('user-photo').src = user.photo_url || 'images_old/profile-avatar.png';
-            } else {
-                // Если пользователь не авторизован, перенаправляем на главную страницу
-                window.location.href = 'index.html';
-            }
-        });
-    </script>
-</body>
-</html>
+.profile-balance h3 {
+    font-size: 24px;
+    margin: 5px 0;
+    color: #333;
+}
+
+.balance-button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    margin: 5px;
+    font-size: 16px;
+}
+
+.balance-button.secondary {
+    background-color: #333;
+}
+
+/* Стиль для вкладок */
+.profile-tabs {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.tab-button {
+    background: none;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+    color: #007bff;
+}
+
+.tab-button.active {
+    border-bottom: 2px solid #007bff;
+    font-weight: bold;
+}
+
+/* Стиль для контента */
+.profile-content {
+    margin-top: 20px;
+    color: #666;
+    font-size: 16px;
+}
