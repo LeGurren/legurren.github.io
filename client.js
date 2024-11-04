@@ -5,11 +5,18 @@ const profilePageUrl = 'https://legurren.github.io/profile.html';
 // Функция для обработки клика на кнопку "Логин" в браузерной версии
 document.addEventListener('DOMContentLoaded', () => {
     const loginButton = document.querySelector('.login-button');
-    let user = JSON.parse(localStorage.getItem('telegramUser'));
+
+    // Функция для проверки авторизации
+    function checkAuthorization() {
+        const user = JSON.parse(localStorage.getItem('telegramUser'));
+        return user;
+    }
 
     if (loginButton) {
         loginButton.addEventListener('click', (event) => {
             event.preventDefault();
+            const user = checkAuthorization(); // Проверка авторизации при каждом клике
+
             if (user) {
                 // Если пользователь уже авторизован, перенаправляем на profile.html
                 window.location.href = profilePageUrl;
@@ -24,6 +31,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Если пользователь уже авторизован, отображаем его данные на странице
+    const user = checkAuthorization();
     if (user) {
         displayUserData(user);
     }
