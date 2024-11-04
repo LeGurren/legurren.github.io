@@ -10,14 +10,14 @@ function checkAuthorization() {
 // Функция для обработки клика на кнопку "Логин" в браузерной версии
 document.addEventListener('DOMContentLoaded', () => {
     const loginButton = document.querySelector('.login-button');
-    
+
     if (loginButton) {
         loginButton.addEventListener('click', (event) => {
             event.preventDefault();
             const user = checkAuthorization(); // Проверка авторизации при каждом клике
 
             if (user) {
-                // Если пользователь уже авторизован, перенаправляем на profile.html
+                // Если пользователь уже авторизован, перенаправляем на profile.html без приветственного окна
                 window.location.href = profilePageUrl;
             } else if (window.Telegram && window.Telegram.WebApp) {
                 // Веб-приложение Telegram не требует отдельной авторизации
