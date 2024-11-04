@@ -16,7 +16,7 @@
             <div class="header-right">
                 <input type="text" placeholder="Поиск..." class="search-bar">
                 <a href="#" class="login-button" title="Профиль" id="login-button">
-                    <img src="user-icon.png" alt="Профиль">
+                    <img src="user-icon.png" alt="Профиль" id="profile-image">
                 </a>
             </div>
         </div>
@@ -95,11 +95,27 @@
         // URL для перенаправления на страницу авторизации через Telegram
         const authPageUrl = 'https://legurren.github.io/auth.html';
 
-        // Обработчик клика по кнопке "Логин"
-        document.querySelector('#login-button').addEventListener('click', (event) => {
-            event.preventDefault();
-            // Перенаправляем на auth.html для отображения виджета авторизации
-            window.location.href = authPageUrl;
+        document.addEventListener('DOMContentLoaded', () => {
+            const loginButton = document.querySelector('#login-button');
+            const profileImage = document.querySelector('#profile-image');
+            const user = JSON.parse(localStorage.getItem('telegramUser'));
+
+            if (user) {
+                // Если пользователь авторизован, отображаем его данные
+                profileImage.src = user.photo_url || 'user-icon.png';
+                profileImage.alt = user.username || 'Профиль';
+                loginButton.title = `@${user.username || 'Профиль'}`;
+                loginButton.addEventListener('click', (event) => {
+                    event.preventDefault();
+                    alert(`Добро пожаловать, ${user.first_name || 'Пользователь'}!`);
+                });
+            } else {
+                // Если не авторизован, перенаправляем на auth.html
+                loginButton.addEventListener('click', (event) => {
+                    event.preventDefault();
+                    window.location.href = authPageUrl;
+                });
+            }
         });
     </script>
 </body>
