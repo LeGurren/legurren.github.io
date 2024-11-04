@@ -7,22 +7,35 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- Центральный контейнер для информации -->
     <div class="auth-container">
         <div class="auth-content">
-            <h2>Войдите через Telegram</h2>
-            <p>Для продолжения, пожалуйста, авторизуйтесь через Telegram.</p>
-            <!-- Виджет авторизации Telegram -->
+            <h2>Авторизация через Telegram</h2>
+            <p>Пожалуйста, войдите через Telegram для продолжения.</p>
             <div id="telegram-login-button">
-                <script async src="https://telegram.org/js/telegram-widget.js?15" 
-                        data-telegram-login="legurenstore_bot" 
-                        data-size="large" 
-                        data-auth-url="https://legurren.github.io/profile.html" 
-                        data-request-access="write">
-                </script>
+                <script async src="https://telegram.org/js/telegram-widget.js?15"
+                        data-telegram-login="legurenstore_bot"
+                        data-size="large"
+                        data-auth-url="https://legurren.github.io/auth.html"
+                        data-request-access="write"></script>
             </div>
         </div>
     </div>
 
+    <script>
+        // Получение данных пользователя после авторизации
+        const urlParams = new URLSearchParams(window.location.search);
+        const userData = {
+            id: urlParams.get('id'),
+            first_name: urlParams.get('first_name'),
+            username: urlParams.get('username'),
+            photo_url: urlParams.get('photo_url')
+        };
+
+        // Сохранение данных пользователя в localStorage и редирект
+        if (userData.id) {
+            localStorage.setItem('telegramUser', JSON.stringify(userData));
+            window.location.href = 'index.html';
+        }
+    </script>
 </body>
 </html>
