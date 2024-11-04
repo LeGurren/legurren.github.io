@@ -10,7 +10,7 @@ function checkAuthorization() {
 // Функция для обработки клика на кнопку "Логин" в браузерной версии
 document.addEventListener('DOMContentLoaded', () => {
     const loginButton = document.querySelector('.login-button');
-    
+
     if (loginButton) {
         loginButton.addEventListener('click', (event) => {
             event.preventDefault();
@@ -20,10 +20,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 // Если пользователь уже авторизован, перенаправляем на profile.html
                 window.location.href = profilePageUrl;
             } else if (window.Telegram && window.Telegram.WebApp) {
-                // Если приложение запущено внутри Telegram Web App, пропускаем авторизацию
+                // Веб-приложение Telegram не требует отдельной авторизации
                 console.log("Запущено внутри Telegram Web App, авторизация не требуется.");
             } else {
-                // Перенаправляем на страницу авторизации, если пользователь не авторизован
+                // Перенаправляем на страницу авторизации в браузере
                 window.location.href = authPageUrl;
             }
         });
