@@ -5,7 +5,7 @@ const profilePageUrl = 'https://legurren.github.io/profile.html';
 // Функция для обработки клика на кнопку "Логин" в браузерной версии
 document.addEventListener('DOMContentLoaded', () => {
     const loginButton = document.querySelector('.login-button');
-    const user = JSON.parse(localStorage.getItem('telegramUser'));
+    let user = JSON.parse(localStorage.getItem('telegramUser'));
 
     if (loginButton) {
         loginButton.addEventListener('click', (event) => {
@@ -22,13 +22,24 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }
+
+    // Если пользователь уже авторизован, отображаем его данные на странице
+    if (user) {
+        displayUserData(user);
+    }
 });
 
 // Функция для отображения данных пользователя на странице
 function displayUserData(data) {
-    document.getElementById('user-name').textContent = data.first_name || '';
-    document.getElementById('user-username').textContent = `@${data.username || ''}`;
-    document.getElementById('user-photo').src = data.photo_url || 'images_old/profile-avatar.png';
+    const userNameElement = document.getElementById('user-name');
+    const userUsernameElement = document.getElementById('user-username');
+    const userPhotoElement = document.getElementById('user-photo');
+
+    if (userNameElement && userUsernameElement && userPhotoElement) {
+        userNameElement.textContent = data.first_name || '';
+        userUsernameElement.textContent = `@${data.username || ''}`;
+        userPhotoElement.src = data.photo_url || 'images_old/profile-avatar.png';
+    }
 }
 
 // Запрос к серверу для получения данных пользователя
@@ -52,6 +63,7 @@ fetch('http://localhost:3000/', {
 })
 .catch(error => {
     console.error('Ошибка авторизации:', error);
+    localStorage.removeItem('telegramUser'); // Удаление данных из localStorage, если авторизация не удалась
 });
 
 // Данные для товаров для каждой игры
