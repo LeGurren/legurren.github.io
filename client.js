@@ -31,6 +31,16 @@ document.addEventListener('DOMContentLoaded', () => {
     if (user) {
         displayUserData(user);
     }
+
+    // Event Listener for Game Tile Clicks to Redirect to Game Page
+    const gameTiles = document.querySelectorAll('.game-tile');
+    gameTiles.forEach(tile => {
+        tile.addEventListener('click', (event) => {
+            event.preventDefault();
+            const gameId = tile.getAttribute('href').substring(1);
+            window.location.href = `${gameId}.html`; // Redirects to a game-specific page
+        });
+    });
 });
 
 // Function to Display User Data on the Page
@@ -74,50 +84,6 @@ function fetchUserData() {
 // Call Fetch User Data on Page Load
 fetchUserData();
 
-// Data for Products for Each Game
-const products = {
-    brawlstars: [
-        {
-            name: 'Brawl Pass',
-            price: '1050 RUB',
-            image: 'images/brawl_pass.jpg',
-            discount: '10%',
-        },
-        {
-            name: 'Brawl Pass Upgrade',
-            price: '620 RUB',
-            image: 'images/brawl_upgrade.jpg',
-        }
-    ],
-    pubg: [
-        {
-            name: 'PUBG UC Pack',
-            price: '500 RUB',
-            image: 'images/pubg_uc.jpg',
-        }
-    ],
-    roblox: [
-        {
-            name: 'Robux Pack',
-            price: '800 RUB',
-            image: 'images/robux.jpg',
-        }
-    ],
-};
-
-// Event Listener for Game Tile Clicks to Redirect to Game Page
-document.addEventListener('DOMContentLoaded', () => {
-    const gameTiles = document.querySelectorAll('.game-tile');
-    
-    gameTiles.forEach(tile => {
-        tile.addEventListener('click', (event) => {
-            event.preventDefault();
-            const gameId = tile.getAttribute('href').substring(1);
-            window.location.href = `${gameId}.html`; // Redirects to a game-specific page
-        });
-    });
-});
-
 // Theme Switching Based on Time of Day
 window.addEventListener('load', () => {
     const currentHour = new Date().getHours();
@@ -127,3 +93,15 @@ window.addEventListener('load', () => {
         document.body.classList.remove('dark-theme');
     }
 });
+
+// CSS for Game Tile Animation
+const style = document.createElement('style');
+style.textContent = `
+    .game-tile {
+        transition: transform 0.3s ease;
+    }
+    .game-tile:hover {
+        transform: scale(1.05);
+    }
+`;
+document.head.appendChild(style);
