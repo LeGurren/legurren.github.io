@@ -110,6 +110,12 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    transition: transform 0.2s ease-in-out; /* Hover effect transition */
+    cursor: pointer; /* Indicate clickable */
+}
+
+.game-tile:hover {
+    transform: scale(1.05); /* Hover effect: increase size */
 }
 
 .game-tile img,
