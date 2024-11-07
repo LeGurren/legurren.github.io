@@ -106,53 +106,17 @@ const products = {
 };
 
 // Event Listener for Game Tile Clicks to Redirect to Game Page
-document.querySelectorAll('.game-tile').forEach(tile => {
-    tile.addEventListener('click', (event) => {
-        event.preventDefault();
-        const gameId = tile.getAttribute('href').substring(1);
-        window.location.href = `${gameId}.html`; // Redirect to game-specific page
+document.addEventListener('DOMContentLoaded', () => {
+    const gameTiles = document.querySelectorAll('.game-tile');
+    
+    gameTiles.forEach(tile => {
+        tile.addEventListener('click', (event) => {
+            event.preventDefault();
+            const gameId = tile.getAttribute('href').substring(1);
+            window.location.href = `${gameId}.html`; // Redirects to a game-specific page
+        });
     });
 });
-
-// Function to Display Products for a Selected Game
-function showProducts(gameId) {
-    const productsGrid = document.getElementById('products-grid');
-    productsGrid.innerHTML = ''; // Clear previous products
-    const selectedProducts = products[gameId] || [];
-
-    selectedProducts.forEach(product => {
-        const productCard = document.createElement('div');
-        productCard.classList.add('product-card');
-
-        const productImage = document.createElement('img');
-        productImage.src = product.image;
-        productImage.alt = product.name;
-
-        const productName = document.createElement('h3');
-        productName.textContent = product.name;
-
-        const productPrice = document.createElement('p');
-        productPrice.textContent = product.price;
-
-        const buyButton = document.createElement('button');
-        buyButton.textContent = 'Buy';
-        buyButton.classList.add('buy-button');
-        buyButton.addEventListener('click', () => {
-            alert(`Purchase made for ${product.name}`);
-        });
-
-        productCard.appendChild(productImage);
-        productCard.appendChild(productName);
-        productCard.appendChild(productPrice);
-        productCard.appendChild(buyButton);
-
-        productsGrid.appendChild(productCard);
-    });
-
-    // Show Products Section
-    document.querySelector('.products-section').classList.remove('hidden');
-    document.querySelector('.products-section').style.display = 'block';
-}
 
 // Theme Switching Based on Time of Day
 window.addEventListener('load', () => {
