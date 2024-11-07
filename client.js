@@ -1,42 +1,39 @@
-// URL для авторизации через Telegram
+// URL for Telegram Authorization
 const authPageUrl = 'https://legurren.github.io/auth.html';
 const profilePageUrl = 'https://legurren.github.io/profile.html';
 
-// Функция для проверки авторизации пользователя
+// Function to Check User Authorization
 function checkAuthorization() {
     return JSON.parse(localStorage.getItem('telegramUser'));
 }
 
-// Функция для обработки клика на кнопку "Логин" в браузерной версии
+// Event Listener for Login Button
 document.addEventListener('DOMContentLoaded', () => {
     const loginButton = document.querySelector('.login-button');
 
     if (loginButton) {
         loginButton.addEventListener('click', (event) => {
             event.preventDefault();
-            const user = checkAuthorization(); // Проверка авторизации при каждом клике
+            const user = checkAuthorization();
 
             if (user) {
-                // Если пользователь уже авторизован, перенаправляем на profile.html
                 window.location.href = profilePageUrl;
             } else if (window.Telegram && window.Telegram.WebApp) {
-                // Веб-приложение Telegram не требует отдельной авторизации
-                console.log("Запущено внутри Telegram Web App, авторизация не требуется.");
+                console.log("Running inside Telegram Web App, no separate login needed.");
             } else {
-                // Перенаправляем на страницу авторизации в браузере
                 window.location.href = authPageUrl;
             }
         });
     }
 
-    // Если пользователь уже авторизован, отображаем его данные на странице
+    // Display User Data if Authorized
     const user = checkAuthorization();
     if (user) {
         displayUserData(user);
     }
 });
 
-// Функция для отображения данных пользователя на странице
+// Function to Display User Data on the Page
 function displayUserData(data) {
     const userNameElement = document.getElementById('user-name');
     const userUsernameElement = document.getElementById('user-username');
@@ -49,7 +46,7 @@ function displayUserData(data) {
     }
 }
 
-// Запрос к серверу для получения данных пользователя и их сохранение
+// Fetch User Data and Save to LocalStorage
 function fetchUserData() {
     fetch('http://localhost:3000/', {
         method: 'GET',
@@ -64,63 +61,63 @@ function fetchUserData() {
         return response.json();
     })
     .then(data => {
-        console.log("Полученные данные пользователя:", data);
-        // Сохранение данных в localStorage для дальнейшего использования
+        console.log("User data received:", data);
         localStorage.setItem('telegramUser', JSON.stringify(data));
-        displayUserData(data); // Вызов функции для отображения данных
+        displayUserData(data);
     })
     .catch(error => {
-        console.error('Ошибка авторизации:', error);
-        localStorage.removeItem('telegramUser'); // Удаление данных из localStorage, если авторизация не удалась
+        console.error('Authorization error:', error);
+        localStorage.removeItem('telegramUser');
     });
 }
 
-// Вызов функции для получения данных пользователя при загрузке страницы
+// Call Fetch User Data on Page Load
 fetchUserData();
 
-// Данные для товаров для каждой игры
+// Data for Products for Each Game
 const products = {
     brawlstars: [
         {
-            name: 'Бравл Пасс',
-            price: '1050 руб',
+            name: 'Brawl Pass',
+            price: '1050 RUB',
             image: 'images/brawl_pass.jpg',
             discount: '10%',
         },
         {
-            name: 'Улучшение БП',
-            price: '620 руб',
+            name: 'Brawl Pass Upgrade',
+            price: '620 RUB',
             image: 'images/brawl_upgrade.jpg',
         }
     ],
     pubg: [
         {
             name: 'PUBG UC Pack',
-            price: '500 руб',
+            price: '500 RUB',
             image: 'images/pubg_uc.jpg',
         }
     ],
     roblox: [
         {
             name: 'Robux Pack',
-            price: '800 руб',
+            price: '800 RUB',
             image: 'images/robux.jpg',
         }
     ],
 };
 
-// Обработка клика по плитке игры
+// Event Listener for Game Tile Clicks to Redirect to Game Page
 document.querySelectorAll('.game-tile').forEach(tile => {
     tile.addEventListener('click', (event) => {
         event.preventDefault();
         const gameId = tile.getAttribute('href').substring(1);
-        showProducts(gameId);
+        window.location.href = `${gameId}.html`; // Redirect to game-specific page
     });
 });
 
+// Function to Display Products for a Selected Game
 function showProducts(gameId) {
     const productsGrid = document.getElementById('products-grid');
-    productsGrid.innerHTML = ''; // Очистить предыдущие товары
+    productsGrid.innerHTML = ''; // Clear previous products
     const selectedProducts = products[gameId] || [];
 
     selectedProducts.forEach(product => {
@@ -138,10 +135,10 @@ function showProducts(gameId) {
         productPrice.textContent = product.price;
 
         const buyButton = document.createElement('button');
-        buyButton.textContent = 'Купить';
+        buyButton.textContent = 'Buy';
         buyButton.classList.add('buy-button');
         buyButton.addEventListener('click', () => {
-            alert(`Покупка оформлена для ${product.name}`);
+            alert(`Purchase made for ${product.name}`);
         });
 
         productCard.appendChild(productImage);
@@ -152,12 +149,12 @@ function showProducts(gameId) {
         productsGrid.appendChild(productCard);
     });
 
-    // Показать секцию товаров
+    // Show Products Section
     document.querySelector('.products-section').classList.remove('hidden');
     document.querySelector('.products-section').style.display = 'block';
 }
 
-// Смена темы в зависимости от времени суток
+// Theme Switching Based on Time of Day
 window.addEventListener('load', () => {
     const currentHour = new Date().getHours();
     if (currentHour >= 18 || currentHour < 6) {
