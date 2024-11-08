@@ -1,4 +1,4 @@
-/* Основной стиль для Brawl Stars  */
+/* Основной стиль для Brawl Stars */
 body {
     font-family: Arial, sans-serif;
     background-color: #f4f4f9;
@@ -22,13 +22,13 @@ body {
     align-items: center;
     justify-content: space-between;
     max-width: 1200px;
-    margin: 0 auto; /* Центрирование контейнера шапки */
+    margin: 0 auto;
     padding-left: 15px; /* Внутренний отступ слева */
     padding-right: 15px; /* Внутренний отступ справа */
 }
 
 .logo img {
-    height: 40px;
+    height: 40px; /* Размер логотипа */
 }
 
 .header-right {
@@ -45,7 +45,7 @@ body {
 }
 
 .login-button img {
-    width: 30px;
+    width: 30px; /* Размер изображения для кнопки логина */
     height: 30px;
     border-radius: 50%;
     margin-left: 10px; /* Внешний отступ слева для изображения */
@@ -53,14 +53,14 @@ body {
 
 /* Стили для контента, уникального для Brawl Stars */
 .main-content {
-    padding-top: 100px; /* Внутренний отступ сверху для основного контента */
+    padding-top: 100px;
     max-width: 1200px;
-    margin: 0 auto; /* Центрирование основного контента */
+    margin: 0 auto;
 }
 
 .game-banner {
     text-align: center;
-    margin-bottom: 20px; /* Внешний отступ снизу для баннера */
+    margin-bottom: 20px;
 }
 
 .banner-image {
@@ -71,7 +71,7 @@ body {
     margin: 0 auto; /* Центрирование изображения */
 }
 
-/* Адаптивное изменение для маленьких экранов */
+/* Адаптивное уменьшение для маленьких экранов */
 @media (max-width: 768px) {
     .header-container {
         padding-left: 10px; /* Уменьшаем отступ слева */
@@ -99,8 +99,8 @@ body {
     }
 
     .login-button img {
-        width: 30px; /* Уменьшаем размер изображения */
-        height: 30px;
+        width: 25px; /* Уменьшаем размер изображения */
+        height: 25px;
     }
 
     .banner-image {
