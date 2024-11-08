@@ -1,92 +1,37 @@
-/* Основной стиль */
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f9;
-    margin: 0;
-    padding: 0;
-}
-
-/* Стиль для шапки */
-.header {
-    background-color: #fff;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    padding: 10px;
-    position: fixed;
-    width: 100%;
-    top: 0;
-    z-index: 1000;
-}
-
-.header-container {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding-left: 15px;
-    padding-right: 15px;
-}
-
-.logo img {
-    height: 40px;
-}
-
-.header-right {
-    display: flex;
-    align-items: center;
-}
-
-.search-bar {
-    padding: 5px;
-    border-radius: 5px;
-    margin-right: 10px;
-    border: 1px solid #ddd;
-    flex: 1;
-}
-
-.login-button img {
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    margin-left: 10px;
-}
-
-/* Стили для основного контента */
-.main-content {
+/* Стили для страницы Brawl Stars */
+.brawlstars-main-content {
     padding-top: 100px;
     max-width: 1200px;
     margin: 0 auto;
 }
 
-/* Стили для баннера и информации об игре */
-.game-banner {
+.brawlstars-game-banner {
     text-align: center;
     margin-bottom: 20px;
 }
 
-.banner-image {
+.brawlstars-banner-image {
     width: 100%;
     border-radius: 10px;
 }
 
-.game-info h1 {
+.brawlstars-game-info h1 {
     font-size: 24px;
     color: #333;
     margin-top: 10px;
 }
 
-/* Стили для карточек товаров */
-.products-section {
+.brawlstars-products-section {
     margin-top: 20px;
 }
 
-.product-categories {
+.brawlstars-product-categories {
     display: flex;
     gap: 10px;
     margin-bottom: 15px;
 }
 
-.category-button {
+.brawlstars-category-button {
     padding: 10px 15px;
     background-color: #007bff;
     color: #fff;
@@ -96,18 +41,18 @@ body {
     font-size: 14px;
 }
 
-.category-button.active,
-.category-button:hover {
+.brawlstars-category-button.active,
+.brawlstars-category-button:hover {
     background-color: #0056b3;
 }
 
-.products-grid {
+.brawlstars-products-grid {
     display: flex;
     gap: 15px;
     flex-wrap: wrap;
 }
 
-.product-card {
+.brawlstars-product-card {
     background-color: #fff;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -118,20 +63,20 @@ body {
     transition: transform 0.2s;
 }
 
-.product-card:hover {
+.brawlstars-product-card:hover {
     transform: scale(1.05);
 }
 
-.product-image-container {
+.brawlstars-product-image-container {
     position: relative;
 }
 
-.product-image-container img {
+.brawlstars-product-image-container img {
     width: 100%;
     border-radius: 5px;
 }
 
-.discount-badge {
+.brawlstars-discount-badge {
     position: absolute;
     top: 5px;
     left: 5px;
@@ -142,12 +87,12 @@ body {
     font-size: 12px;
 }
 
-.product-price {
+.brawlstars-product-price {
     font-size: 16px;
     color: #333;
 }
 
-.product-price .discount {
+.brawlstars-product-price .discount {
     color: #ff4b4b;
     font-weight: bold;
     margin-left: 5px;
