@@ -61,5 +61,30 @@
 
     <!-- Optional Script for Dynamic Behavior -->
     <script src="script.js"></script>
+    <script>
+        const authPageUrl = 'https://legurren.github.io/auth.html';
+        const profilePageUrl = 'https://legurren.github.io/profile.html';
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const loginButton = document.querySelector('#login-button');
+            const profileImage = document.querySelector('#profile-image');
+            const user = JSON.parse(localStorage.getItem('telegramUser'));
+
+            if (user) {
+                profileImage.src = user.photo_url || 'user-icon.png';
+                profileImage.alt = user.username || 'Профиль';
+                loginButton.title = `@${user.username || 'Профиль'}`;
+                loginButton.addEventListener('click', (event) => {
+                    event.preventDefault();
+                    window.location.href = profilePageUrl;
+                });
+            } else {
+                loginButton.addEventListener('click', (event) => {
+                    event.preventDefault();
+                    window.location.href = authPageUrl;
+                });
+            }
+        });
+    </script>
 </body>
 </html>
