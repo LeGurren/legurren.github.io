@@ -2,15 +2,58 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <title>Профиль - Games Market</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brawl Stars - Games Market</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- Шапка сайта -->
+    <!-- Header Section -->
     <header class="header">
         <div class="header-container">
             <div class="logo">
                 <a href="index.html"><img src="images_old/logo.png" alt="GamesMarket Logo"></a>
             </div>
+            <nav class="header-nav">
+                <a href="index.html">Главная</a>
+                <a href="profile.html">Профиль</a>
+            </nav>
         </div>
     </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <section class="game-banner">
+            <img src="images_old/brawlstars-banner.jpg" alt="Brawl Stars Banner" class="banner-image">
+            <h1>Brawl Stars</h1>
+            <p>Окунитесь в мир битв, стратегий и побед!</p>
+        </section>
+
+        <!-- Product List Section -->
+        <section class="product-list">
+            <h2>Доступные Товары</h2>
+            <div class="products-grid">
+                <!-- Example Product Tile -->
+                <div class="product-tile">
+                    <img src="images/brawl_pass.jpg" alt="Brawl Pass" class="product-image">
+                    <h3>Бравл Пасс</h3>
+                    <p>Цена: 1050 руб</p>
+                    <button class="buy-button">Купить</button>
+                </div>
+                <div class="product-tile">
+                    <img src="images/brawl_upgrade.jpg" alt="Brawl Pass Upgrade" class="product-image">
+                    <h3>Улучшение БП</h3>
+                    <p>Цена: 620 руб</p>
+                    <button class="buy-button">Купить</button>
+                </div>
+                <!-- Add more product tiles as needed -->
+            </div>
+        </section>
+
+        <!-- Game Description or Promotional Offers -->
+        <section class="game-description">
+            <h2>Особенности Brawl Stars</h2>
+            <p>Здесь можно добавить описание игры, новости, акции и события, связанные с Brawl Stars.</p>
+        </section>
+    </main>
+</body>
+</html>
