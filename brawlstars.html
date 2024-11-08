@@ -7,53 +7,53 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- Header Section -->
+    <!-- Header -->
     <header class="header">
         <div class="header-container">
             <div class="logo">
-                <a href="index.html"><img src="images_old/logo.png" alt="GamesMarket Logo"></a>
+                <a href="index.html"><img src="images/logo.png" alt="Games Market Logo"></a>
             </div>
-            <nav class="header-nav">
-                <a href="index.html">Главная</a>
-                <a href="profile.html">Профиль</a>
-            </nav>
         </div>
     </header>
 
     <!-- Main Content -->
     <main class="main-content">
         <section class="game-banner">
-            <img src="images_old/brawlstars-banner.jpg" alt="Brawl Stars Banner" class="banner-image">
-            <h1>Brawl Stars</h1>
-            <p>Окунитесь в мир битв, стратегий и побед!</p>
-        </section>
-
-        <!-- Product List Section -->
-        <section class="product-list">
-            <h2>Доступные Товары</h2>
-            <div class="products-grid">
-                <!-- Example Product Tile -->
-                <div class="product-tile">
-                    <img src="images/brawl_pass.jpg" alt="Brawl Pass" class="product-image">
-                    <h3>Бравл Пасс</h3>
-                    <p>Цена: 1050 руб</p>
-                    <button class="buy-button">Купить</button>
-                </div>
-                <div class="product-tile">
-                    <img src="images/brawl_upgrade.jpg" alt="Brawl Pass Upgrade" class="product-image">
-                    <h3>Улучшение БП</h3>
-                    <p>Цена: 620 руб</p>
-                    <button class="buy-button">Купить</button>
-                </div>
-                <!-- Add more product tiles as needed -->
+            <img src="images/brawlstars-banner.jpg" alt="Brawl Stars Banner" class="banner-image">
+            <div class="game-info">
+                <img src="images/brawlstars-logo.png" alt="Brawl Stars Logo" class="game-logo">
+                <h1>Brawl Stars</h1>
             </div>
         </section>
 
-        <!-- Game Description or Promotional Offers -->
-        <section class="game-description">
-            <h2>Особенности Brawl Stars</h2>
-            <p>Здесь можно добавить описание игры, новости, акции и события, связанные с Brawl Stars.</p>
+        <section class="products-section">
+            <h2 class="section-title">Товары</h2>
+            <div class="product-categories">
+                <button class="category-button active">Пропуски</button>
+                <button class="category-button">Гемы</button>
+                <button class="category-button">Акции</button>
+            </div>
+            <div class="products-grid">
+                <div class="product-card">
+                    <div class="product-image-container">
+                        <img src="images/brawl_pass.jpg" alt="Бравл Пасс">
+                        <span class="discount-badge">Скидка!</span>
+                    </div>
+                    <h3>Бравл Пасс</h3>
+                    <p class="product-price">
+                        1 050 руб <span class="discount">-10%</span>
+                    </p>
+                </div>
+                <div class="product-card">
+                    <img src="images/brawl_upgrade.jpg" alt="Улучшение БП">
+                    <h3>Улучшение БП</h3>
+                    <p class="product-price">620 руб</p>
+                </div>
+            </div>
         </section>
     </main>
+
+    <!-- Optional Script for Dynamic Behavior -->
+    <script src="script.js"></script>
 </body>
 </html>
