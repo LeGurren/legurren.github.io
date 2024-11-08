@@ -114,7 +114,9 @@ body {
     cursor: pointer; /* Indicate clickable */
 }
 
-.game-tile:hover {
+.game-tile:hover,
+.promo-tile:hover,
+.new-item-tile:hover {
     transform: scale(1.05); /* Hover effect: increase size */
 }
 
