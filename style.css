@@ -58,202 +58,119 @@ body {
     margin: 0 auto;
 }
 
-/* Стили для секций игр, акций и новинок */
-.games-section,
-.promo-section,
-.new-items-section {
-    margin-top: 30px;
-    padding-left: 15px;
-}
-
-.section-title {
-    font-size: 18px;
-    margin-bottom: 15px;
-    color: #333;
-}
-
-.games-horizontal-scroll,
-.promo-grid,
-.new-items-grid {
-    display: flex;
-    gap: 15px;
-    overflow-x: auto;
-    padding: 10px 0;
-    scrollbar-width: thin;
-    scrollbar-color: #ccc transparent;
-}
-
-.games-horizontal-scroll::-webkit-scrollbar,
-.promo-grid::-webkit-scrollbar,
-.new-items-grid::-webkit-scrollbar {
-    height: 8px;
-}
-
-.games-horizontal-scroll::-webkit-scrollbar-thumb,
-.promo-grid::-webkit-scrollbar-thumb,
-.new-items-grid::-webkit-scrollbar-thumb {
-    background-color: #ccc;
-    border-radius: 4px;
-}
-
-.game-tile,
-.promo-tile,
-.new-item-tile {
-    width: 100px;
+/* Стили для баннера и информации об игре */
+.game-banner {
+    position: relative;
     text-align: center;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    background-color: #fff;
-    padding: 10px;
-    text-decoration: none;
-    color: #333;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    transition: transform 0.2s ease-in-out; /* Hover effect transition */
-    cursor: pointer; /* Indicate clickable */
-}
-
-.game-tile:hover,
-.promo-tile:hover,
-.new-item-tile:hover {
-    transform: scale(1.05); /* Hover effect: increase size */
-}
-
-.game-tile img,
-.promo-tile img,
-.new-item-tile img {
-    width: 80px;
-    height: 80px;
-    object-fit: cover;
-    border-radius: 5px;
-}
-
-.game-tile span,
-.promo-tile p,
-.new-item-tile p {
-    margin-top: 5px;
-    font-size: 14px;
-    color: #333;
-}
-
-/* Стили для страницы auth.html */
-.auth-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background-color: #f4f4f9;
-}
-
-.auth-content {
-    text-align: center;
-    background-color: #fff;
-    padding: 20px 40px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    max-width: 400px;
-    width: 90%;
-}
-
-.auth-content h2 {
-    font-size: 24px;
-    margin-bottom: 10px;
-    color: #333;
-}
-
-.auth-content p {
-    font-size: 16px;
-    color: #666;
     margin-bottom: 20px;
 }
 
-/* Стили для страницы профиля (profile.html) */
-.profile-container {
-    max-width: 600px;
-    margin: 100px auto;
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    text-align: center;
-}
-
-.profile-header {
-    margin-bottom: 20px;
-}
-
-.profile-avatar {
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    object-fit: cover;
-    margin-bottom: 10px;
-}
-
-.profile-balance {
-    background-color: #fff;
-    border-radius: 10px;
-    padding: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    margin-bottom: 20px;
-}
-
-.profile-balance p {
-    font-size: 16px;
-    color: #333;
-}
-
-.profile-balance h3 {
-    font-size: 24px;
-    margin: 10px 0;
-    color: #007bff;
-}
-
-.balance-button {
-    display: block;
+.banner-image {
     width: 100%;
-    margin: 10px 0;
-    padding: 10px;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
+    border-radius: 10px;
 }
 
-.balance-button.secondary {
-    background-color: #333;
-    color: white;
+.game-info {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.7);
+    padding: 10px 20px;
+    border-radius: 10px;
+    color: #fff;
 }
 
-.profile-tabs {
+.game-info h1 {
+    font-size: 24px;
+    margin: 0;
+}
+
+.game-logo {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 10px;
+}
+
+/* Стили для карточек товаров */
+.products-section {
+    margin-top: 20px;
+}
+
+.product-categories {
     display: flex;
-    justify-content: center;
-    margin-bottom: 20px;
+    gap: 10px;
+    margin-bottom: 15px;
 }
 
-.tab-button {
-    flex: 1;
-    padding: 10px;
-    border: none;
-    cursor: pointer;
+.category-button {
+    padding: 10px 15px;
     background-color: #007bff;
-    color: white;
+    color: #fff;
+    border: none;
     border-radius: 5px;
-    font-size: 16px;
-    font-weight: bold;
+    cursor: pointer;
+    font-size: 14px;
 }
 
-.tab-button.active {
+.category-button.active,
+.category-button:hover {
     background-color: #0056b3;
 }
 
-.profile-content {
-    color: #666;
-    font-size: 16px;
+.products-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.product-card {
+    flex: 1 1 calc(33.333% - 15px);
+    max-width: calc(33.333% - 15px);
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 15px;
     text-align: center;
+    transition: transform 0.2s;
+}
+
+.product-card:hover {
+    transform: scale(1.05);
+}
+
+.product-image-container {
+    position: relative;
+    margin-bottom: 10px;
+}
+
+.product-image-container img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+
+.discount-badge {
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    background-color: #ff4b4b;
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 12px;
+}
+
+.product-price {
+    font-size: 16px;
+    color: #333;
+}
+
+.product-price .discount {
+    color: #ff4b4b;
+    font-weight: bold;
+    margin-left: 5px;
 }
 
 /* Адаптивный стиль для web app */
@@ -269,17 +186,7 @@ body {
         padding-right: 10px;
     }
 
-    .games-horizontal-scroll,
-    .promo-grid,
-    .new-items-grid {
-        justify-content: flex-start;
-    }
-
-    .promo-grid,
-    .new-items-grid {
-        display: flex;
-        gap: 15px;
-        overflow-x: auto;
-        padding: 10px 0;
+    .products-grid {
+        flex-direction: column;
     }
 }
