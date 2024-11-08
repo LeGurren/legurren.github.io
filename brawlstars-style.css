@@ -98,8 +98,8 @@ body {
     }
 
     .login-button img {
-        width: 25px; /* Уменьшаем размер изображения */
-        height: 25px;
+        width: 30px; /* Уменьшаем размер изображения */
+        height: 30px;
     }
 
     .banner-image {
