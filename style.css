@@ -4,6 +4,7 @@ body {
     background-color: #f4f4f9;
     margin: 0;
     padding: 0;
+    overflow-x: hidden; /* Убираем горизонтальный скролл для всего web app */
 }
 
 /* Стиль для шапки */
@@ -14,7 +15,7 @@ body {
     width: 100%;
     top: 0;
     z-index: 1000;
-    padding: 10px 0; /* Отступ сверху и снизу */
+    padding: 10px 0;
 }
 
 /* Контейнер шапки */
@@ -23,7 +24,8 @@ body {
     margin: 0 auto;
     display: flex;
     align-items: center;
-    justify-content: space-between; /* Логотип слева, блок справа */
+    justify-content: space-between;
+    padding: 0 15px;
 }
 
 /* Логотип */
@@ -34,14 +36,14 @@ body {
 /* Блок справа */
 .header-right {
     display: flex;
-    align-items: center; /* Выравнивание элементов по вертикали */
+    align-items: center;
 }
 
 /* Строка поиска */
 .search-bar {
-    width: 200px; /* Фиксированная ширина строки поиска */
+    width: 200px;
     padding: 5px;
-    margin-right: 10px; /* Отступ между строкой поиска и кнопкой логина */
+    margin-right: 10px;
     border: 1px solid #ddd;
     border-radius: 5px;
 }
@@ -73,12 +75,13 @@ body {
     color: #333;
 }
 
+/* Горизонтальный скролл только для секций с плитками */
 .games-horizontal-scroll,
 .promo-grid,
 .new-items-grid {
     display: flex;
     gap: 15px;
-    overflow-x: auto;
+    overflow-x: auto; /* Горизонтальный скролл */
     padding: 10px 0;
     scrollbar-width: thin;
     scrollbar-color: #ccc transparent;
