@@ -2,33 +2,32 @@
 body {
     font-family: Arial, sans-serif;
     background-color: #f4f4f9;
-    margin: 0; /* Убирает стандартные внешние отступы body */
-    padding: 0; /* Убирает стандартные внутренние отступы body */
+    margin: 0;
+    padding: 0;
 }
 
 /* Стиль для шапки */
 .header {
     background-color: #fff;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    padding: 10px; /* Внутренние отступы для шапки */
     position: fixed;
     width: 100%;
     top: 0;
     z-index: 1000;
+    padding: 10px 0;
 }
 
 .header-container {
+    max-width: 1200px;
+    margin: 0 auto;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding-left: 15px; /* Внутренний отступ слева */
-    padding-right: 15px; /* Внутренний отступ справа */
+    padding: 0 15px;
 }
 
 .logo img {
-    height: 40px; /* Размер логотипа */
+    height: 40px;
 }
 
 .header-right {
@@ -37,96 +36,59 @@ body {
 }
 
 .search-bar {
-    padding: 5px; /* Внутренние отступы для строки поиска */
-    border-radius: 5px;
-    margin-right: 10px; /* Внешний отступ справа для строки поиска */
+    width: 200px;
+    padding: 5px;
+    margin-right: 10px;
     border: 1px solid #ddd;
-    flex: 1;
+    border-radius: 5px;
 }
 
 .login-button img {
-    width: 30px; /* Размер изображения для кнопки логина */
+    width: 30px;
     height: 30px;
     border-radius: 50%;
-    margin-left: 10px; /* Внешний отступ слева для изображения */
 }
 
-/* Стили для контента, уникального для Brawl Stars */
-.main-content {
-    padding-top: 100px;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
+/* Стили для баннера */
 .game-banner {
     text-align: center;
     margin-bottom: 20px;
 }
 
 .banner-image {
-    width: 100%;
-    max-width: 400px; /* Ограничение ширины для больших экранов */
-    max-height: 200px; /* Ограничение высоты для больших экранов */
-    height: auto; /* Сохраняет пропорции */
-    margin: 0 auto; /* Центрирование изображения */
+    width: 100%; /* Растянуть по ширине центрального контейнера */
+    max-width: 1200px; /* Соответствует ширине центрального контейнера */
+    height: auto; /* Сохранение пропорций */
+    display: block; /* Убирает пробелы вокруг изображения */
+    margin: 0 auto; /* Центрирование баннера */
 }
 
-/* Адаптивное уменьшение для маленьких экранов */
-@media (max-width: 768px) {
-    .header-container {
-        padding-left: 10px; /* Уменьшаем отступ слева */
-        padding-right: 10px; /* Уменьшаем отступ справа */
-    }
-
-    .main-content {
-        padding-left: 10px; /* Добавляем внутренний отступ слева */
-        padding-right: 10px; /* Добавляем внутренний отступ справа */
-    }
-
-    .header-right {
-        flex-wrap: wrap; /* Позволяет перенос элементов */
-        justify-content: flex-start; /* Выравниваем элементы по началу */
-    }
-
-    .search-bar {
-        flex: 1;
-        min-width: 70%; /* Задаём минимальную ширину для строки поиска */
-        margin-bottom: 5px; /* Добавляем отступ снизу для мобильных устройств */
-    }
-
-    .login-button {
-        margin-left: 0; /* Убираем отступ слева на маленьких экранах */
-    }
-
-    .login-button img {
-        width: 25px; /* Уменьшаем размер изображения */
-        height: 25px;
-    }
-
-    .banner-image {
-        max-height: 200px; /* Уменьшение высоты баннера на мобильных устройствах */
-        object-fit: cover; /* Масштабирование без искажения */
-    }
+/* Контент */
+.main-content {
+    padding-top: 100px;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 .game-info h1 {
     font-size: 24px;
     color: #333;
-    margin-top: 10px; /* Внешний отступ сверху для заголовка */
+    margin-top: 10px;
 }
 
+/* Товары */
 .products-section {
-    margin-top: 20px; /* Внешний отступ сверху для секции товаров */
+    margin-top: 20px;
 }
 
 .product-categories {
     display: flex;
-    gap: 10px; /* Отступы между кнопками категорий */
-    margin-bottom: 15px; /* Внешний отступ снизу для блока категорий */
+    gap: 10px;
+    margin-bottom: 15px;
 }
 
 .category-button {
-    padding: 10px 15px; /* Внутренние отступы для кнопок категорий */
+    padding: 10px 15px;
     background-color: #007bff;
     color: #fff;
     border: none;
@@ -142,7 +104,7 @@ body {
 
 .products-grid {
     display: flex;
-    gap: 15px; /* Отступы между карточками товаров */
+    gap: 15px;
     flex-wrap: wrap;
 }
 
@@ -150,7 +112,7 @@ body {
     background-color: #fff;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    padding: 15px; /* Внутренние отступы для карточек товаров */
+    padding: 15px;
     flex: 1 1 calc(33.333% - 15px);
     max-width: calc(33.333% - 15px);
     text-align: center;
@@ -172,11 +134,11 @@ body {
 
 .discount-badge {
     position: absolute;
-    top: 5px; /* Внешний отступ сверху для бейджа скидки */
-    left: 5px; /* Внешний отступ слева для бейджа скидки */
+    top: 5px;
+    left: 5px;
     background-color: #ff4b4b;
     color: #fff;
-    padding: 5px; /* Внутренние отступы для бейджа */
+    padding: 5px;
     border-radius: 3px;
     font-size: 12px;
 }
@@ -189,5 +151,25 @@ body {
 .product-price .discount {
     color: #ff4b4b;
     font-weight: bold;
-    margin-left: 5px; /* Внешний отступ слева для цены со скидкой */
+    margin-left: 5px;
+}
+
+/* Адаптивный дизайн */
+@media (max-width: 768px) {
+    .header-container {
+        padding: 0 10px;
+    }
+
+    .search-bar {
+        width: 150px;
+    }
+
+    .banner-image {
+        max-width: 100%; /* Баннер занимает всю ширину экрана */
+    }
+
+    .product-card {
+        flex: 1 1 100%; /* Карточки растягиваются на всю ширину */
+        max-width: 100%;
+    }
 }
