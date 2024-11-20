@@ -54,7 +54,7 @@ body {
 /* Стили для основного контента */
 .main-content {
     padding-top: 100px;
-    max-width: 1200px;
+    max-width: 900px; /* Уменьшено с 1200px */
     margin: 0 auto;
 }
 
@@ -110,14 +110,14 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    transition: transform 0.2s ease-in-out; /* Hover effect transition */
-    cursor: pointer; /* Indicate clickable */
+    transition: transform 0.2s ease-in-out;
+    cursor: pointer;
 }
 
 .game-tile:hover,
 .promo-tile:hover,
 .new-item-tile:hover {
-    transform: scale(1.05); /* Hover effect: increase size */
+    transform: scale(1.05);
 }
 
 .game-tile img,
@@ -170,7 +170,7 @@ body {
 
 /* Стили для страницы профиля (profile.html) */
 .profile-container {
-    max-width: 600px;
+    max-width: 500px; /* Уменьшено с 600px */
     margin: 100px auto;
     background-color: #fff;
     padding: 20px;
