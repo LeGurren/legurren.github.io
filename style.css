@@ -6,7 +6,7 @@ body {
     padding: 0;
 }
 
-/* Шапка сайта */
+/* Стиль для шапки */
 .header {
     background-color: #fff;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -14,15 +14,16 @@ body {
     width: 100%;
     top: 0;
     z-index: 1000;
-    padding: 10px 0;
+    padding: 10px 0; /* Отступ сверху и снизу */
 }
 
+/* Контейнер шапки */
 .header-container {
     width: 741px; /* Фиксированная ширина центрального контейнера */
     margin: 0 auto;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-between; /* Логотип слева, блок справа */
 }
 
 /* Логотип */
@@ -33,14 +34,14 @@ body {
 /* Блок справа */
 .header-right {
     display: flex;
-    align-items: center;
+    align-items: center; /* Выравнивание элементов по вертикали */
 }
 
 /* Строка поиска */
 .search-bar {
-    width: 200px;
+    width: 200px; /* Фиксированная ширина строки поиска */
     padding: 5px;
-    margin-right: 10px;
+    margin-right: 10px; /* Отступ между строкой поиска и кнопкой логина */
     border: 1px solid #ddd;
     border-radius: 5px;
 }
@@ -52,116 +53,99 @@ body {
     border-radius: 50%;
 }
 
-/* Основной контент */
+/* Стили для основного контента */
 .main-content {
     padding-top: 100px;
     width: 741px; /* Фиксированная ширина центрального контейнера */
     margin: 0 auto;
 }
 
-/* Стили профиля */
-.profile-container {
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    text-align: center;
+/* Стили для секций игр, акций и новинок */
+.games-section,
+.promo-section,
+.new-items-section {
+    margin-top: 30px;
 }
 
-.profile-header {
-    margin-bottom: 20px;
-}
-
-.profile-avatar {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    object-fit: cover;
-    margin-bottom: 10px;
-}
-
-.profile-balance {
-    background-color: #fff;
-    border-radius: 10px;
-    padding: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    margin-bottom: 20px;
-}
-
-.profile-balance p {
-    font-size: 16px;
+.section-title {
+    font-size: 18px;
+    margin-bottom: 15px;
     color: #333;
 }
 
-.profile-balance h3 {
-    font-size: 24px;
-    margin: 10px 0;
-    color: #007bff;
-}
-
-.balance-button {
-    display: inline-block;
-    padding: 10px 20px;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-    margin: 5px;
-}
-
-.balance-button.secondary {
-    background-color: #333;
-}
-
-.profile-tabs {
+.games-horizontal-scroll,
+.promo-grid,
+.new-items-grid {
     display: flex;
-    justify-content: center;
-    margin-bottom: 20px;
+    gap: 15px;
+    overflow-x: auto;
+    padding: 10px 0;
+    scrollbar-width: thin;
+    scrollbar-color: #ccc transparent;
 }
 
-.tab-button {
-    flex: 1;
+.games-horizontal-scroll::-webkit-scrollbar,
+.promo-grid::-webkit-scrollbar,
+.new-items-grid::-webkit-scrollbar {
+    height: 8px;
+}
+
+.games-horizontal-scroll::-webkit-scrollbar-thumb,
+.promo-grid::-webkit-scrollbar-thumb,
+.new-items-grid::-webkit-scrollbar-thumb {
+    background-color: #ccc;
+    border-radius: 4px;
+}
+
+.game-tile,
+.promo-tile,
+.new-item-tile {
+    width: 100px;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
     padding: 10px;
-    border: none;
+    text-decoration: none;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: transform 0.2s ease-in-out;
     cursor: pointer;
-    background-color: #007bff;
-    color: white;
+}
+
+.game-tile:hover,
+.promo-tile:hover,
+.new-item-tile:hover {
+    transform: scale(1.05);
+}
+
+.game-tile img,
+.promo-tile img,
+.new-item-tile img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
     border-radius: 5px;
-    font-size: 16px;
-    font-weight: bold;
-    margin: 0 5px;
 }
 
-.tab-button.active {
-    background-color: #0056b3;
-}
-
-.profile-content {
-    color: #666;
-    font-size: 16px;
+.game-tile span,
+.promo-tile p,
+.new-item-tile p {
+    margin-top: 5px;
+    font-size: 14px;
+    color: #333;
 }
 
 /* Адаптивный стиль для web app */
 @media (max-width: 768px) {
-    /* Шапка */
     .header-container {
         width: 100%; /* Контейнер растягивается на всю ширину */
         padding-left: 10px;
         padding-right: 10px;
     }
 
-    .search-bar {
-        width: 150px; /* Уменьшаем ширину строки поиска */
-    }
-
-    .login-button img {
-        width: 25px; /* Уменьшаем размер кнопки логина */
-        height: 25px;
-    }
-
-    /* Основной контент */
     .main-content {
         width: 100%; /* Контейнер растягивается на всю ширину */
         padding-top: 80px;
@@ -169,7 +153,6 @@ body {
         padding-right: 10px;
     }
 
-    /* Горизонтальные секции */
     .games-horizontal-scroll,
     .promo-grid,
     .new-items-grid {
@@ -184,63 +167,24 @@ body {
         padding: 10px 0;
     }
 
-    .games-horizontal-scroll::-webkit-scrollbar,
-    .promo-grid::-webkit-scrollbar,
-    .new-items-grid::-webkit-scrollbar {
-        height: 6px; /* Уменьшаем размер полос прокрутки */
-    }
-
-    .games-horizontal-scroll::-webkit-scrollbar-thumb,
-    .promo-grid::-webkit-scrollbar-thumb,
-    .new-items-grid::-webkit-scrollbar-thumb {
-        background-color: #ccc;
-        border-radius: 4px;
-    }
-
-    /* Элементы плиток */
     .game-tile,
     .promo-tile,
     .new-item-tile {
         width: 100px; /* Плитки сохраняют фиксированную ширину */
     }
 
-    /* Стили для профиля */
-    .profile-container {
-        width: 100%; /* Растягиваем профильный контейнер */
-        max-width: 90%; /* Ограничиваем ширину */
-        margin: 20px auto; /* Центрируем и уменьшаем отступы */
-        padding: 15px; /* Уменьшаем внутренние отступы */
+    .search-bar {
+        width: 150px; /* Уменьшаем ширину строки поиска */
     }
 
-    .profile-avatar {
-        width: 100px; /* Уменьшаем аватар для мобильных устройств */
-        height: 100px;
+    .login-button img {
+        width: 25px; /* Уменьшаем размер кнопки логина */
+        height: 25px;
     }
 
-    .balance-button {
-        font-size: 14px; /* Уменьшаем размер шрифта на кнопках */
-        padding: 8px; /* Уменьшаем отступы */
-    }
-
-    .profile-tabs {
-        flex-direction: column; /* Переключаемся на колонку */
-        align-items: center;
-    }
-
-    .tab-button {
-        margin-bottom: 10px; /* Добавляем отступ между кнопками */
-        width: 100%; /* Растягиваем кнопки на всю ширину */
-    }
-
-    /* Карточки товаров */
-    .products-grid {
-        flex-wrap: wrap; /* Карточки переносятся на новые строки */
-    }
-
-    .product-card {
-        flex: 1 1 100%; /* Карточки растягиваются на всю ширину */
-        max-width: 100%;
-        margin-bottom: 10px; /* Добавляем отступ между карточками */
+    .games-horizontal-scroll::-webkit-scrollbar,
+    .promo-grid::-webkit-scrollbar,
+    .new-items-grid::-webkit-scrollbar {
+        height: 6px; /* Уменьшаем размер полос прокрутки */
     }
 }
-
