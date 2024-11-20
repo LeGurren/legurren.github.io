@@ -7,7 +7,6 @@ body {
 }
 
 /* Стиль для шапки */
-/* Шапка сайта */
 .header {
     background-color: #fff;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -20,12 +19,11 @@ body {
 
 /* Контейнер шапки */
 .header-container {
-    max-width: 1200px;
+    width: 741px; /* Фиксированная ширина центрального контейнера */
     margin: 0 auto;
     display: flex;
     align-items: center;
     justify-content: space-between; /* Логотип слева, блок справа */
-    padding: 0 15px;
 }
 
 /* Логотип */
@@ -55,11 +53,10 @@ body {
     border-radius: 50%;
 }
 
-
 /* Стили для основного контента */
 .main-content {
     padding-top: 100px;
-    max-width: 900px; /* Уменьшено с 1200px */
+    width: 741px; /* Фиксированная ширина центрального контейнера */
     margin: 0 auto;
 }
 
@@ -68,7 +65,6 @@ body {
 .promo-section,
 .new-items-section {
     margin-top: 30px;
-    padding-left: 15px;
 }
 
 .section-title {
@@ -142,133 +138,16 @@ body {
     color: #333;
 }
 
-/* Стили для страницы auth.html */
-.auth-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background-color: #f4f4f9;
-}
-
-.auth-content {
-    text-align: center;
-    background-color: #fff;
-    padding: 20px 40px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    max-width: 400px;
-    width: 90%;
-}
-
-.auth-content h2 {
-    font-size: 24px;
-    margin-bottom: 10px;
-    color: #333;
-}
-
-.auth-content p {
-    font-size: 16px;
-    color: #666;
-    margin-bottom: 20px;
-}
-
-/* Стили для страницы профиля (profile.html) */
-.profile-container {
-    max-width: 500px; /* Уменьшено с 600px */
-    margin: 100px auto;
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    text-align: center;
-}
-
-.profile-header {
-    margin-bottom: 20px;
-}
-
-.profile-avatar {
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    object-fit: cover;
-    margin-bottom: 10px;
-}
-
-.profile-balance {
-    background-color: #fff;
-    border-radius: 10px;
-    padding: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    margin-bottom: 20px;
-}
-
-.profile-balance p {
-    font-size: 16px;
-    color: #333;
-}
-
-.profile-balance h3 {
-    font-size: 24px;
-    margin: 10px 0;
-    color: #007bff;
-}
-
-.balance-button {
-    display: block;
-    width: 100%;
-    margin: 10px 0;
-    padding: 10px;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-}
-
-.balance-button.secondary {
-    background-color: #333;
-    color: white;
-}
-
-.profile-tabs {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 20px;
-}
-
-.tab-button {
-    flex: 1;
-    padding: 10px;
-    border: none;
-    cursor: pointer;
-    background-color: #007bff;
-    color: white;
-    border-radius: 5px;
-    font-size: 16px;
-    font-weight: bold;
-}
-
-.tab-button.active {
-    background-color: #0056b3;
-}
-
-.profile-content {
-    color: #666;
-    font-size: 16px;
-    text-align: center;
-}
-
 /* Адаптивный стиль для web app */
 @media (max-width: 768px) {
     .header-container {
+        width: 100%; /* Контейнер растягивается на всю ширину */
         padding-left: 10px;
         padding-right: 10px;
     }
 
     .main-content {
+        width: 100%; /* Контейнер растягивается на всю ширину */
         padding-top: 80px;
         padding-left: 10px;
         padding-right: 10px;
@@ -277,14 +156,35 @@ body {
     .games-horizontal-scroll,
     .promo-grid,
     .new-items-grid {
-        justify-content: flex-start;
+        justify-content: flex-start; /* Выравниваем элементы по началу */
     }
 
     .promo-grid,
     .new-items-grid {
         display: flex;
         gap: 15px;
-        overflow-x: auto;
+        overflow-x: auto; /* Горизонтальная прокрутка для маленьких экранов */
         padding: 10px 0;
+    }
+
+    .game-tile,
+    .promo-tile,
+    .new-item-tile {
+        width: 100px; /* Плитки сохраняют фиксированную ширину */
+    }
+
+    .search-bar {
+        width: 150px; /* Уменьшаем ширину строки поиска */
+    }
+
+    .login-button img {
+        width: 25px; /* Уменьшаем размер кнопки логина */
+        height: 25px;
+    }
+
+    .games-horizontal-scroll::-webkit-scrollbar,
+    .promo-grid::-webkit-scrollbar,
+    .new-items-grid::-webkit-scrollbar {
+        height: 6px; /* Уменьшаем размер полос прокрутки */
     }
 }
