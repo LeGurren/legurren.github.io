@@ -7,47 +7,52 @@ body {
 }
 
 /* Стиль для шапки */
+/* Шапка сайта */
 .header {
     background-color: #fff;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    padding: 10px 0; /* Убираем лишние отступы */
     position: fixed;
     width: 100%;
     top: 0;
     z-index: 1000;
+    padding: 10px 0; /* Отступ сверху и снизу */
 }
 
+/* Контейнер шапки */
 .header-container {
+    max-width: 1200px;
+    margin: 0 auto;
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    max-width: 900px; /* Соответствует ширине центрального контейнера */
-    margin: 0 auto;
+    justify-content: space-between; /* Логотип слева, блок справа */
     padding: 0 15px;
 }
 
+/* Логотип */
 .logo img {
     height: 40px;
 }
 
-.search-bar {
-    padding: 5px;
-    border-radius: 5px;
-    margin-right: 10px;
-    border: 1px solid #ddd;
-    flex: 1;
-}
-
+/* Блок справа */
 .header-right {
     display: flex;
-    align-items: center;
+    align-items: center; /* Выравнивание элементов по вертикали */
 }
 
+/* Строка поиска */
+.search-bar {
+    width: 200px; /* Фиксированная ширина строки поиска */
+    padding: 5px;
+    margin-right: 10px; /* Отступ между строкой поиска и кнопкой логина */
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+/* Кнопка логина */
 .login-button img {
     width: 30px;
     height: 30px;
     border-radius: 50%;
-    margin-left: 10px;
 }
 
 
