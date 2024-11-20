@@ -25,7 +25,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0 15px;
+    padding: 0 15px; /* Отступы для выравнивания логотипа и кнопки логина */
 }
 
 /* Логотип */
@@ -37,13 +37,14 @@ body {
 .header-right {
     display: flex;
     align-items: center;
+    justify-content: flex-end; /* Выравнивание кнопки логина справа */
 }
 
 /* Строка поиска */
 .search-bar {
-    width: 200px;
+    width: 200px; /* Фиксированная ширина строки поиска */
     padding: 5px;
-    margin-right: 10px;
+    margin-right: 10px; /* Отступ между строкой поиска и кнопкой логина */
     border: 1px solid #ddd;
     border-radius: 5px;
 }
@@ -62,26 +63,13 @@ body {
     margin: 0 auto;
 }
 
-/* Стили для секций игр, акций и новинок */
-.games-section,
-.promo-section,
-.new-items-section {
-    margin-top: 30px;
-}
-
-.section-title {
-    font-size: 18px;
-    margin-bottom: 15px;
-    color: #333;
-}
-
-/* Горизонтальный скролл только для секций с плитками */
+/* Секции с плитками */
 .games-horizontal-scroll,
 .promo-grid,
 .new-items-grid {
     display: flex;
     gap: 15px;
-    overflow-x: auto; /* Горизонтальный скролл */
+    overflow-x: auto; /* Горизонтальный скролл только для секций с плитками */
     padding: 10px 0;
     scrollbar-width: thin;
     scrollbar-color: #ccc transparent;
@@ -141,11 +129,11 @@ body {
     color: #333;
 }
 
-/* Адаптивный стиль для web app */
+/* Адаптивный стиль */
 @media (max-width: 768px) {
     .header-container {
         width: 100%; /* Контейнер растягивается на всю ширину */
-        padding-left: 10px;
+        padding-left: 10px; /* Выравниваем отступы для логотипа и кнопки логина */
         padding-right: 10px;
     }
 
