@@ -4,10 +4,10 @@ body {
     background-color: #f4f4f9;
     margin: 0;
     padding: 0;
-    overflow-x: hidden; /* Убираем горизонтальный скролл для всего web app */
+    overflow-x: hidden; /* Полностью убираем горизонтальный скролл для body */
 }
 
-/* Стиль для шапки */
+/* Шапка */
 .header {
     background-color: #fff;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -24,8 +24,8 @@ body {
     margin: 0 auto;
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    padding: 0 15px; /* Отступы для выравнивания логотипа и кнопки логина */
+    justify-content: space-between; /* Распределяем логотип и кнопку логина по краям */
+    padding: 0; /* Убираем лишние внутренние отступы */
 }
 
 /* Логотип */
@@ -33,37 +33,35 @@ body {
     height: 40px;
 }
 
-/* Блок справа */
+/* Кнопка логина */
 .header-right {
     display: flex;
     align-items: center;
-    justify-content: flex-end; /* Выравнивание кнопки логина справа */
 }
 
-/* Строка поиска */
 .search-bar {
-    width: 200px; /* Фиксированная ширина строки поиска */
+    width: 200px;
     padding: 5px;
     margin-right: 10px; /* Отступ между строкой поиска и кнопкой логина */
     border: 1px solid #ddd;
     border-radius: 5px;
 }
 
-/* Кнопка логина */
 .login-button img {
     width: 30px;
     height: 30px;
     border-radius: 50%;
 }
 
-/* Стили для основного контента */
+/* Основной контент */
 .main-content {
     padding-top: 100px;
     width: 741px; /* Фиксированная ширина центрального контейнера */
     margin: 0 auto;
+    overflow-x: hidden; /* Убираем горизонтальную прокрутку */
 }
 
-/* Секции с плитками */
+/* Горизонтальные секции */
 .games-horizontal-scroll,
 .promo-grid,
 .new-items-grid {
@@ -88,6 +86,7 @@ body {
     border-radius: 4px;
 }
 
+/* Плитки */
 .game-tile,
 .promo-tile,
 .new-item-tile {
@@ -132,16 +131,13 @@ body {
 /* Адаптивный стиль */
 @media (max-width: 768px) {
     .header-container {
-        width: 100%; /* Контейнер растягивается на всю ширину */
-        padding-left: 10px; /* Выравниваем отступы для логотипа и кнопки логина */
-        padding-right: 10px;
+        width: 100%;
+        padding: 0 15px; /* Выравниваем отступы для логотипа и кнопки логина */
     }
 
     .main-content {
         width: 100%; /* Контейнер растягивается на всю ширину */
-        padding-top: 80px;
-        padding-left: 10px;
-        padding-right: 10px;
+        padding: 0 15px;
     }
 
     .games-horizontal-scroll,
@@ -150,32 +146,18 @@ body {
         justify-content: flex-start; /* Выравниваем элементы по началу */
     }
 
-    .promo-grid,
-    .new-items-grid {
-        display: flex;
-        gap: 15px;
-        overflow-x: auto; /* Горизонтальная прокрутка для маленьких экранов */
-        padding: 10px 0;
-    }
-
-    .game-tile,
-    .promo-tile,
-    .new-item-tile {
-        width: 100px; /* Плитки сохраняют фиксированную ширину */
-    }
-
     .search-bar {
-        width: 150px; /* Уменьшаем ширину строки поиска */
+        width: 150px;
     }
 
     .login-button img {
-        width: 25px; /* Уменьшаем размер кнопки логина */
+        width: 25px;
         height: 25px;
     }
 
     .games-horizontal-scroll::-webkit-scrollbar,
     .promo-grid::-webkit-scrollbar,
     .new-items-grid::-webkit-scrollbar {
-        height: 6px; /* Уменьшаем размер полос прокрутки */
+        height: 6px;
     }
 }
