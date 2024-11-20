@@ -10,7 +10,7 @@ body {
 .header {
     background-color: #fff;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    padding: 10px;
+    padding: 10px 0; /* Убираем лишние отступы */
     position: fixed;
     width: 100%;
     top: 0;
@@ -21,19 +21,13 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    max-width: 1200px;
+    max-width: 900px; /* Соответствует ширине центрального контейнера */
     margin: 0 auto;
-    padding-left: 15px;
-    padding-right: 15px;
+    padding: 0 15px;
 }
 
 .logo img {
     height: 40px;
-}
-
-.header-right {
-    display: flex;
-    align-items: center;
 }
 
 .search-bar {
@@ -44,12 +38,18 @@ body {
     flex: 1;
 }
 
+.header-right {
+    display: flex;
+    align-items: center;
+}
+
 .login-button img {
     width: 30px;
     height: 30px;
     border-radius: 50%;
     margin-left: 10px;
 }
+
 
 /* Стили для основного контента */
 .main-content {
