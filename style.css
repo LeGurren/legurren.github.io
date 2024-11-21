@@ -4,7 +4,7 @@ body {
     background-color: #f4f4f9;
     margin: 0;
     padding: 0;
-    overflow-x: hidden; /* Полностью убираем горизонтальный скролл для body */
+    overflow-x: hidden; /* Полностью убираем горизонтальный скролл для приложения */
 }
 
 /* Шапка */
@@ -24,8 +24,7 @@ body {
     margin: 0 auto;
     display: flex;
     align-items: center;
-    justify-content: space-between; /* Распределяем логотип и кнопку логина по краям */
-    padding: 0; /* Убираем лишние внутренние отступы */
+    justify-content: space-between; /* Распределяем логотип и кнопку логина */
 }
 
 /* Логотип */
@@ -37,12 +36,12 @@ body {
 .header-right {
     display: flex;
     align-items: center;
+    gap: 10px; /* Расстояние между строкой поиска и кнопкой логина */
 }
 
 .search-bar {
-    width: 200px;
+    width: 200px; /* Фиксированная ширина строки поиска */
     padding: 5px;
-    margin-right: 10px; /* Отступ между строкой поиска и кнопкой логина */
     border: 1px solid #ddd;
     border-radius: 5px;
 }
@@ -58,10 +57,10 @@ body {
     padding-top: 100px;
     width: 741px; /* Фиксированная ширина центрального контейнера */
     margin: 0 auto;
-    overflow-x: hidden; /* Убираем горизонтальную прокрутку */
+    overflow-x: hidden; /* Убираем горизонтальный скролл для контента */
 }
 
-/* Горизонтальные секции */
+/* Секции с плитками */
 .games-horizontal-scroll,
 .promo-grid,
 .new-items-grid {
@@ -131,27 +130,27 @@ body {
 /* Адаптивный стиль */
 @media (max-width: 768px) {
     .header-container {
-        width: 100%;
-        padding: 0 15px; /* Выравниваем отступы для логотипа и кнопки логина */
+        width: calc(100% - 30px); /* Делаем контейнер адаптивным с отступами */
+        padding: 0 15px;
     }
 
     .main-content {
-        width: 100%; /* Контейнер растягивается на всю ширину */
+        width: calc(100% - 30px); /* Убираем фиксированную ширину на мобильных устройствах */
         padding: 0 15px;
     }
 
     .games-horizontal-scroll,
     .promo-grid,
     .new-items-grid {
-        justify-content: flex-start; /* Выравниваем элементы по началу */
+        justify-content: flex-start; /* Выравниваем плитки по левому краю */
     }
 
     .search-bar {
-        width: 150px;
+        width: 150px; /* Уменьшаем ширину строки поиска */
     }
 
     .login-button img {
-        width: 25px;
+        width: 25px; /* Уменьшаем кнопку логина */
         height: 25px;
     }
 
