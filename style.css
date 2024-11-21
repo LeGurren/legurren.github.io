@@ -24,7 +24,7 @@ body {
     margin: 0 auto;
     display: flex;
     align-items: center;
-    justify-content: space-between; /* Распределяем логотип и кнопку логина */
+    justify-content: space-between;
 }
 
 /* Логотип */
@@ -40,7 +40,7 @@ body {
 }
 
 .search-bar {
-    width: 200px; /* Фиксированная ширина строки поиска */
+    width: 200px;
     padding: 5px;
     border: 1px solid #ddd;
     border-radius: 5px;
@@ -54,20 +54,20 @@ body {
 
 /* Основной контент */
 .main-content {
-    padding-top: 100px;
-    width: 741px; /* Фиксированная ширина центрального контейнера */
+    padding-top: 100px; /* Отступ под фиксированной шапкой */
+    width: 741px; /* Фиксированная ширина */
     margin: 0 auto;
-    overflow-x: hidden; /* Убираем горизонтальный скролл для контента */
+    overflow-x: hidden; /* Убираем горизонтальный скролл */
 }
 
-/* Секции */
+/* Заголовки секций */
 .section-title {
     font-size: 18px;
     font-weight: bold;
     color: #333;
     margin: 15px 0;
     text-align: left;
-    display: block; /* Убедимся, что заголовок видим */
+    display: block; /* Обеспечиваем видимость заголовка */
 }
 
 /* Секции с плитками */
@@ -150,12 +150,13 @@ body {
     }
 
     .section-title {
-        font-size: 16px; /* Уменьшенный размер текста для мобильных устройств */
+        font-size: 16px; /* Уменьшаем размер текста для мобильных устройств */
         margin: 10px 0; /* Уменьшенные отступы */
-        display: block; /* Убедимся, что заголовок видим */
+        display: block; /* Обеспечиваем видимость заголовка */
     }
 
     .games-section {
+        padding-top: 15px; /* Отступ для предотвращения наложения плиток на заголовок */
         overflow: visible; /* Убедимся, что заголовок не обрезается */
     }
 
@@ -170,7 +171,7 @@ body {
     }
 
     .login-button img {
-        width: 25px; /* Уменьшаем кнопку логина */
+        width: 25px; /* Уменьшаем размер кнопки логина */
         height: 25px;
     }
 
