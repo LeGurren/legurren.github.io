@@ -60,6 +60,16 @@ body {
     overflow-x: hidden; /* Убираем горизонтальный скролл для контента */
 }
 
+/* Секции */
+.section-title {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+    margin: 15px 0;
+    text-align: left;
+    display: block; /* Убедимся, что заголовок видим */
+}
+
 /* Секции с плитками */
 .games-horizontal-scroll,
 .promo-grid,
@@ -137,6 +147,16 @@ body {
     .main-content {
         width: calc(100% - 30px); /* Убираем фиксированную ширину на мобильных устройствах */
         padding: 0 15px;
+    }
+
+    .section-title {
+        font-size: 16px; /* Уменьшенный размер текста для мобильных устройств */
+        margin: 10px 0; /* Уменьшенные отступы */
+        display: block; /* Убедимся, что заголовок видим */
+    }
+
+    .games-section {
+        overflow: visible; /* Убедимся, что заголовок не обрезается */
     }
 
     .games-horizontal-scroll,
