@@ -4,7 +4,7 @@ body {
     background-color: #f4f4f9;
     margin: 0;
     padding: 0;
-    overflow-x: hidden; /* Полностью убираем горизонтальный скролл для приложения */
+    overflow-x: hidden; /* Полностью убираем горизонтальный скролл */
 }
 
 /* Шапка */
@@ -67,7 +67,18 @@ body {
     color: #333;
     margin: 15px 0;
     text-align: left;
-    display: block; /* Обеспечиваем видимость заголовка */
+    display: block;
+}
+
+/* Секции */
+.games-section,
+.apps-section,
+.new-items-section {
+    margin-top: 20px; /* Добавляем отступы между секциями */
+}
+
+.games-section {
+    padding-top: 20px; /* Убедимся, что плитки не перекрывают заголовок */
 }
 
 /* Секции с плитками */
@@ -140,44 +151,38 @@ body {
 /* Адаптивный стиль */
 @media (max-width: 768px) {
     .header-container {
-        width: calc(100% - 30px); /* Делаем контейнер адаптивным с отступами */
+        width: calc(100% - 30px);
         padding: 0 15px;
     }
 
     .main-content {
-        width: calc(100% - 30px); /* Убираем фиксированную ширину на мобильных устройствах */
+        width: calc(100% - 30px);
         padding: 0 15px;
     }
 
     .section-title {
-        font-size: 16px; /* Уменьшаем размер текста для мобильных устройств */
-        margin: 10px 0; /* Уменьшенные отступы */
-        display: block; /* Обеспечиваем видимость заголовка */
+        font-size: 16px;
+        margin: 10px 0;
+        text-align: left;
+        display: block;
     }
 
     .games-section {
-        padding-top: 15px; /* Отступ для предотвращения наложения плиток на заголовок */
-        overflow: visible; /* Убедимся, что заголовок не обрезается */
+        padding-top: 15px; /* Убедимся, что заголовок виден */
     }
 
     .games-horizontal-scroll,
     .promo-grid,
     .new-items-grid {
-        justify-content: flex-start; /* Выравниваем плитки по левому краю */
+        justify-content: flex-start;
     }
 
     .search-bar {
-        width: 150px; /* Уменьшаем ширину строки поиска */
+        width: 150px;
     }
 
     .login-button img {
-        width: 25px; /* Уменьшаем размер кнопки логина */
+        width: 25px;
         height: 25px;
-    }
-
-    .games-horizontal-scroll::-webkit-scrollbar,
-    .promo-grid::-webkit-scrollbar,
-    .new-items-grid::-webkit-scrollbar {
-        height: 6px;
     }
 }
