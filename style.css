@@ -127,6 +127,15 @@ body {
     color: #333;
 }
 
+/* Заголовок секций */
+.section-title {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+    margin: 15px 0;
+    text-align: left;
+}
+
 /* Адаптивный стиль */
 @media (max-width: 768px) {
     .header-container {
@@ -158,5 +167,11 @@ body {
     .promo-grid::-webkit-scrollbar,
     .new-items-grid::-webkit-scrollbar {
         height: 6px;
+    }
+
+    .section-title {
+        font-size: 16px; /* Уменьшенный шрифт для мобильных устройств */
+        margin: 10px 0; /* Сохранение отступов */
+        display: block; /* Гарантируем, что заголовок остаётся видимым */
     }
 }
