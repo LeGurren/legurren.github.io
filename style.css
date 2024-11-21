@@ -4,7 +4,7 @@ body {
     background-color: #f4f4f9;
     margin: 0;
     padding: 0;
-    overflow-x: hidden; /* Полностью убираем горизонтальный скролл */
+    overflow-x: hidden; /* Полностью убираем горизонтальный скролл для приложения */
 }
 
 /* Шапка */
@@ -24,8 +24,8 @@ body {
     margin: 0 auto;
     display: flex;
     align-items: center;
-    justify-content: space-between; /* Распределяем элементы по краям */
-    padding: 0 15px; /* Устанавливаем отступы */
+    justify-content: space-between; /* Распределяем логотип и кнопку логина */
+    padding: 0 15px;
 }
 
 /* Логотип */
@@ -33,7 +33,7 @@ body {
     height: 40px;
 }
 
-/* Блок справа (поиск + кнопка логина) */
+/* Блок справа */
 .header-right {
     display: flex;
     align-items: center;
@@ -41,7 +41,7 @@ body {
 }
 
 .search-bar {
-    width: 200px; /* Фиксированная ширина строки поиска */
+    width: 200px;
     padding: 5px;
     border: 1px solid #ddd;
     border-radius: 5px;
@@ -58,11 +58,13 @@ body {
     padding-top: 100px;
     width: 741px; /* Фиксированная ширина центрального контейнера */
     margin: 0 auto;
-    overflow-x: hidden;
+    overflow-x: hidden; /* Убираем горизонтальный скролл для контента */
 }
 
 /* Секции */
-.games-section {
+.games-section,
+.apps-section,
+.new-items-section {
     margin-top: 30px;
 }
 
@@ -74,10 +76,11 @@ body {
     text-align: left;
 }
 
+/* Горизонтальные секции с плитками */
 .games-horizontal-scroll {
     display: flex;
     gap: 15px;
-    overflow-x: auto; /* Горизонтальный скролл только для секции с плитками */
+    overflow-x: auto; /* Горизонтальный скролл только для плиток */
     padding: 10px 0;
 }
 
@@ -123,7 +126,39 @@ body {
     color: #333;
 }
 
-/* Адаптивность */
+/* Сетка приложений */
+.promo-grid {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap; /* Удобно для адаптивности */
+}
+
+.promo-tile {
+    width: 100px;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    padding: 10px;
+}
+
+/* Новинки */
+.new-items-grid {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.new-item-tile {
+    width: 100px;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    padding: 10px;
+}
+
+/* Адаптивный стиль */
 @media (max-width: 768px) {
     .header-container {
         width: calc(100% - 30px); /* Контейнер растягивается на всю ширину с отступами */
@@ -131,7 +166,7 @@ body {
     }
 
     .main-content {
-        width: calc(100% - 30px);
+        width: calc(100% - 30px); /* Контейнер подстраивается под экран */
         padding: 0 15px;
     }
 
@@ -140,16 +175,16 @@ body {
     }
 
     .search-bar {
-        width: 150px;
+        width: 150px; /* Уменьшаем строку поиска */
     }
 
     .login-button img {
-        width: 25px;
+        width: 25px; /* Уменьшаем кнопку логина */
         height: 25px;
     }
 
     .section-title {
-        font-size: 16px;
+        font-size: 16px; /* Заголовок адаптируется */
         margin: 10px 0;
     }
 }
