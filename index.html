@@ -8,22 +8,25 @@
 </head>
 <body>
     <!-- Шапка сайта -->
-<header class="header">
-    <div class="header-container">
-        <!-- Логотип слева -->
-        <div class="logo">
-            <a href="index.html"><img src="images_old/logo.png" alt="GamesMarket Logo"></a>
+    <header class="header">
+        <div class="header-container">
+            <!-- Логотип -->
+            <div class="logo">
+                <a href="index.html">
+                    <img src="images_old/logo.png" alt="GamesMarket Logo">
+                </a>
+            </div>
+            <!-- Кнопка логина и строка поиска -->
+            <div class="header-right">
+                <input type="text" placeholder="Поиск..." class="search-bar">
+                <a href="#" class="login-button" title="Профиль" id="login-button">
+                    <img src="user-icon.png" alt="Профиль" id="profile-image">
+                </a>
+            </div>
         </div>
-        <!-- Блок с кнопкой логина и строкой поиска справа -->
-        <div class="header-right">
-            <input type="text" placeholder="Поиск..." class="search-bar">
-            <a href="#" class="login-button" title="Профиль" id="login-button">
-                <img src="user-icon.png" alt="Профиль" id="profile-image">
-            </a>
-        </div>
-    </div>
-</header>
+    </header>
 
+    <!-- Основной контент -->
     <main class="main-content">
         <section class="games-section">
             <h2 class="section-title">Игры</h2>
@@ -92,6 +95,7 @@
         </section>
     </main>
 
+    <!-- Подключение скриптов -->
     <script src="script.js"></script>
     <script>
         const authPageUrl = 'https://legurren.github.io/auth.html';
@@ -100,9 +104,11 @@
         document.addEventListener('DOMContentLoaded', () => {
             const loginButton = document.querySelector('#login-button');
             const profileImage = document.querySelector('#profile-image');
-            const user = JSON.parse(localStorage.getItem('telegramUser'));
 
+            // Проверяем авторизацию пользователя
+            const user = JSON.parse(localStorage.getItem('telegramUser'));
             if (user) {
+                // Если пользователь авторизован
                 profileImage.src = user.photo_url || 'user-icon.png';
                 profileImage.alt = user.username || 'Профиль';
                 loginButton.title = `@${user.username || 'Профиль'}`;
@@ -111,6 +117,7 @@
                     window.location.href = profilePageUrl;
                 });
             } else {
+                // Если пользователь не авторизован
                 loginButton.addEventListener('click', (event) => {
                     event.preventDefault();
                     window.location.href = authPageUrl;
