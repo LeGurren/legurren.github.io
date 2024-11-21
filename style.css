@@ -65,7 +65,7 @@ body {
     font-size: 18px;
     font-weight: bold;
     color: #333;
-    margin: 15px 0;
+    margin: 20px 0; /* Увеличенный отступ сверху и снизу */
     text-align: left;
     display: block;
 }
@@ -74,12 +74,12 @@ body {
 .games-section,
 .apps-section,
 .new-items-section {
-    margin-top: 20px; /* Добавляем отступы между секциями */
+    margin-top: 25px; /* Увеличенные отступы между секциями */
 }
 
 .games-section {
-    margin-top: 30px; /* Отступ сверху для отображения заголовка */
-    padding-top: 10px; /* Дополнительный отступ для предотвращения наложения плиток на заголовок */
+    margin-top: 40px; /* Отступ сверху для заголовка */
+    padding-top: 15px; /* Дополнительный отступ внутри секции */
 }
 
 /* Секции с плитками */
@@ -163,14 +163,14 @@ body {
 
     .section-title {
         font-size: 16px;
-        margin: 10px 0;
+        margin: 15px 0;
         text-align: left;
         display: block;
     }
 
     .games-section {
-        margin-top: 30px; /* Отступ сверху для отображения заголовка */
-        padding-top: 10px; /* Дополнительный отступ для предотвращения наложения плиток на заголовок */
+        margin-top: 35px; /* Увеличенный отступ для мобильных устройств */
+        padding-top: 15px; /* Дополнительный отступ внутри секции */
     }
 
     .games-horizontal-scroll,
