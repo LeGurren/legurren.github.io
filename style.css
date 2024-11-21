@@ -25,7 +25,6 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between; /* Распределяем логотип и кнопку логина */
-    padding: 0 15px;
 }
 
 /* Логотип */
@@ -33,7 +32,7 @@ body {
     height: 40px;
 }
 
-/* Блок справа */
+/* Кнопка логина */
 .header-right {
     display: flex;
     align-items: center;
@@ -41,7 +40,7 @@ body {
 }
 
 .search-bar {
-    width: 200px;
+    width: 200px; /* Фиксированная ширина строки поиска */
     padding: 5px;
     border: 1px solid #ddd;
     border-radius: 5px;
@@ -61,40 +60,35 @@ body {
     overflow-x: hidden; /* Убираем горизонтальный скролл для контента */
 }
 
-/* Секции */
-.games-section,
-.apps-section,
-.new-items-section {
-    margin-top: 30px;
-}
-
-.section-title {
-    font-size: 18px;
-    font-weight: bold;
-    color: #333;
-    margin: 15px 0;
-    text-align: left;
-}
-
-/* Горизонтальные секции с плитками */
-.games-horizontal-scroll {
+/* Секции с плитками */
+.games-horizontal-scroll,
+.promo-grid,
+.new-items-grid {
     display: flex;
     gap: 15px;
-    overflow-x: auto; /* Горизонтальный скролл только для плиток */
+    overflow-x: auto; /* Горизонтальный скролл только для секций с плитками */
     padding: 10px 0;
+    scrollbar-width: thin;
+    scrollbar-color: #ccc transparent;
 }
 
-.games-horizontal-scroll::-webkit-scrollbar {
+.games-horizontal-scroll::-webkit-scrollbar,
+.promo-grid::-webkit-scrollbar,
+.new-items-grid::-webkit-scrollbar {
     height: 8px;
 }
 
-.games-horizontal-scroll::-webkit-scrollbar-thumb {
+.games-horizontal-scroll::-webkit-scrollbar-thumb,
+.promo-grid::-webkit-scrollbar-thumb,
+.new-items-grid::-webkit-scrollbar-thumb {
     background-color: #ccc;
     border-radius: 4px;
 }
 
 /* Плитки */
-.game-tile {
+.game-tile,
+.promo-tile,
+.new-item-tile {
     width: 100px;
     text-align: center;
     border-radius: 10px;
@@ -107,75 +101,52 @@ body {
     flex-direction: column;
     align-items: center;
     transition: transform 0.2s ease-in-out;
+    cursor: pointer;
 }
 
-.game-tile:hover {
+.game-tile:hover,
+.promo-tile:hover,
+.new-item-tile:hover {
     transform: scale(1.05);
 }
 
-.game-tile img {
+.game-tile img,
+.promo-tile img,
+.new-item-tile img {
     width: 80px;
     height: 80px;
     object-fit: cover;
     border-radius: 5px;
 }
 
-.game-tile span {
+.game-tile span,
+.promo-tile p,
+.new-item-tile p {
     margin-top: 5px;
     font-size: 14px;
     color: #333;
 }
 
-/* Сетка приложений */
-.promo-grid {
-    display: flex;
-    gap: 15px;
-    flex-wrap: wrap; /* Удобно для адаптивности */
-}
-
-.promo-tile {
-    width: 100px;
-    text-align: center;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    background-color: #fff;
-    padding: 10px;
-}
-
-/* Новинки */
-.new-items-grid {
-    display: flex;
-    gap: 15px;
-    flex-wrap: wrap;
-}
-
-.new-item-tile {
-    width: 100px;
-    text-align: center;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    background-color: #fff;
-    padding: 10px;
-}
-
 /* Адаптивный стиль */
 @media (max-width: 768px) {
     .header-container {
-        width: calc(100% - 30px); /* Контейнер растягивается на всю ширину с отступами */
+        width: calc(100% - 30px); /* Делаем контейнер адаптивным с отступами */
         padding: 0 15px;
     }
 
     .main-content {
-        width: calc(100% - 30px); /* Контейнер подстраивается под экран */
+        width: calc(100% - 30px); /* Убираем фиксированную ширину на мобильных устройствах */
         padding: 0 15px;
     }
 
-    .games-horizontal-scroll {
-        justify-content: flex-start;
+    .games-horizontal-scroll,
+    .promo-grid,
+    .new-items-grid {
+        justify-content: flex-start; /* Выравниваем плитки по левому краю */
     }
 
     .search-bar {
-        width: 150px; /* Уменьшаем строку поиска */
+        width: 150px; /* Уменьшаем ширину строки поиска */
     }
 
     .login-button img {
@@ -183,8 +154,9 @@ body {
         height: 25px;
     }
 
-    .section-title {
-        font-size: 16px; /* Заголовок адаптируется */
-        margin: 10px 0;
+    .games-horizontal-scroll::-webkit-scrollbar,
+    .promo-grid::-webkit-scrollbar,
+    .new-items-grid::-webkit-scrollbar {
+        height: 6px;
     }
 }
