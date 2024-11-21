@@ -4,7 +4,7 @@ body {
     background-color: #f4f4f9;
     margin: 0;
     padding: 0;
-    overflow-x: hidden; /* Полностью убираем горизонтальный скролл для приложения */
+    overflow-x: hidden; /* Полностью убираем горизонтальный скролл */
 }
 
 /* Шапка */
@@ -24,7 +24,8 @@ body {
     margin: 0 auto;
     display: flex;
     align-items: center;
-    justify-content: space-between; /* Распределяем логотип и кнопку логина */
+    justify-content: space-between; /* Распределяем элементы по краям */
+    padding: 0 15px; /* Устанавливаем отступы */
 }
 
 /* Логотип */
@@ -32,7 +33,7 @@ body {
     height: 40px;
 }
 
-/* Кнопка логина */
+/* Блок справа (поиск + кнопка логина) */
 .header-right {
     display: flex;
     align-items: center;
@@ -57,38 +58,40 @@ body {
     padding-top: 100px;
     width: 741px; /* Фиксированная ширина центрального контейнера */
     margin: 0 auto;
-    overflow-x: hidden; /* Убираем горизонтальный скролл для контента */
+    overflow-x: hidden;
 }
 
-/* Секции с плитками */
-.games-horizontal-scroll,
-.promo-grid,
-.new-items-grid {
+/* Секции */
+.games-section {
+    margin-top: 30px;
+}
+
+.section-title {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+    margin: 15px 0;
+    text-align: left;
+}
+
+.games-horizontal-scroll {
     display: flex;
     gap: 15px;
-    overflow-x: auto; /* Горизонтальный скролл только для секций с плитками */
+    overflow-x: auto; /* Горизонтальный скролл только для секции с плитками */
     padding: 10px 0;
-    scrollbar-width: thin;
-    scrollbar-color: #ccc transparent;
 }
 
-.games-horizontal-scroll::-webkit-scrollbar,
-.promo-grid::-webkit-scrollbar,
-.new-items-grid::-webkit-scrollbar {
+.games-horizontal-scroll::-webkit-scrollbar {
     height: 8px;
 }
 
-.games-horizontal-scroll::-webkit-scrollbar-thumb,
-.promo-grid::-webkit-scrollbar-thumb,
-.new-items-grid::-webkit-scrollbar-thumb {
+.games-horizontal-scroll::-webkit-scrollbar-thumb {
     background-color: #ccc;
     border-radius: 4px;
 }
 
 /* Плитки */
-.game-tile,
-.promo-tile,
-.new-item-tile {
+.game-tile {
     width: 100px;
     text-align: center;
     border-radius: 10px;
@@ -101,77 +104,52 @@ body {
     flex-direction: column;
     align-items: center;
     transition: transform 0.2s ease-in-out;
-    cursor: pointer;
 }
 
-.game-tile:hover,
-.promo-tile:hover,
-.new-item-tile:hover {
+.game-tile:hover {
     transform: scale(1.05);
 }
 
-.game-tile img,
-.promo-tile img,
-.new-item-tile img {
+.game-tile img {
     width: 80px;
     height: 80px;
     object-fit: cover;
     border-radius: 5px;
 }
 
-.game-tile span,
-.promo-tile p,
-.new-item-tile p {
+.game-tile span {
     margin-top: 5px;
     font-size: 14px;
     color: #333;
 }
 
-/* Заголовок секций */
-.section-title {
-    font-size: 18px;
-    font-weight: bold;
-    color: #333;
-    margin: 15px 0;
-    text-align: left;
-}
-
-/* Адаптивный стиль */
+/* Адаптивность */
 @media (max-width: 768px) {
     .header-container {
-        width: calc(100% - 30px); /* Делаем контейнер адаптивным с отступами */
+        width: calc(100% - 30px); /* Контейнер растягивается на всю ширину с отступами */
         padding: 0 15px;
     }
 
     .main-content {
-        width: calc(100% - 30px); /* Убираем фиксированную ширину на мобильных устройствах */
+        width: calc(100% - 30px);
         padding: 0 15px;
     }
 
-    .games-horizontal-scroll,
-    .promo-grid,
-    .new-items-grid {
-        justify-content: flex-start; /* Выравниваем плитки по левому краю */
+    .games-horizontal-scroll {
+        justify-content: flex-start;
     }
 
     .search-bar {
-        width: 150px; /* Уменьшаем ширину строки поиска */
+        width: 150px;
     }
 
     .login-button img {
-        width: 25px; /* Уменьшаем кнопку логина */
+        width: 25px;
         height: 25px;
     }
 
-    .games-horizontal-scroll::-webkit-scrollbar,
-    .promo-grid::-webkit-scrollbar,
-    .new-items-grid::-webkit-scrollbar {
-        height: 6px;
-    }
-
     .section-title {
-        font-size: 16px; /* Уменьшенный шрифт для мобильных устройств */
-        margin: 10px 0; /* Сохранение отступов */
-        display: block; /* Гарантируем, что заголовок остаётся видимым */
+        font-size: 16px;
+        margin: 10px 0;
     }
 }
