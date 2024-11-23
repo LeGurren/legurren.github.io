@@ -17,6 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initializeLoginButton();
     initializeGameTiles();
     initializeCategoryButtons(); // Добавлена функция для переключения категорий
+    initializeBackButton(); // Добавлена функция для кнопки "Назад"
     const user = checkAuthorization();
     if (user) {
         displayUserData(user);
@@ -92,6 +93,21 @@ function initializeCategoryButtons() {
             });
         });
     });
+}
+
+// Логика для кнопки "Назад"
+function initializeBackButton() {
+    const backButton = document.getElementById('back-button');
+    if (!backButton) return;
+
+    backButton.addEventListener('click', () => {
+        window.location.href = 'index.html'; // Переход на главную страницу
+    });
+
+    // Показываем кнопку "Назад" только в мобильной версии
+    if (window.innerWidth > 768) {
+        backButton.style.display = 'none';
+    }
 }
 
 // Отображение данных пользователя на странице
