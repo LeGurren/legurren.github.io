@@ -12,35 +12,45 @@ function checkAuthorization() {
     }
 }
 
-// Обработчик для кнопки логина
+// Инициализация приложения
 document.addEventListener('DOMContentLoaded', () => {
-    const loginButton = document.querySelector('.login-button');
-
-    if (loginButton) {
-        loginButton.addEventListener('click', (event) => {
-            event.preventDefault();
-            const user = checkAuthorization();
-
-            if (user) {
-                window.location.href = profilePageUrl;
-            } else if (window.Telegram?.WebApp) {
-                console.log("Running inside Telegram Web App, no separate login needed.");
-            } else {
-                window.location.href = authPageUrl;
-            }
-        });
-    }
-
-    // Отображение данных пользователя, если он авторизован
+    initializeLoginButton();
+    initializeGameTiles();
     const user = checkAuthorization();
     if (user) {
         displayUserData(user);
     } else {
         console.log("User not authorized.");
     }
+});
 
-    // Обработчик кликов по плиткам игр
+// Обработчик для кнопки логина
+function initializeLoginButton() {
+    const loginButton = document.querySelector('.login-button');
+    if (!loginButton) return;
+
+    loginButton.addEventListener('click', (event) => {
+        event.preventDefault();
+        const user = checkAuthorization();
+
+        if (user) {
+            window.location.href = profilePageUrl;
+        } else if (window.Telegram?.WebApp) {
+            console.log("Running inside Telegram Web App, no separate login needed.");
+        } else {
+            window.location.href = authPageUrl;
+        }
+    });
+}
+
+// Обработчик кликов по плиткам игр
+function initializeGameTiles() {
     const gameTiles = document.querySelectorAll('.game-tile');
+    if (gameTiles.length === 0) {
+        console.warn("No game tiles found on the page.");
+        return;
+    }
+
     gameTiles.forEach(tile => {
         tile.addEventListener('click', (event) => {
             event.preventDefault();
@@ -52,7 +62,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     });
-});
+}
 
 // Отображение данных пользователя на странице
 function displayUserData(data) {
@@ -60,13 +70,14 @@ function displayUserData(data) {
     const userUsernameElement = document.getElementById('user-username');
     const userPhotoElement = document.getElementById('user-photo');
 
-    if (userNameElement && userUsernameElement && userPhotoElement) {
-        userNameElement.textContent = data.first_name || 'Гость';
-        userUsernameElement.textContent = `@${data.username || 'username'}`;
-        userPhotoElement.src = data.photo_url || 'images_old/profile-avatar.png';
-    } else {
+    if (!userNameElement || !userUsernameElement || !userPhotoElement) {
         console.warn("User data elements not found on the page.");
+        return;
     }
+
+    userNameElement.textContent = data.first_name || 'Гость';
+    userUsernameElement.textContent = `@${data.username || 'username'}`;
+    userPhotoElement.src = data.photo_url || 'images_old/profile-avatar.png';
 }
 
 // Получение данных пользователя и сохранение в localStorage
