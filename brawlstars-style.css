@@ -4,7 +4,8 @@ body {
     background-color: #f4f4f9;
     margin: 0;
     padding: 0;
-    overflow-x: hidden; /* Полностью убираем горизонтальный скролл */
+    overflow-x: hidden; /* Убираем горизонтальный скролл */
+    overflow-y: hidden; /* Убираем вертикальный скролл */
 }
 
 /* Шапка */
@@ -99,6 +100,7 @@ body {
     width: 741px; /* Фиксированная ширина центрального контейнера */
     margin: 0 auto;
     overflow-x: hidden; /* Убираем горизонтальный скролл */
+    overflow-y: hidden; /* Убираем вертикальный скролл */
 }
 
 .game-info h1 {
