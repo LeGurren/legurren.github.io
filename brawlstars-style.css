@@ -125,9 +125,9 @@ body {
 }
 
 .products-grid {
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Два столбца в браузерной версии */
     gap: 15px;
-    flex-wrap: wrap;
 }
 
 .product-card {
@@ -135,8 +135,6 @@ body {
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     padding: 15px;
-    flex: 1 1 calc(33.333% - 15px); /* Три столбца в браузере */
-    max-width: calc(33.333% - 15px);
     text-align: center;
     transition: transform 0.2s;
 }
@@ -214,9 +212,7 @@ body {
     }
 
     .products-grid {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 10px;
+        grid-template-columns: 1fr; /* Один столбец в мобильной версии */
     }
 
     .product-card {
