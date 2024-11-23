@@ -82,14 +82,14 @@ body {
 }
 
 .game-icon {
-    width: 40px; /* Уменьшаем размер логотипа */
+    width: 40px; /* Размер логотипа */
     height: 40px;
     border-radius: 5px; /* Квадратный логотип */
 }
 
 .game-title {
     color: #fff;
-    font-size: 18px; /* Уменьшаем размер шрифта */
+    font-size: 18px; /* Размер шрифта */
     font-weight: bold;
     text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.6);
     margin: 0;
@@ -183,7 +183,7 @@ body {
 /* Адаптивный дизайн */
 @media (max-width: 768px) {
     .header-container {
-        padding: 0 10px; /* Уменьшаем отступы */
+        padding: 0 10px; /* Уменьшенные отступы */
     }
 
     .search-bar {
@@ -203,7 +203,7 @@ body {
     .banner-overlay {
         bottom: 10px;
         left: 10px;
-        gap: 10px; /* Уменьшаем расстояние между логотипом и текстом */
+        gap: 10px; /* Уменьшенное расстояние между логотипом и текстом */
     }
 
     .game-icon {
