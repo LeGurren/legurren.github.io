@@ -74,25 +74,25 @@ body {
 /* Логотип и название игры на баннере */
 .banner-overlay {
     position: absolute;
-    bottom: 15px;
-    left: 15px;
+    bottom: 20px;
+    left: 20px;
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 15px;
 }
 
 .game-icon {
-    width: 50px;
-    height: 50px;
+    width: 40px; /* Уменьшаем размер логотипа */
+    height: 40px;
     border-radius: 5px; /* Квадратный логотип */
-    background-color: rgba(255, 255, 255, 0.8); /* Белый фон для контраста */
 }
 
 .game-title {
     color: #fff;
-    font-size: 20px;
+    font-size: 18px; /* Уменьшаем размер шрифта */
     font-weight: bold;
     text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.6);
+    margin: 0;
 }
 
 /* Контент */
@@ -203,14 +203,15 @@ body {
     .banner-overlay {
         bottom: 10px;
         left: 10px;
+        gap: 10px; /* Уменьшаем расстояние между логотипом и текстом */
     }
 
     .game-icon {
-        width: 40px;
-        height: 40px;
+        width: 30px;
+        height: 30px;
     }
 
     .game-title {
-        font-size: 16px;
+        font-size: 14px;
     }
 }
