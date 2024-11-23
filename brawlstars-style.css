@@ -71,12 +71,12 @@ body {
     object-fit: cover;
 }
 
-/* Логотип игры на баннере */
+/* Логотип и название на баннере */
 .game-logo {
     position: absolute;
     bottom: 20px;
     left: 20px;
-    width: 40px; /* Уменьшенный размер логотипа */
+    width: 40px;
     height: 40px;
     border-radius: 8px; /* Закругленные углы */
 }
@@ -84,11 +84,12 @@ body {
 .game-title {
     position: absolute;
     bottom: 20px;
-    left: 70px;
+    left: 80px;
     color: #fff;
     font-size: 18px;
     font-weight: bold;
     text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.6);
+    line-height: 40px; /* Совпадает с высотой логотипа для выравнивания */
 }
 
 /* Контент */
@@ -166,6 +167,12 @@ body {
     color: #333;
 }
 
+.product-price .discount {
+    color: #ff4b4b;
+    font-weight: bold;
+    margin-left: 5px;
+}
+
 /* Адаптивный дизайн */
 @media (max-width: 768px) {
     .header-container,
@@ -179,13 +186,13 @@ body {
     }
 
     .banner-image {
-        max-width: 391px; /* Ограничение ширины баннера в мобильной версии */
+        max-width: 391px;
         max-height: 166px;
         border-radius: 15px;
     }
 
     .game-banner {
-        margin-top: 60px; /* Уменьшенный отступ для мобильной версии */
+        margin-top: 60px;
     }
 
     .game-logo {
@@ -199,6 +206,7 @@ body {
         bottom: 10px;
         left: 50px;
         font-size: 16px;
+        line-height: 30px;
     }
 
     .products-grid {
