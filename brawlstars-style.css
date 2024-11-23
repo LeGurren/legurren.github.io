@@ -52,6 +52,7 @@ body {
 /* Стили для баннера */
 .game-banner {
     text-align: center;
+    margin-top: 100px; /* Увеличенный отступ для баннера */
     margin-bottom: 20px;
 }
 
@@ -115,7 +116,7 @@ body {
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     padding: 15px;
-    flex: 1 1 calc(33.333% - 15px);
+    flex: 1 1 calc(33.333% - 15px); /* Три столбца в браузере */
     max-width: calc(33.333% - 15px);
     text-align: center;
     transition: transform 0.2s;
@@ -173,8 +174,18 @@ body {
         max-height: 309px; /* Ограничение высоты на мобильных устройствах */
     }
 
+    .game-banner {
+        margin-top: 80px; /* Уменьшенный отступ для мобильной версии */
+    }
+
+    .products-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr; /* Два столбца в мобильной версии */
+        gap: 10px;
+    }
+
     .product-card {
-        flex: 1 1 100%; /* Карточки растягиваются на всю ширину */
-        max-width: 100%;
+        flex: none; /* Отключаем flex */
+        max-width: 100%; /* Максимальная ширина карточки */
     }
 }
