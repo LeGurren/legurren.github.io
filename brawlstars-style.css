@@ -212,11 +212,13 @@ body {
     }
 
     .products-grid {
-        grid-template-columns: 1fr; /* Один столбец в мобильной версии */
+        display: grid;
+        grid-template-columns: repeat(2, 1fr); /* Два столбца */
+        gap: 10px; /* Расстояние между товарами */
     }
 
     .product-card {
+        max-width: 100%; /* Убираем фиксированную ширину */
         flex: none;
-        max-width: 100%;
     }
 }
