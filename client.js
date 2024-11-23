@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initializeLoginButton();
     initializeGameTiles();
     initializeCategoryButtons(); // Добавлена функция для переключения категорий
-    initializeBackButton(); // Добавлена функция для кнопки "Назад"
+    initializeBackButton(); // Добавлена логика для кнопки "Назад" в Telegram Web App
     const user = checkAuthorization();
     if (user) {
         displayUserData(user);
@@ -95,18 +95,14 @@ function initializeCategoryButtons() {
     });
 }
 
-// Логика для кнопки "Назад"
+// Логика для кнопки "Назад" в Telegram Web App
 function initializeBackButton() {
-    const backButton = document.getElementById('back-button');
-    if (!backButton) return;
-
-    backButton.addEventListener('click', () => {
-        window.location.href = 'index.html'; // Переход на главную страницу
-    });
-
-    // Показываем кнопку "Назад" только в мобильной версии
-    if (window.innerWidth > 768) {
-        backButton.style.display = 'none';
+    if (window.Telegram?.WebApp) {
+        Telegram.WebApp.BackButton.show(); // Показать кнопку "Назад"
+        Telegram.WebApp.BackButton.onClick(() => {
+            // Действие при нажатии кнопки "Назад"
+            window.location.href = 'index.html'; // Возврат на главную страницу
+        });
     }
 }
 
