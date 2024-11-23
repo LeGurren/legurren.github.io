@@ -5,10 +5,9 @@ body {
     margin: 0;
     padding: 0;
     overflow-x: hidden; /* Убираем горизонтальный скролл */
-    overflow-y: hidden; /* Убираем вертикальный скролл */
 }
 
-/* Шапка */
+/* Стиль для шапки */
 .header {
     background-color: #fff;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -41,6 +40,7 @@ body {
 .search-bar {
     width: 200px;
     padding: 5px;
+    margin-right: 10px;
     border: 1px solid #ddd;
     border-radius: 5px;
 }
@@ -51,47 +51,46 @@ body {
     border-radius: 50%;
 }
 
-/* Баннер */
+/* Стили для баннера */
 .game-banner {
-    position: relative;
-    margin-top: 90px; /* Отступ между баннером и шапкой */
-    margin-bottom: 20px;
     text-align: center;
+    margin-top: 80px; /* Отступ для баннера в браузерной версии */
+    margin-bottom: 20px;
+    position: relative; /* Для позиционирования логотипа игры */
 }
 
 .banner-image {
-    width: 100%;
-    max-width: 741px; /* Соответствует ширине центрального контейнера */
-    height: auto;
+    width: 100%; /* Растянуть по ширине центрального контейнера */
+    max-width: 741px; /* Соответствует фиксированной ширине центрального контейнера */
+    height: auto; /* Сохраняет пропорции */
     max-height: 309px; /* Ограничение по высоте */
     display: block;
     margin: 0 auto;
     border-radius: 15px; /* Округляем края баннера */
-    object-fit: cover;
+    object-fit: cover; /* Масштабирование с обрезкой, если необходимо */
 }
 
+/* Логотип и название игры на баннере */
 .banner-overlay {
     position: absolute;
-    bottom: 20px; /* Отступ от нижнего края баннера */
-    left: 20px; /* Отступ от левого края баннера */
+    bottom: 20px;
+    left: 20px;
     display: flex;
     align-items: center;
-    gap: 15px; /* Расстояние между логотипом и текстом */
 }
 
 .game-icon {
-    width: 60px;
-    height: 60px;
-    border-radius: 5px; /* Слегка закругляем края логотипа */
-    object-fit: contain;
+    width: 50px;
+    height: 50px;
+    border-radius: 5px; /* Квадратный логотип */
 }
 
 .game-title {
-    font-size: 24px;
+    margin-left: 10px;
+    color: #fff;
+    font-size: 20px;
     font-weight: bold;
-    color: white;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5); /* Улучшенная читаемость без фона */
-    margin: 0;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.6);
 }
 
 /* Контент */
@@ -100,13 +99,6 @@ body {
     width: 741px; /* Фиксированная ширина центрального контейнера */
     margin: 0 auto;
     overflow-x: hidden; /* Убираем горизонтальный скролл */
-    overflow-y: hidden; /* Убираем вертикальный скролл */
-}
-
-.game-info h1 {
-    font-size: 24px;
-    color: #333;
-    margin-top: 10px;
 }
 
 /* Товары */
@@ -136,9 +128,9 @@ body {
 }
 
 .products-grid {
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Два столбца */
     gap: 15px;
-    flex-wrap: wrap;
 }
 
 .product-card {
@@ -146,8 +138,6 @@ body {
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     padding: 15px;
-    flex: 1 1 calc(33.333% - 15px); /* Три столбца в браузере */
-    max-width: calc(33.333% - 15px);
     text-align: center;
     transition: transform 0.2s;
 }
@@ -187,13 +177,6 @@ body {
     margin-left: 5px;
 }
 
-.category-button.active {
-    background-color: #0056b3;
-    color: white;
-    font-weight: bold;
-    border: none;
-}
-
 /* Адаптивный дизайн */
 @media (max-width: 768px) {
     .header-container,
@@ -216,14 +199,17 @@ body {
         margin-top: 60px; /* Уменьшенный отступ для мобильной версии */
     }
 
-    .products-grid {
-        display: grid;
-        grid-template-columns: 1fr 1fr; /* Два столбца в мобильной версии */
-        gap: 10px;
+    .banner-overlay {
+        bottom: 15px;
+        left: 15px;
     }
 
-    .product-card {
-        flex: none; /* Отключаем flex */
-        max-width: 100%; /* Максимальная ширина карточки */
+    .game-icon {
+        width: 40px;
+        height: 40px;
+    }
+
+    .game-title {
+        font-size: 16px;
     }
 }
