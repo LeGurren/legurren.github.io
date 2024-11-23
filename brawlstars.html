@@ -24,13 +24,18 @@
 
     <!-- Основной контент -->
     <main class="main-content">
+        <!-- Баннер с интеграцией значка и названия игры -->
         <section class="game-banner">
-            <img src="images_old/brawlstars-banner.png" alt="Brawl Stars Баннер" class="banner-image">
-            <div class="game-info">
-                <h1>Brawl Stars</h1>
+            <div class="banner-content">
+                <img src="images_old/brawlstars-banner.png" alt="Brawl Stars Баннер" class="banner-image">
+                <div class="banner-overlay">
+                    <img src="images_old/brawlstars.png" alt="Brawl Stars Логотип" class="game-icon">
+                    <h1 class="game-title">Brawl Stars</h1>
+                </div>
             </div>
         </section>
 
+        <!-- Секция товаров -->
         <section class="products-section">
             <h2 class="section-title">Товары</h2>
             <div class="product-categories">
@@ -61,30 +66,5 @@
     </main>
 
     <script src="script.js"></script>
-    <script>
-        const authPageUrl = 'https://legurren.github.io/auth.html';
-        const profilePageUrl = 'https://legurren.github.io/profile.html';
-
-        document.addEventListener('DOMContentLoaded', () => {
-            const loginButton = document.querySelector('#login-button');
-            const profileImage = document.querySelector('#profile-image');
-            const user = JSON.parse(localStorage.getItem('telegramUser'));
-
-            if (user) {
-                profileImage.src = user.photo_url || 'user-icon.png';
-                profileImage.alt = user.username || 'Профиль';
-                loginButton.title = `@${user.username || 'Профиль'}`;
-                loginButton.addEventListener('click', (event) => {
-                    event.preventDefault();
-                    window.location.href = profilePageUrl;
-                });
-            } else {
-                loginButton.addEventListener('click', (event) => {
-                    event.preventDefault();
-                    window.location.href = authPageUrl;
-                });
-            }
-        });
-    </script>
 </body>
 </html>
