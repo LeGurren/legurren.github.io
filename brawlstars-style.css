@@ -83,20 +83,14 @@ body {
     height: 60px;
     border-radius: 5px; /* Слегка закругляем края логотипа */
     object-fit: contain;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Мягкая тень */
-    background-color: rgba(255, 255, 255, 0.7); /* Светлый фон под логотипом */
-    padding: 5px; /* Внутренний отступ */
 }
 
 .game-title {
     font-size: 24px;
     font-weight: bold;
     color: white;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5); /* Улучшенная читаемость без фона */
     margin: 0;
-    padding: 5px 10px; /* Внутренний отступ для текста */
-    background-color: rgba(0, 0, 0, 0.6); /* Полупрозрачный тёмный фон */
-    border-radius: 5px; /* Закругляем фон текста */
 }
 
 /* Контент */
