@@ -4,7 +4,7 @@ body {
     background-color: #f4f4f9;
     margin: 0;
     padding: 0;
-    overflow-x: hidden;
+    overflow-x: hidden; /* Убираем горизонтальный скролл */
 }
 
 /* Шапка */
@@ -53,13 +53,9 @@ body {
 /* Баннер */
 .game-banner {
     position: relative;
-    text-align: center;
-    margin-top: 80px; /* Отступ для браузерной версии */
+    margin-top: 80px; /* Отступ сверху */
     margin-bottom: 20px;
-}
-
-.banner-content {
-    position: relative;
+    text-align: center;
 }
 
 .banner-image {
@@ -69,30 +65,30 @@ body {
     max-height: 309px;
     display: block;
     margin: 0 auto;
-    border-radius: 15px; /* Закругленные края баннера */
+    border-radius: 15px;
     object-fit: cover;
 }
 
 .banner-overlay {
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
-    color: white;
+    bottom: 20px; /* Логотип и текст располагаются внизу баннера */
+    left: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
 
 .game-icon {
-    width: 80px;
-    height: 80px;
+    width: 60px;
+    height: 60px;
     border-radius: 50%;
-    margin-bottom: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .game-title {
     font-size: 24px;
     font-weight: bold;
+    color: white;
     text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
 }
 
@@ -103,7 +99,7 @@ body {
     margin: 0 auto;
 }
 
-/* Сетки товаров */
+/* Сетка товаров */
 .products-section {
     margin-top: 20px;
 }
@@ -189,6 +185,21 @@ body {
     }
 
     .product-card {
+        flex: none;
         max-width: 100%;
+    }
+
+    .banner-overlay {
+        bottom: 10px; /* Меньший отступ в мобильной версии */
+        left: 10px;
+    }
+
+    .game-icon {
+        width: 50px;
+        height: 50px;
+    }
+
+    .game-title {
+        font-size: 20px;
     }
 }
