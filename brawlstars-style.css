@@ -187,6 +187,13 @@ body {
     margin-left: 5px;
 }
 
+.category-button.active {
+    background-color: #0056b3;
+    color: white;
+    font-weight: bold;
+    border: none;
+}
+
 /* Адаптивный дизайн */
 @media (max-width: 768px) {
     .header-container,
