@@ -1,195 +1,70 @@
-/* Основной стиль для Brawl Stars */
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f9;
-    margin: 0;
-    padding: 0;
-    overflow-x: hidden; /* Полностью убираем горизонтальный скролл */
-}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brawl Stars | Games Market</title>
+    <link rel="stylesheet" href="brawlstars-style.css">
+</head>
+<body>
+    <!-- Шапка сайта -->
+    <header class="header">
+        <div class="header-container">
+            <div class="logo">
+                <a href="index.html"><img src="images_old/logo.png" alt="GamesMarket Логотип"></a>
+            </div>
+            <div class="header-right">
+                <input type="text" placeholder="Поиск..." class="search-bar">
+                <a href="#" class="login-button" title="Профиль" id="login-button">
+                    <img src="user-icon.png" alt="Профиль" id="profile-image">
+                </a>
+            </div>
+        </div>
+    </header>
 
-/* Стиль для шапки */
-.header {
-    background-color: #fff;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    position: fixed;
-    width: 100%;
-    top: 0;
-    z-index: 1000;
-    padding: 10px 0;
-}
+    <!-- Основной контент -->
+    <main class="main-content">
+        <!-- Баннер с интеграцией значка и названия игры -->
+        <section class="game-banner">
+            <div class="banner-content">
+                <img src="images_old/brawlstars-banner.png" alt="Brawl Stars Баннер" class="banner-image">
+                <div class="banner-overlay">
+                    <img src="images_old/brawlstars.png" alt="Brawl Stars Логотип" class="game-icon">
+                    <h1 class="game-title">Brawl Stars</h1>
+                </div>
+            </div>
+        </section>
 
-.header-container {
-    width: 741px; /* Фиксированная ширина центрального контейнера */
-    margin: 0 auto;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 15px;
-}
+        <!-- Секция товаров -->
+        <section class="products-section">
+            <h2 class="section-title">Товары</h2>
+            <div class="product-categories">
+                <button class="category-button active">Пропуски</button>
+                <button class="category-button">Гемы</button>
+                <button class="category-button">Акции</button>
+            </div>
+            <div class="products-grid">
+                <div class="product-card">
+                    <div class="product-image-container">
+                        <img src="images_old/brawl_pass.jpg" alt="Бравл Пасс">
+                        <span class="discount-badge">Скидка!</span>
+                    </div>
+                    <h3>Бравл Пасс</h3>
+                    <p class="product-price">
+                        1 050 руб <span class="discount">-10%</span>
+                    </p>
+                </div>
+                <div class="product-card">
+                    <div class="product-image-container">
+                        <img src="images_old/brawl_upgrade.jpg" alt="Улучшение БП">
+                    </div>
+                    <h3>Улучшение БП</h3>
+                    <p class="product-price">620 руб</p>
+                </div>
+            </div>
+        </section>
+    </main>
 
-.logo img {
-    height: 40px;
-}
-
-.header-right {
-    display: flex;
-    align-items: center;
-    gap: 10px; /* Расстояние между строкой поиска и кнопкой логина */
-}
-
-.search-bar {
-    width: 200px;
-    padding: 5px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-}
-
-.login-button img {
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-}
-
-/* Стили для баннера */
-.game-banner {
-    text-align: center;
-    margin-top: 80px; /* Отступ для баннера в браузерной версии */
-    margin-bottom: 20px;
-}
-
-.banner-image {
-    width: 100%; /* Растянуть по ширине центрального контейнера */
-    max-width: 741px; /* Соответствует фиксированной ширине центрального контейнера */
-    height: auto; /* Сохраняет пропорции */
-    max-height: 309px; /* Ограничение по высоте */
-    display: block;
-    margin: 0 auto;
-    border-radius: 15px; /* Округляем края баннера */
-    object-fit: cover; /* Масштабирование с обрезкой, если необходимо */
-}
-
-/* Контент */
-.main-content {
-    padding-top: 100px;
-    width: 741px; /* Фиксированная ширина центрального контейнера */
-    margin: 0 auto;
-    overflow-x: hidden; /* Убираем горизонтальный скролл */
-}
-
-.game-info h1 {
-    font-size: 24px;
-    color: #333;
-    margin-top: 10px;
-}
-
-/* Товары */
-.products-section {
-    margin-top: 20px;
-}
-
-.product-categories {
-    display: flex;
-    gap: 10px;
-    margin-bottom: 15px;
-}
-
-.category-button {
-    padding: 10px 15px;
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 14px;
-}
-
-.category-button.active,
-.category-button:hover {
-    background-color: #0056b3;
-}
-
-.products-grid {
-    display: flex;
-    gap: 15px;
-    flex-wrap: wrap;
-}
-
-.product-card {
-    background-color: #fff;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    padding: 15px;
-    flex: 1 1 calc(33.333% - 15px); /* Три столбца в браузере */
-    max-width: calc(33.333% - 15px);
-    text-align: center;
-    transition: transform 0.2s;
-}
-
-.product-card:hover {
-    transform: scale(1.05);
-}
-
-.product-image-container {
-    position: relative;
-}
-
-.product-image-container img {
-    width: 100%;
-    border-radius: 5px;
-}
-
-.discount-badge {
-    position: absolute;
-    top: 5px;
-    left: 5px;
-    background-color: #ff4b4b;
-    color: #fff;
-    padding: 5px;
-    border-radius: 3px;
-    font-size: 12px;
-}
-
-.product-price {
-    font-size: 16px;
-    color: #333;
-}
-
-.product-price .discount {
-    color: #ff4b4b;
-    font-weight: bold;
-    margin-left: 5px;
-}
-
-/* Адаптивный дизайн */
-@media (max-width: 768px) {
-    .header-container,
-    .main-content {
-        width: calc(100% - 30px);
-        padding: 0 10px;
-    }
-
-    .search-bar {
-        width: 150px;
-    }
-
-    .banner-image {
-        max-width: 391px; /* Ограничение ширины баннера в мобильной версии */
-        max-height: 166px; /* Ограничение высоты баннера в мобильной версии */
-        border-radius: 15px; /* Округленные края баннера сохраняются */
-    }
-
-    .game-banner {
-        margin-top: 60px; /* Уменьшенный отступ для мобильной версии */
-    }
-
-    .products-grid {
-        display: grid;
-        grid-template-columns: 1fr 1fr; /* Два столбца в мобильной версии */
-        gap: 10px;
-    }
-
-    .product-card {
-        flex: none; /* Отключаем flex */
-        max-width: 100%; /* Максимальная ширина карточки */
-    }
-}
+    <script src="script.js"></script>
+</body>
+</html>
