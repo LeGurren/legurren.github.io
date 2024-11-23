@@ -16,6 +16,7 @@ function checkAuthorization() {
 document.addEventListener('DOMContentLoaded', () => {
     initializeLoginButton();
     initializeGameTiles();
+    initializeCategoryButtons(); // Добавлена функция для переключения категорий
     const user = checkAuthorization();
     if (user) {
         displayUserData(user);
@@ -60,6 +61,35 @@ function initializeGameTiles() {
             } else {
                 console.error("Game ID not found.");
             }
+        });
+    });
+}
+
+// Обработчик переключения категорий товаров
+function initializeCategoryButtons() {
+    const categoryButtons = document.querySelectorAll('.category-button');
+    const productCards = document.querySelectorAll('.product-card');
+
+    if (categoryButtons.length === 0 || productCards.length === 0) {
+        console.warn("No category buttons or product cards found on the page.");
+        return;
+    }
+
+    categoryButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            // Сброс активной кнопки
+            categoryButtons.forEach(btn => btn.classList.remove('active'));
+            button.classList.add('active');
+
+            // Фильтрация товаров по категории
+            const category = button.getAttribute('data-category');
+            productCards.forEach(card => {
+                if (card.getAttribute('data-category') === category) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
         });
     });
 }
