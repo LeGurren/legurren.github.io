@@ -33,6 +33,7 @@ body {
 .header-right {
     display: flex;
     align-items: center;
+    gap: 10px; /* Расстояние между строкой поиска и кнопкой логина */
 }
 
 .search-bar {
@@ -63,6 +64,7 @@ body {
     max-height: 309px; /* Ограничение по высоте */
     display: block;
     margin: 0 auto;
+    border-radius: 15px; /* Округляем края баннера */
     object-fit: cover; /* Масштабирование с обрезкой, если необходимо */
 }
 
@@ -170,8 +172,9 @@ body {
     }
 
     .banner-image {
-        max-width: 100%; /* Баннер занимает всю ширину экрана */
-        max-height: 309px; /* Ограничение высоты на мобильных устройствах */
+        max-width: 391px; /* Ограничение ширины баннера в мобильной версии */
+        max-height: 166px; /* Ограничение высоты баннера в мобильной версии */
+        border-radius: 15px; /* Округленные края баннера сохраняются */
     }
 
     .game-banner {
