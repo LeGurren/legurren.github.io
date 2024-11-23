@@ -53,8 +53,9 @@ body {
 /* Баннер */
 .game-banner {
     position: relative;
-    margin-top: 80px; /* Отступ сверху */
+    margin-top: 90px; /* Увеличенный отступ сверху */
     margin-bottom: 20px;
+    padding: 0 15px; /* Отступы слева и справа для мобильной версии */
     text-align: center;
 }
 
@@ -81,8 +82,10 @@ body {
 .game-icon {
     width: 60px;
     height: 60px;
-    border-radius: 50%;
+    background-color: #fff;
+    border-radius: 10px; /* Округляем края только слегка */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 5px; /* Визуальное выделение логотипа */
 }
 
 .game-title {
@@ -175,12 +178,13 @@ body {
     }
 
     .game-banner {
-        margin-top: 60px;
+        margin-top: 70px; /* Возвращаем отступы в мобильной версии */
+        padding: 0 10px; /* Отступы по бокам */
     }
 
     .products-grid {
         display: grid;
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: 1fr 1fr; /* Два столбца в мобильной версии */
         gap: 10px;
     }
 
@@ -197,6 +201,7 @@ body {
     .game-icon {
         width: 50px;
         height: 50px;
+        border-radius: 10px;
     }
 
     .game-title {
