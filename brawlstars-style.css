@@ -4,7 +4,7 @@ body {
     background-color: #f4f4f9;
     margin: 0;
     padding: 0;
-    overflow-x: hidden; /* Убираем горизонтальный скролл */
+    overflow-x: hidden; /* Полностью убираем горизонтальный скролл */
     overflow-y: auto; /* Убираем дополнительный вертикальный скролл */
 }
 
@@ -146,10 +146,6 @@ body {
     transform: scale(1.05);
 }
 
-.product-image-container {
-    position: relative;
-}
-
 .product-image-container img {
     width: 100%;
     border-radius: 5px;
@@ -164,11 +160,6 @@ body {
     padding: 5px;
     border-radius: 3px;
     font-size: 12px;
-}
-
-/* Сохраняем отображение слова "Скидка!" */
-.discount-badge {
-    display: block;
 }
 
 .product-price {
