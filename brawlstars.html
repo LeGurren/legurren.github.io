@@ -28,7 +28,7 @@
         <section class="game-banner">
             <img src="images_old/brawlstars-banner.png" alt="Brawl Stars Баннер" class="banner-image">
             <div class="banner-overlay">
-                <img src="images_old/brawlstars.png" alt="Brawl Stars Логотип" class="game-icon">
+                <img src="images_old/brawlstars.png" alt="Brawl Stars Логотип" class="game-logo">
                 <h1 class="game-title">Brawl Stars</h1>
             </div>
         </section>
@@ -37,12 +37,13 @@
         <section class="products-section">
             <h2 class="section-title">Товары</h2>
             <div class="product-categories">
-                <button class="category-button active">Пропуски</button>
-                <button class="category-button">Гемы</button>
-                <button class="category-button">Акции</button>
+                <button class="category-button active" data-category="passes">Пропуски</button>
+                <button class="category-button" data-category="gems">Гемы</button>
+                <button class="category-button" data-category="offers">Акции</button>
             </div>
             <div class="products-grid">
-                <div class="product-card">
+                <!-- Пример товара для категории "Пропуски" -->
+                <div class="product-card" data-category="passes">
                     <div class="product-image-container">
                         <img src="images_old/brawl_pass.jpg" alt="Бравл Пасс">
                         <span class="discount-badge">Скидка!</span>
@@ -52,17 +53,50 @@
                         1 050 руб <span class="discount">-10%</span>
                     </p>
                 </div>
-                <div class="product-card">
+                <!-- Пример товара для категории "Гемы" -->
+                <div class="product-card" data-category="gems" style="display: none;">
                     <div class="product-image-container">
-                        <img src="images_old/brawl_upgrade.jpg" alt="Улучшение БП">
+                        <img src="images_old/gems_30.jpg" alt="30 Гемов">
                     </div>
-                    <h3>Улучшение БП</h3>
-                    <p class="product-price">620 руб</p>
+                    <h3>30 Гемов</h3>
+                    <p class="product-price">300 руб</p>
+                </div>
+                <!-- Пример товара для категории "Акции" -->
+                <div class="product-card" data-category="offers" style="display: none;">
+                    <div class="product-image-container">
+                        <img src="images_old/offer_special.jpg" alt="Специальное предложение">
+                    </div>
+                    <h3>Специальное предложение</h3>
+                    <p class="product-price">500 руб</p>
                 </div>
             </div>
         </section>
     </main>
 
-    <script src="script.js"></script>
+    <script>
+        // Логика переключения категорий
+        document.addEventListener('DOMContentLoaded', () => {
+            const categoryButtons = document.querySelectorAll('.category-button');
+            const productCards = document.querySelectorAll('.product-card');
+
+            categoryButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    // Сброс активной кнопки
+                    categoryButtons.forEach(btn => btn.classList.remove('active'));
+                    button.classList.add('active');
+
+                    // Фильтрация товаров по категории
+                    const category = button.getAttribute('data-category');
+                    productCards.forEach(card => {
+                        if (card.getAttribute('data-category') === category) {
+                            card.style.display = 'block';
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    });
+                });
+            });
+        });
+    </script>
 </body>
 </html>
