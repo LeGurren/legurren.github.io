@@ -1,12 +1,13 @@
-/* Основной стиль для Brawl Stars */
+/* Основной стиль */
 body {
     font-family: Arial, sans-serif;
     background-color: #f4f4f9;
     margin: 0;
     padding: 0;
+    overflow-x: hidden; /* Убираем горизонтальный скролл */
 }
 
-/* Стиль для шапки */
+/* Шапка */
 .header {
     background-color: #fff;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -23,7 +24,6 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0 15px;
 }
 
 .logo img {
@@ -39,7 +39,6 @@ body {
 .search-bar {
     width: 200px;
     padding: 5px;
-    margin-right: 10px;
     border: 1px solid #ddd;
     border-radius: 5px;
 }
@@ -50,67 +49,50 @@ body {
     border-radius: 50%;
 }
 
-/* Стили для баннера */
+/* Основной контент */
+.main-content {
+    padding-top: 100px; /* Отступ под фиксированной шапкой */
+    width: 741px; /* Фиксированная ширина */
+    margin: 0 auto;
+    overflow-x: hidden; /* Убираем горизонтальный скролл */
+}
+
+/* Баннер */
 .game-banner {
     text-align: center;
-    margin-top: 80px; /* Отступ для баннера в браузерной версии */
-    margin-bottom: 20px;
+    margin: 15px 0; /* Уменьшенный отступ */
 }
 
 .banner-image {
-    width: 100%; /* Растянуть по ширине центрального контейнера */
-    max-width: 741px; /* Соответствует фиксированной ширине центрального контейнера */
-    height: auto; /* Сохраняет пропорции */
-    max-height: 309px; /* Ограничение по высоте */
+    width: 100%;
+    max-width: 741px; /* Ограничение для центрального контейнера */
+    height: auto; /* Сохранение пропорций */
+    max-height: 309px; /* Ограничение высоты */
+    border-radius: 15px; /* Закругленные края */
     display: block;
     margin: 0 auto;
-    border-radius: 15px; /* Округляем края баннера */
-    object-fit: cover; /* Масштабирование с обрезкой, если необходимо */
+    object-fit: cover; /* Масштабирование с обрезкой */
 }
 
-/* Контент */
-.main-content {
-    padding-top: 100px;
-    width: 741px; /* Фиксированная ширина центрального контейнера */
-    margin: 0 auto;
-}
-
-.game-info h1 {
-    font-size: 24px;
+/* Секции */
+.section-title {
+    font-size: 18px;
+    font-weight: bold;
     color: #333;
-    margin-top: 10px;
+    margin: 20px 0;
+    text-align: left;
+    display: block;
 }
 
-/* Товары */
 .products-section {
     margin-top: 20px;
-}
-
-.product-categories {
-    display: flex;
-    gap: 10px;
-    margin-bottom: 15px;
-}
-
-.category-button {
-    padding: 10px 15px;
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 14px;
-}
-
-.category-button.active,
-.category-button:hover {
-    background-color: #0056b3;
 }
 
 .products-grid {
     display: flex;
     gap: 15px;
     flex-wrap: wrap;
+    justify-content: center;
 }
 
 .product-card {
@@ -118,8 +100,8 @@ body {
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     padding: 15px;
-    flex: 1 1 calc(33.333% - 15px); /* Три столбца в браузере */
-    max-width: calc(33.333% - 15px);
+    flex: 1 1 calc(50% - 15px); /* Два столбца */
+    max-width: calc(50% - 15px);
     text-align: center;
     transition: transform 0.2s;
 }
@@ -148,17 +130,6 @@ body {
     font-size: 12px;
 }
 
-.product-price {
-    font-size: 16px;
-    color: #333;
-}
-
-.product-price .discount {
-    color: #ff4b4b;
-    font-weight: bold;
-    margin-left: 5px;
-}
-
 /* Адаптивный дизайн */
 @media (max-width: 768px) {
     .header-container,
@@ -172,23 +143,13 @@ body {
     }
 
     .banner-image {
-        max-width: 391px; /* Ограничение ширины баннера в мобильной версии */
-        max-height: 166px; /* Ограничение высоты баннера в мобильной версии */
-        border-radius: 15px; /* Округленные края баннера сохраняются */
-    }
-
-    .game-banner {
-        margin-top: 60px; /* Уменьшенный отступ для мобильной версии */
-    }
-
-    .products-grid {
-        display: grid;
-        grid-template-columns: 1fr 1fr; /* Два столбца в мобильной версии */
-        gap: 10px;
+        max-width: 391px; /* Ограничение ширины */
+        max-height: 166px; /* Ограничение высоты */
+        border-radius: 15px; /* Закругленные края */
     }
 
     .product-card {
-        flex: none; /* Отключаем flex */
-        max-width: 100%; /* Максимальная ширина карточки */
+        flex: 1 1 calc(50% - 15px); /* Два столбца */
+        max-width: calc(50% - 15px);
     }
 }
