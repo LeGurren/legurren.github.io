@@ -148,6 +148,81 @@ body {
     color: #333;
 }
 
+/* Контейнер авторизации */
+.auth-container {
+    max-width: 400px;
+    margin: 120px auto; /* Центрируем блок */
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center; /* Центрируем текст */
+}
+
+.auth-container h1 {
+    font-size: 22px;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.auth-container p {
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+.auth-container form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.auth-container input[type="text"],
+.auth-container input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.auth-container button {
+    background-color: #0088cc;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 15px;
+    font-size: 16px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.auth-container button:hover {
+    background-color: #006699;
+}
+
+.auth-container button img {
+    width: 20px;
+    height: 20px;
+}
+
+/* Сообщения об ошибке/успехе */
+.auth-container .error-message {
+    color: #ff3333;
+    font-size: 14px;
+    margin-top: -10px;
+}
+
+.auth-container .success-message {
+    color: #33cc33;
+    font-size: 14px;
+    margin-top: -10px;
+}
+
 /* Адаптивный стиль */
 @media (max-width: 768px) {
     .header-container {
@@ -185,5 +260,18 @@ body {
     .login-button img {
         width: 25px;
         height: 25px;
+    }
+
+    .auth-container {
+        width: calc(100% - 30px);
+        padding: 15px;
+    }
+
+    .auth-container h1 {
+        font-size: 20px;
+    }
+
+    .auth-container p {
+        font-size: 14px;
     }
 }
