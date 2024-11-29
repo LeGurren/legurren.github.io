@@ -37,8 +37,10 @@ function initializeLoginButton() {
 
         if (user) {
             window.location.href = profilePageUrl;
+        } else if (window.Telegram?.WebApp) {
+            console.log("Running inside Telegram Web App, no separate login needed.");
         } else {
-            window.location.href = authPageUrl; // Перенаправление на страницу авторизации
+            window.location.href = authPageUrl;
         }
     });
 }
@@ -54,14 +56,9 @@ function initializeGameTiles() {
     gameTiles.forEach(tile => {
         tile.addEventListener('click', (event) => {
             event.preventDefault();
-            const gameId = tile.getAttribute('href'); // Получаем полный путь из href
+            const gameId = tile.getAttribute('href')?.substring(1);
             if (gameId) {
-                // Проверяем, чтобы .html не добавлялся дважды
-                if (!gameId.endsWith('.html')) {
-                    window.location.href = `${gameId}.html`;  // Если нет .html, добавляем его
-                } else {
-                    window.location.href = gameId;  // Если .html уже есть, просто переходим
-                }
+                window.location.href = ${gameId}.html; // Переход на страницу игры
             } else {
                 console.error("Game ID not found.");
             }
@@ -121,7 +118,7 @@ function displayUserData(data) {
     }
 
     userNameElement.textContent = data.first_name || 'Гость';
-    userUsernameElement.textContent = `@${data.username || 'username'}`;
+    userUsernameElement.textContent = @${data.username || 'username'};
     userPhotoElement.src = data.photo_url || 'images_old/profile-avatar.png';
 }
 
@@ -130,12 +127,12 @@ function fetchUserData() {
     fetch('http://localhost:3000/', {
         method: 'GET',
         headers: {
-            'Authorization': `tma ${window.Telegram?.WebApp?.initData || ''}`
+            'Authorization': tma ${window.Telegram?.WebApp?.initData || ''}
         }
     })
     .then(response => {
         if (!response.ok) {
-            throw new Error(`Authorization failed: ${response.statusText}`);
+            throw new Error(Authorization failed: ${response.statusText});
         }
         return response.json();
     })
@@ -162,12 +159,12 @@ window.addEventListener('load', () => {
 
 // Анимация плиток игр
 const style = document.createElement('style');
-style.textContent = `
+style.textContent = 
     .game-tile {
         transition: transform 0.3s ease;
     }
     .game-tile:hover {
         transform: scale(1.05);
     }
-`;
+;
 document.head.appendChild(style);
