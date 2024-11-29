@@ -37,10 +37,8 @@ function initializeLoginButton() {
 
         if (user) {
             window.location.href = profilePageUrl;
-        } else if (window.Telegram?.WebApp) {
-            console.log("Running inside Telegram Web App, no separate login needed.");
         } else {
-            window.location.href = authPageUrl;
+            window.location.href = authPageUrl; // Перенаправление на страницу авторизации
         }
     });
 }
