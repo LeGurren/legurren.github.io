@@ -54,9 +54,14 @@ function initializeGameTiles() {
     gameTiles.forEach(tile => {
         tile.addEventListener('click', (event) => {
             event.preventDefault();
-            const gameId = tile.getAttribute('href')?.substring(1);
+            const gameId = tile.getAttribute('href'); // Получаем полный путь из href
             if (gameId) {
-                window.location.href = `${gameId}.html`; // Переход на страницу игры
+                // Проверяем, чтобы .html не добавлялся дважды
+                if (!gameId.endsWith('.html')) {
+                    window.location.href = `${gameId}.html`;  // Если нет .html, добавляем его
+                } else {
+                    window.location.href = gameId;  // Если .html уже есть, просто переходим
+                }
             } else {
                 console.error("Game ID not found.");
             }
