@@ -96,7 +96,7 @@
     </main>
 
     <!-- Подключение скриптов -->
-    <script src="client.js"></script>
+    <script src="script.js"></script>
     <script>
         const authPageUrl = 'https://legurren.github.io/auth.html';
         const profilePageUrl = 'https://legurren.github.io/profile.html';
@@ -107,7 +107,6 @@
 
             // Проверяем авторизацию пользователя
             const user = JSON.parse(localStorage.getItem('telegramUser'));
-
             if (user) {
                 // Если пользователь авторизован
                 profileImage.src = user.photo_url || 'user-icon.png';
