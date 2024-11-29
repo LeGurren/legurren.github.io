@@ -117,6 +117,20 @@
                     });
                 });
             });
+
+            // Логика авторизации
+            const loginButton = document.querySelector('#login-button');
+            const user = JSON.parse(localStorage.getItem('telegramUser'));
+
+            if (user) {
+                // Если пользователь авторизован
+                const profileImage = document.querySelector('#profile-image');
+                profileImage.src = user.photo_url || 'images_old/profile-avatar.png';
+                loginButton.href = 'profile.html';
+            } else {
+                // Если пользователь не авторизован
+                loginButton.href = 'https://legurren.github.io/auth.html';
+            }
         });
     </script>
 </body>
