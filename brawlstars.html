@@ -95,8 +95,8 @@
     </main>
 
     <script>
-        // Логика переключения категорий
         document.addEventListener('DOMContentLoaded', () => {
+            // Логика переключения категорий
             const categoryButtons = document.querySelectorAll('.category-button');
             const productCards = document.querySelectorAll('.product-card');
 
@@ -117,6 +117,27 @@
                     });
                 });
             });
+
+            // Логика авторизации
+            const loginButton = document.querySelector('#login-button');
+            const profileImage = document.querySelector('#profile-image');
+            const authPageUrl = 'https://legurren.github.io/auth.html';
+            const profilePageUrl = 'https://legurren.github.io/profile.html';
+
+            const user = JSON.parse(localStorage.getItem('telegramUser'));
+            if (user) {
+                // Если пользователь авторизован
+                profileImage.src = user.photo_url || 'user-icon.png';
+                profileImage.alt = user.username || 'Профиль';
+                loginButton.title = `@${user.username || 'Профиль'}`;
+                loginButton.href = profilePageUrl;
+            } else {
+                // Если пользователь не авторизован
+                loginButton.addEventListener('click', (event) => {
+                    event.preventDefault();
+                    window.location.href = authPageUrl;
+                });
+            }
         });
     </script>
 </body>
