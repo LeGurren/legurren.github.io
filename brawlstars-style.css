@@ -83,12 +83,13 @@ body {
 .game-title {
     position: absolute;
     bottom: 20px;
-    left: 75px; /* Подкорректирован отступ для центрирования относительно логотипа */
+    left: calc(20px + 40px + 10px); /* Учитываем отступ логотипа (20px), ширину (40px) и промежуток (10px) */
     color: #fff;
     font-size: 18px;
     font-weight: bold;
     text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.6);
-    line-height: 40px; /* Совпадает с высотой логотипа для выравнивания */
+    line-height: 40px; /* Совпадает с высотой логотипа для вертикального выравнивания */
+    white-space: nowrap; /* Исключает перенос текста */
 }
 
 /* Контент */
