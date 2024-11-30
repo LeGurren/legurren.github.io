@@ -54,7 +54,7 @@ body {
 /* Стили для баннера */
 .game-banner {
     text-align: center;
-    margin-top: 50px; /* Отступ для баннера в браузерной версии */
+    margin-top: 20px; /* Отступ для баннера в браузерной версии */
     margin-bottom: 20px;
     position: relative; /* Для позиционирования логотипа игры */
 }
