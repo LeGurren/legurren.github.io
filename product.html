@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Товар</title>
+</head>
+<body>
+    <div id="product-container"></div>
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const productId = urlParams.get('id');
+
+        // Загрузка данных о товаре
+        fetch(`http://localhost:5000/api/products/${productId}`)
+            .then(response => response.json())
+            .then(data => {
+                const container = document.getElementById('product-container');
+                const product = data.product;
+                const reviews = data.reviews;
+
+                container.innerHTML = `
+                    <h1>${product.name}</h1>
+                    <img src="${product.image_url}" alt="${product.name}">
+                    <p>${product.description}</p>
+                    <p>Цена: ${product.price} руб</p>
+                    <h2>Отзывы:</h2>
+                    <ul>
+                        ${reviews.map(review => `<li>${review.username}: ${review.content} (${review.rating}/5)</li>`).join('')}
+                    </ul>
+                `;
+            });
+    </script>
+</body>
+</html>
