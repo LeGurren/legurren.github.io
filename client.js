@@ -11,6 +11,34 @@ function checkAuthorization() {
         return null;
     }
 }
+// Логика загрузки товаров
+document.addEventListener('DOMContentLoaded', () => {
+    // Загрузка товаров с сервера
+    fetch('http://localhost:5000/api/products')
+        .then(response => response.json())
+        .then(products => {
+            const productsGrid = document.querySelector('.products-grid');
+            if (!productsGrid) {
+                console.warn("Products grid element not found on the page.");
+                return;
+            }
+
+            productsGrid.innerHTML = ''; // Очищаем список товаров
+
+            products.forEach(product => {
+                const productCard = `
+                    <div class="product-card">
+                        <img src="${product.image_url}" alt="${product.name}">
+                        <h3>${product.name}</h3>
+                        <p>${product.price} руб</p>
+                        <a href="product.html?id=${product.id}" class="view-details">Подробнее</a>
+                    </div>
+                `;
+                productsGrid.innerHTML += productCard;
+            });
+        })
+        .catch(error => console.error('Error loading products:', error));
+});
 
 // Инициализация приложения
 document.addEventListener('DOMContentLoaded', () => {
