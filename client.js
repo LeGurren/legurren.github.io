@@ -18,10 +18,6 @@ document.addEventListener('DOMContentLoaded', () => {
     initializeGameTiles();
     initializeCategoryButtons(); // Добавлена функция для переключения категорий
     initializeBackButton(); // Добавлена логика для кнопки "Назад" в Telegram Web App
-
-    // Загрузка товаров
-    loadProducts();
-
     const user = checkAuthorization();
     if (user) {
         displayUserData(user);
@@ -62,7 +58,7 @@ function initializeGameTiles() {
             event.preventDefault();
             const gameId = tile.getAttribute('href')?.substring(1);
             if (gameId) {
-                window.location.href = `${gameId}.html`; // Переход на страницу игры
+                window.location.href = ${gameId}.html; // Переход на страницу игры
             } else {
                 console.error("Game ID not found.");
             }
@@ -89,7 +85,7 @@ function initializeCategoryButtons() {
             // Фильтрация товаров по категории
             const category = button.getAttribute('data-category');
             productCards.forEach(card => {
-                if (card.getAttribute('data-category') === category || category === 'all') {
+                if (card.getAttribute('data-category') === category) {
                     card.style.display = 'block';
                 } else {
                     card.style.display = 'none';
@@ -122,7 +118,7 @@ function displayUserData(data) {
     }
 
     userNameElement.textContent = data.first_name || 'Гость';
-    userUsernameElement.textContent = `@${data.username || 'username'}`;
+    userUsernameElement.textContent = @${data.username || 'username'};
     userPhotoElement.src = data.photo_url || 'images_old/profile-avatar.png';
 }
 
@@ -131,12 +127,12 @@ function fetchUserData() {
     fetch('http://localhost:3000/', {
         method: 'GET',
         headers: {
-            'Authorization': `tma ${window.Telegram?.WebApp?.initData || ''}`
+            'Authorization': tma ${window.Telegram?.WebApp?.initData || ''}
         }
     })
     .then(response => {
         if (!response.ok) {
-            throw new Error(`Authorization failed: ${response.statusText}`);
+            throw new Error(Authorization failed: ${response.statusText});
         }
         return response.json();
     })
@@ -151,34 +147,6 @@ function fetchUserData() {
     });
 }
 
-// Загрузка товаров с сервера
-function loadProducts() {
-    fetch('http://localhost:5000/api/products')
-        .then(response => response.json())
-        .then(products => {
-            const productsGrid = document.querySelector('.products-grid');
-            if (!productsGrid) {
-                console.warn("Products grid element not found on the page.");
-                return;
-            }
-
-            productsGrid.innerHTML = ''; // Очищаем список товаров
-
-            products.forEach(product => {
-                const productCard = `
-                    <div class="product-card">
-                        <img src="${product.image_url}" alt="${product.name}">
-                        <h3>${product.name}</h3>
-                        <p>${product.price} руб</p>
-                        <a href="product.html?id=${product.id}" class="view-details">Подробнее</a>
-                    </div>
-                `;
-                productsGrid.innerHTML += productCard;
-            });
-        })
-        .catch(error => console.error('Error loading products:', error));
-}
-
 // Вызов функции для получения данных пользователя
 fetchUserData();
 
@@ -191,12 +159,12 @@ window.addEventListener('load', () => {
 
 // Анимация плиток игр
 const style = document.createElement('style');
-style.textContent = `
+style.textContent = 
     .game-tile {
         transition: transform 0.3s ease;
     }
     .game-tile:hover {
         transform: scale(1.05);
     }
-`;
+;
 document.head.appendChild(style);
