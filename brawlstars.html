@@ -5,6 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Brawl Stars | Games Market</title>
     <link rel="stylesheet" href="brawlstars-style.css">
+    <style>
+        .hidden {
+            display: none;
+        }
+    </style>
 </head>
 <body>
     <!-- Шапка сайта -->
@@ -43,7 +48,7 @@
             </div>
             <div class="products-grid">
                 <!-- Пример товара для категории "Пропуски" -->
-                <div class="product-card" data-category="passes">
+                <div class="product-card" data-category="passes" data-product-id="1">
                     <div class="product-image-container">
                         <img src="images_old/brawl_pass.jpg" alt="Бравл Пасс">
                         <span class="discount-badge">Скидка!</span>
@@ -53,7 +58,7 @@
                         1 050 руб <span class="discount">-10%</span>
                     </p>
                 </div>
-                <div class="product-card" data-category="passes">
+                <div class="product-card" data-category="passes" data-product-id="2">
                     <div class="product-image-container">
                         <img src="images_old/brawl_upgrade.jpg" alt="Улучшение БП">
                     </div>
@@ -61,14 +66,14 @@
                     <p class="product-price">620 руб</p>
                 </div>
                 <!-- Пример товара для категории "Гемы" -->
-                <div class="product-card" data-category="gems" style="display: none;">
+                <div class="product-card hidden" data-category="gems" data-product-id="3">
                     <div class="product-image-container">
                         <img src="images_old/gems_30.jpg" alt="30 Гемов">
                     </div>
                     <h3>30 Гемов</h3>
                     <p class="product-price">300 руб</p>
                 </div>
-                <div class="product-card" data-category="gems" style="display: none;">
+                <div class="product-card hidden" data-category="gems" data-product-id="4">
                     <div class="product-image-container">
                         <img src="images_old/gems_80.jpg" alt="80 Гемов">
                     </div>
@@ -76,14 +81,14 @@
                     <p class="product-price">570 руб</p>
                 </div>
                 <!-- Пример товара для категории "Акции" -->
-                <div class="product-card" data-category="offers" style="display: none;">
+                <div class="product-card hidden" data-category="offers" data-product-id="5">
                     <div class="product-image-container">
                         <img src="images_old/offer_special.jpg" alt="Специальное предложение">
                     </div>
                     <h3>Специальное предложение</h3>
                     <p class="product-price">500 руб</p>
                 </div>
-                <div class="product-card" data-category="offers" style="display: none;">
+                <div class="product-card hidden" data-category="offers" data-product-id="6">
                     <div class="product-image-container">
                         <img src="images_old/offer_discount.jpg" alt="Особая скидка">
                     </div>
@@ -110,11 +115,26 @@
                     const category = button.getAttribute('data-category');
                     productCards.forEach(card => {
                         if (card.getAttribute('data-category') === category) {
-                            card.style.display = 'block';
+                            card.classList.remove('hidden');
                         } else {
-                            card.style.display = 'none';
+                            card.classList.add('hidden');
                         }
                     });
+                });
+            });
+
+            // Логика кликов по товарам
+            productCards.forEach(card => {
+                card.tabIndex = 0; // Делаем карточку доступной для фокуса
+                card.addEventListener('click', () => {
+                    const productId = card.getAttribute('data-product-id');
+                    window.location.href = `product.html?id=${productId}`;
+                });
+                card.addEventListener('keydown', (event) => {
+                    if (event.key === 'Enter') {
+                        const productId = card.getAttribute('data-product-id');
+                        window.location.href = `product.html?id=${productId}`;
+                    }
                 });
             });
 
@@ -125,12 +145,15 @@
             const profilePageUrl = 'https://legurren.github.io/profile.html';
 
             const user = JSON.parse(localStorage.getItem('telegramUser'));
-            if (user) {
+            if (user && typeof user === 'object') {
                 // Если пользователь авторизован
                 profileImage.src = user.photo_url || 'user-icon.png';
                 profileImage.alt = user.username || 'Профиль';
                 loginButton.title = `@${user.username || 'Профиль'}`;
                 loginButton.href = profilePageUrl;
+                profileImage.onerror = () => {
+                    profileImage.src = 'user-icon.png';
+                };
             } else {
                 // Если пользователь не авторизован
                 loginButton.addEventListener('click', (event) => {
